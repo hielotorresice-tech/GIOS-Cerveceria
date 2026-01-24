@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Venta de Cervezas · Copiapó</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f2f2f2;
+}
+
+.app{
+  max-width:420px;
+  margin:auto;
+  min-height:100vh;
+  padding:16px;
+}
+
+header{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+header h1{
+  margin:6px 0;
+  font-size:22px;
+  font-weight:700;
+}
+
+header small{
+  font-size:14px;
+  opacity:.8;
+}
+
+.card{
+  background:#fff;
+  border-radius:16px;
+  padding:20px;
+  text-align:center;
+}
+
+.product h2{
+  margin:0;
+  font-size:22px;
+  font-weight:bold;
+}
+
+.product .format{
+  margin-top:4px;
+  font-weight:bold;
+}
+
+.product .price{
+  font-size:28px;
+  font-weight:bold;
+  margin:10px 0;
+}
+
+.qty{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin:14px 0;
+}
+
+.qty button{
+  width:40px;
+  height:40px;
+  font-size:22px;
+  border-radius:8px;
+  border:1px solid #bbb;
+  background:#f5f5f5;
+}
+
+.qty input{
+  width:60px;
+  height:40px;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:8px;
+  border:1px solid #bbb;
+}
+
+select{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+}
+
+.summary{
+  margin-top:16px;
+  font-size:18px;
+}
+
+.summary div{
+  display:flex;
+  justify-content:space-between;
+  margin:4px 0;
+}
+
+.summary .total{
+  font-weight:bold;
+  border-top:1px solid #ddd;
+  padding-top:8px;
+}
+
+.btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  margin-top:12px;
+  cursor:pointer;
+}
+
+.wa{ background:#25D366; font-weight:bold; }
+</style>
+</head>
+
+<body>
+
+<div class="app">
+<header>
+  <h1>Venta de Cervezas · Copiapó</h1>
+  <small>🕘 09:00 a 22:00 · 🚚 Delivery disponible</small>
+</header>
+
+<div class="card">
+
+  <div class="product">
+    <h2>Escudo Silver</h2>
+    <div class="format">Lata 710 cc</div>
+    <div class="price">$1.000</div>
+  </div>
+
+  <div class="qty">
+    <button onclick="changeQty(-1)">−</button>
+    <input id="qty" value="1" readonly>
+    <button onclick="changeQty(1)">+</button>
+  </div>
+
+  <select id="pack" onchange="updateAll()">
+    <option value="1">Unidad</option>
+    <option value="6">Pack 6</option>
+    <option value="12">Pack 12</option>
+  </select>
+
+  <div class="summary">
+    <div>
+      <span>Cantidad</span>
+      <span id="showQty">1</span>
+    </div>
+    <div class="total">
+      <span>Total</span>
+      <span>$<span id="total">1000</span></span>
+    </div>
+  </div>
+
+  <a id="whatsapp" class="btn wa" target="_blank">
+    📲 Pedir por WhatsApp
+  </a>
+
+</div>
+</div>
+
+<script>
+const price = 1000;
+const phone = "56927731874";
+
+function changeQty(v){
+  qty.value = Math.max(1, parseInt(qty.value) + v);
+  updateAll();
+}
+
+function updateAll(){
+  const baseQty = parseInt(qty.value);
+  const pack = parseInt(packSelect.value);
+}
+
+const packSelect = document.getElementById("pack");
+
+function updateAll(){
+  const base = parseInt(qty.value);
+  const pack = parseInt(packSelect.value);
+  const finalQty = base * pack;
+  const total = finalQty * price;
+
+  showQty.innerText = finalQty;
+  totalSpan.innerText = total;
+
+  const msg = `
+🍺 *Pedido Cervezas*
+
+Producto: Escudo Silver 710cc
+Formato: ${pack === 1 ? "Unidad" : "Pack " + pack}
+Cantidad total: ${finalQty}
+Total: $${total}
+`;
+
+  whatsapp.href =
+    "https://wa.me/" + phone + "?text=" + encodeURIComponent(msg);
+}
+
+const totalSpan = document.getElementById("total");
+
+updateAll();
+</script>
+
+</body>
+</html>
