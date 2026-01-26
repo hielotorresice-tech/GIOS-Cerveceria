@@ -3,246 +3,180 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Torres Ice | Venta de Cervezas</title>
-
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0d6efd">
+<title>Venta de Cervezas</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f2f2f2;
-}
+body{margin:0;font-family:Arial;background:#f2f2f2}
+.app{max-width:420px;margin:auto;padding-bottom:140px}
 
-/* APP CONTENEDOR */
-.app{
-  max-width:420px;
-  margin:auto;
-  padding-bottom:160px; /* espacio para barra fija */
-}
-
-/* HEADER */
 header{
-  background:white;
-  text-align:center;
-  padding:16px;
-  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  background:#111;color:#fff;text-align:center;padding:14px
 }
+header h1{margin:0;font-size:20px}
 
-header img{
-  width:110px;
-}
-
-header h1{
-  margin:8px 0 4px;
-  font-size:20px;
-  font-weight:bold;
-}
-
-header small{
-  font-size:14px;
-  color:#555;
-}
-
-/* PRODUCTOS */
-.products{
-  padding:12px;
-}
+.products{padding:10px}
 
 .card{
-  background:white;
-  border-radius:16px;
-  padding:14px;
-  margin-bottom:12px;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
-  display:flex;
-  gap:12px;
+  background:#fff;border-radius:14px;padding:12px;
+  display:flex;gap:12px;margin-bottom:12px;align-items:center
 }
+.card img{width:80px;height:80px;object-fit:contain}
+.card h3{margin:0;font-size:16px}
+.card small{color:#555}
+.price{font-weight:bold;margin-top:6px}
 
-.card img{
-  width:80px;
-  height:auto;
-  object-fit:contain;
-}
-
-.card-info{
-  flex:1;
-}
-
-.card-info h3{
-  margin:0;
-  font-size:16px;
-  font-weight:bold;
-}
-
-.card-info small{
-  display:block;
-  margin-top:2px;
-  color:#666;
-}
-
-.price{
-  font-size:18px;
-  font-weight:bold;
-  margin:6px 0;
-}
-
-/* CONTADOR */
 .qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
+  display:flex;gap:10px;margin-top:8px;align-items:center
 }
-
 .qty button{
-  width:32px;
-  height:32px;
-  font-size:18px;
-  border-radius:8px;
-  border:1px solid #bbb;
-  background:#f5f5f5;
+  width:32px;height:32px;font-size:18px;font-weight:bold
 }
+.qty span{font-weight:bold;width:20px;text-align:center}
 
-.qty input{
-  width:40px;
-  text-align:center;
-  font-weight:bold;
-  border:none;
-  background:transparent;
+/* FOOTER */
+.footer{
+  position:fixed;bottom:0;left:0;right:0;
+  background:#fff;border-top:1px solid #ccc;padding:10px
 }
+.total{text-align:center;font-size:18px;font-weight:bold;margin-bottom:6px}
 
-/* BARRA FIJA */
-.bottom-bar{
-  position:fixed;
-  bottom:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  max-width:420px;
-  background:white;
-  box-shadow:0 -4px 12px rgba(0,0,0,.15);
-  padding:12px;
+.footer button{
+  width:100%;padding:12px;border:none;border-radius:10px;
+  font-size:16px;margin-top:6px
 }
+.mp{background:#FFD400;font-weight:bold}
+.tr{background:#0072CE;color:#fff}
+.wa{background:#25D366;font-weight:bold}
+.call{background:#0288D1;color:#fff}
 
-.total{
-  display:flex;
-  justify-content:space-between;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:10px;
+/* MODAL */
+.modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.6);
+  align-items:center;justify-content:center
 }
-
-.btn{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  font-size:16px;
-  margin-top:6px;
-  cursor:pointer;
+.modal-box{
+  background:#fff;padding:20px;border-radius:14px;text-align:center
 }
-
-.mp{ background:#FFD400; font-weight:bold; }
-.tr{ background:#0d6efd; color:white; }
-.wa{ background:#25D366; font-weight:bold; }
-.call{ background:#0288D1; color:white; }
 </style>
 </head>
 
 <body>
 
 <div class="app">
-
-<header>
-  <img src="logo.png" alt="Torres Ice">
-  <h1>Venta de Cervezas</h1>
-  <small>🚚 Delivery disponible · Copiapó</small>
-</header>
+<header><h1>🍺 Venta de Cervezas</h1></header>
 
 <div class="products">
 
-  <!-- PRODUCTO 1 -->
-  <div class="card">
-    <img src="escudo.png" alt="Escudo Silver">
-    <div class="card-info">
-      <h3>Escudo Silver</h3>
-      <small>Lata 710cc</small>
-      <div class="price">$1.000</div>
-      <div class="qty">
-        <button onclick="changeQty('escudo',-1)">−</button>
-        <input id="escudo" value="0" readonly>
-        <button onclick="changeQty('escudo',1)">+</button>
-      </div>
+<!-- Escudo -->
+<div class="card" data-price="1000">
+  <img src="https://i.imgur.com/6XyQ8GZ.png">
+  <div>
+    <h3>Escudo Silver</h3>
+    <small>Lata 710cc</small>
+    <div class="price">$1.000</div>
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
     </div>
   </div>
+</div>
 
-  <!-- PRODUCTO 2 -->
-  <div class="card">
-    <img src="cristal.png" alt="Cristal">
-    <div class="card-info">
-      <h3>Cristal</h3>
-      <small>Lata 473cc</small>
-      <div class="price">$900</div>
-      <div class="qty">
-        <button onclick="changeQty('cristal',-1)">−</button>
-        <input id="cristal" value="0" readonly>
-        <button onclick="changeQty('cristal',1)">+</button>
-      </div>
+<!-- Cristal -->
+<div class="card" data-price="900">
+  <img src="https://i.imgur.com/Yr1G9rE.png">
+  <div>
+    <h3>Cristal</h3>
+    <small>Lata 473cc</small>
+    <div class="price">$900</div>
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
     </div>
   </div>
+</div>
 
-  <!-- PRODUCTO 3 -->
-  <div class="card">
-    <img src="sol.png" alt="Sol">
-    <div class="card-info">
-      <h3>Sol</h3>
-      <small>Botellín 330cc</small>
-      <div class="price">$1.000</div>
-      <div class="qty">
-        <button onclick="changeQty('sol',-1)">−</button>
-        <input id="sol" value="0" readonly>
-        <button onclick="changeQty('sol',1)">+</button>
-      </div>
+<!-- Sol -->
+<div class="card" data-price="1000">
+  <img src="https://i.imgur.com/fkM2cWk.png">
+  <div>
+    <h3>Sol</h3>
+    <small>Botellín 330cc</small>
+    <div class="price">$1.000</div>
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
     </div>
   </div>
+</div>
 
 </div>
 </div>
 
-<!-- BARRA INFERIOR -->
-<div class="bottom-bar">
-  <div class="total">
-    <span>Total</span>
-    <span>$<span id="total">0</span></span>
-  </div>
+<!-- FOOTER -->
+<div class="footer">
+  <div class="total">Total: $<span id="total">0</span></div>
+  <button class="mp" onclick="pagarMP()">💳 Mercado Pago</button>
+  <button class="tr" onclick="openTransfer()">🏦 Transferencia</button>
+  <button class="wa" onclick="sendWA()">📲 WhatsApp</button>
+  <button class="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
+</div>
 
-  <button class="btn mp">💳 Pagar Mercado Pago</button>
-  <button class="btn tr">🏦 Transferencia</button>
-  <button class="btn wa">📲 WhatsApp Pedido</button>
-  <button class="btn call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
+<!-- MODAL -->
+<div class="modal" id="transfer" onclick="if(event.target.id==='transfer')closeTransfer()">
+  <div class="modal-box">
+    <h3>Transferencia</h3>
+    <p>Banco Coopeuch</p>
+    <p>Cuenta Vista 251105735</p>
+    <p>Oscar Torres</p>
+    <p>Email: hielo.torres.ice@gmail.com</p>
+    <button class="tr" onclick="closeTransfer()">Cerrar</button>
+  </div>
 </div>
 
 <script>
-const prices = {
-  escudo: 1000,
-  cristal: 900,
-  sol: 1000
-};
+let total = 0;
 
-function changeQty(id, v){
-  const input = document.getElementById(id);
-  input.value = Math.max(0, parseInt(input.value) + v);
-  updateTotal();
+function add(btn,val){
+  const span = btn.parentNode.querySelector("span");
+  let q = Math.max(0, parseInt(span.innerText) + val);
+  span.innerText = q;
+  calc();
 }
 
-function updateTotal(){
-  let total = 0;
-  for(let p in prices){
-    total += prices[p] * document.getElementById(p).value;
-  }
+function calc(){
+  total = 0;
+  document.querySelectorAll(".card").forEach(c=>{
+    const price = +c.dataset.price;
+    const q = +c.querySelector("span").innerText;
+    total += price * q;
+  });
   document.getElementById("total").innerText = total;
 }
+
+function pagarMP(){
+  window.open("https://link.mercadopago.cl/torresice","_blank");
+}
+
+function sendWA(){
+  if(total===0){ alert("Agrega productos"); return; }
+
+  let msg = "🍺 *Pedido Cervezas*\n\n";
+  document.querySelectorAll(".card").forEach(c=>{
+    const q = +c.querySelector("span").innerText;
+    if(q>0){
+      msg += `• ${c.querySelector("h3").innerText} x${q}\n`;
+    }
+  });
+  msg += `\n💰 Total: $${total}`;
+  window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
+}
+
+function openTransfer(){ transfer.style.display="flex"; }
+function closeTransfer(){ transfer.style.display="none"; }
 </script>
 
 </body>
