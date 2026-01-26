@@ -48,13 +48,32 @@ header{
 }
 header h1{margin:0;font-size:20px}
 
-.products{padding:10px}
-
-.card{
-  background:#fff;border-radius:14px;padding:12px;
-  display:flex;gap:12px;margin-bottom:12px;align-items:center
+/* GRID 2 COLUMNAS */
+.products{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  padding: 10px;
 }
-.card img{width:80px;height:80px;object-fit:contain}
+
+/* CARD VERTICAL */
+.card{
+  background:#fff;
+  border-radius:14px;
+  padding:12px;
+  text-align:center;
+}
+
+/* IMAGEN */
+.card img{
+  width:100%;
+  max-width:120px;
+  height:auto;
+  object-fit:contain;
+  margin:6px auto 4px;
+  display:block;
+}
+  
 .card h3{margin:0;font-size:16px}
 .card small{color:#555}
 .price{font-weight:bold;margin-top:6px}
