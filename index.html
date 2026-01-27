@@ -245,4 +245,22 @@ function calcTotal(){
 </script>
 
 </body>
+  <script>
+  function actualizarEstadoBotones(total) {
+    const botones = document.querySelectorAll('.actions a, .actions button');
+
+    botones.forEach(btn => {
+      if (total > 0) {
+        btn.classList.remove('disabled');
+        btn.style.pointerEvents = 'auto';
+        btn.style.opacity = '1';
+      } else {
+        btn.classList.add('disabled');
+        btn.style.pointerEvents = 'none';
+        btn.style.opacity = '0.5';
+      }
+    });
+  }
+</script>
+
 </html>
