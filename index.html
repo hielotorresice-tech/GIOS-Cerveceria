@@ -6,29 +6,36 @@
 <title>Venta de Cervezas</title>
 
 <style>
+
+/* =========================
+   BASE
+========================= */
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#f2f2f2;
+  background:#111;
 }
 
-/* APP */
 .app{
   max-width:420px;
   margin:auto;
   min-height:100vh;
-  background:#ffffffcc;
-  backdrop-filter: blur(4px);
+  background:
+    linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
+    url("fondo-app.jpg") center/cover no-repeat fixed;
   padding:16px;
-  padding-bottom:260px; /* espacio footer */
+  padding-bottom:260px; /* espacio footer móvil */
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .header{
   text-align:center;
-  padding:16px 10px 10px;
-  background:#f5f5f5;
-  border-bottom:1px solid #ddd;
+  padding:14px 10px;
+  background:#f2f2f2;
+  border-radius:14px;
+  margin-bottom:12px;
 }
 
 .logo{
@@ -43,62 +50,51 @@ body{
   font-size:20px;
 }
 
-/* GRID PRODUCTOS */
+/* =========================
+   GRID PRODUCTOS
+========================= */
 .products{
   display:grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns:repeat(2,1fr);
   gap:14px;
-  padding:10px;
 }
 
-/* CARD PRODUCTO */
+/* =========================
+   CARD PRODUCTO
+========================= */
 .card{
-  background:#fff;
-  border:1px solid #000;
-  border-radius:14px;
-  padding:14px 10px 16px;
+  background:#f7f7f7;
+  border-radius:16px;
+  padding:12px 10px 14px;
+  text-align:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
 
+/* Marco cerveza */
+.beer-box{
+  border:1px solid #A9A9A9; /* gris oscuro */
+  border-radius:12px;
+  padding:10px 6px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  text-align:center;
-}
-
-/* IMAGEN */
-.beer-img{
-  width:90px;
-  height:auto;
-  object-fit:contain;
-  margin:6px 0 10px;
-}
-
-/* INFO */
-.beer-info h3{
-  margin:4px 0 2px;
-  font-size:16px;
-  font-weight:bold;
-}
-
-.beer-info small{
-  display:block;
-  font-size:13px;
-  color:#555;
-  margin-bottom:4px;
-}
-
-.price{
-  font-size:18px;
-  font-weight:bold;
   margin-bottom:8px;
 }
 
-/* CANTIDAD */
+/* Imagen */
+.beer-img{
+  width:110px;
+  height:auto;
+  object-fit:contain;
+  margin-bottom:8px;
+}
+
+/* Cantidad */
 .qty{
   display:flex;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   gap:10px;
-  margin-top:6px;
 }
 
 .qty button{
@@ -106,17 +102,37 @@ body{
   height:30px;
   font-size:18px;
   font-weight:bold;
-  border:1px solid #000;
-  background:#f9f9f9;
+  border:1px solid #444;
+  border-radius:6px;
+  background:#fff;
 }
 
 .qty span{
   min-width:22px;
   font-weight:bold;
-  text-align:center;
 }
 
-/* FOOTER */
+/* Info cerveza */
+.beer-info h3{
+  margin:6px 0 2px;
+  font-size:16px;
+}
+
+.beer-info small{
+  display:block;
+  font-size:13px;
+  color:#444;
+}
+
+.beer-info .price{
+  font-size:18px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+/* =========================
+   FOOTER FIJO
+========================= */
 .footer{
   position:fixed;
   bottom:0;
@@ -126,7 +142,7 @@ body{
   max-width:420px;
   background:#fff;
   padding:12px;
-  box-shadow:0 -4px 10px rgba(0,0,0,.15);
+  box-shadow:0 -4px 12px rgba(0,0,0,.2);
   z-index:999;
 }
 
@@ -146,12 +162,14 @@ body{
   margin-top:6px;
 }
 
-.mp{background:#FFD400;font-weight:bold;}
-.tr{background:#0072CE;color:#fff;}
-.wa{background:#25D366;font-weight:bold;}
-.call{background:#0288D1;color:#fff;}
+.mp{background:#FFD400;font-weight:bold}
+.tr{background:#0072CE;color:#fff}
+.wa{background:#25D366;font-weight:bold}
+.call{background:#0288D1;color:#fff}
 
-/* MODAL */
+/* =========================
+   MODAL TRANSFERENCIA
+========================= */
 .modal{
   display:none;
   position:fixed;
@@ -159,6 +177,7 @@ body{
   background:rgba(0,0,0,.6);
   align-items:center;
   justify-content:center;
+  z-index:1000;
 }
 
 .modal-box{
@@ -166,74 +185,91 @@ body{
   padding:14px 16px;
   border-radius:14px;
   width:90%;
-  max-width:340px;
+  max-width:320px;
   text-align:center;
-  border:2px solid #A9A9A9; //#0072CE;
+  border:2px solid #0072CE;
 }
 
 .modal-box p{
   margin:4px 0;
   font-size:14px;
 }
+
+/* =========================
+   MOBILE FIX
+========================= */
+@media (max-width:480px){
+  .products{
+    padding-bottom:40px;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
 <div class="app">
-  <header class="header">
-    <img src="logogios.png" alt="GIOS Cervecería" class="logo">
-    <h1>🍺 Venta de Cervezas</h1>
-  </header>
 
-  <div class="products">
+<header class="header">
+  <img src="logogios.png" class="logo" alt="GIOS">
+  <h1>🍺 Venta de Cervezas</h1>
+</header>
 
-    <!-- Escudo -->
-    <div class="card" data-price="1000">
-      <img src="escudo-silver.png" class="beer-img">
-      <div class="beer-info">
-        <h3>Escudo Silver</h3>
-        <small>Lata 710cc</small>
-        <div class="price">$1.000</div>
-      </div>
-      <div class="qty">
-        <button onclick="add(this,-1)">−</button>
-        <span>0</span>
-        <button onclick="add(this,1)">+</button>
-      </div>
+<div class="products">
+
+<!-- Escudo -->
+<div class="card" data-price="1000">
+  <div class="beer-box">
+    <img src="escudo-silver.png" class="beer-img">
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
     </div>
-
-    <!-- Cristal -->
-    <div class="card" data-price="900">
-      <img src="cristal-473.png" class="beer-img">
-      <div class="beer-info">
-        <h3>Cristal</h3>
-        <small>Lata 473cc</small>
-        <div class="price">$900</div>
-      </div>
-      <div class="qty">
-        <button onclick="add(this,-1)">−</button>
-        <span>0</span>
-        <button onclick="add(this,1)">+</button>
-      </div>
-    </div>
-
-    <!-- Sol -->
-    <div class="card" data-price="1000">
-      <img src="sol-330.png" class="beer-img">
-      <div class="beer-info">
-        <h3>Sol</h3>
-        <small>Botellín 330cc</small>
-        <div class="price">$1.000</div>
-      </div>
-      <div class="qty">
-        <button onclick="add(this,-1)">−</button>
-        <span>0</span>
-        <button onclick="add(this,1)">+</button>
-      </div>
-    </div>
-
   </div>
+  <div class="beer-info">
+    <h3>Escudo Silver</h3>
+    <small>Lata 710cc</small>
+    <div class="price">$1.000</div>
+  </div>
+</div>
+
+<!-- Cristal -->
+<div class="card" data-price="900">
+  <div class="beer-box">
+    <img src="cristal-473.png" class="beer-img">
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
+    </div>
+  </div>
+  <div class="beer-info">
+    <h3>Cristal</h3>
+    <small>Lata 473cc</small>
+    <div class="price">$900</div>
+  </div>
+</div>
+
+<!-- Sol -->
+<div class="card" data-price="1000">
+  <div class="beer-box">
+    <img src="sol-330.png" class="beer-img">
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
+    </div>
+  </div>
+  <div class="beer-info">
+    <h3>Sol</h3>
+    <small>Botellín 330cc</small>
+    <div class="price">$1.000</div>
+  </div>
+</div>
+
+</div>
 </div>
 
 <!-- FOOTER -->
@@ -262,17 +298,14 @@ let total = 0;
 
 function add(btn,val){
   const span = btn.parentNode.querySelector("span");
-  let q = Math.max(0, parseInt(span.innerText) + val);
-  span.innerText = q;
+  span.innerText = Math.max(0, +span.innerText + val);
   calc();
 }
 
 function calc(){
   total = 0;
   document.querySelectorAll(".card").forEach(c=>{
-    const price = +c.dataset.price;
-    const q = +c.querySelector("span").innerText;
-    total += price * q;
+    total += c.dataset.price * c.querySelector("span").innerText;
   });
   document.getElementById("total").innerText = total;
 }
@@ -283,13 +316,10 @@ function pagarMP(){
 
 function sendWA(){
   if(total===0){ alert("Agrega productos"); return; }
-
   let msg = "🍺 *Pedido Cervezas*\n\n";
   document.querySelectorAll(".card").forEach(c=>{
-    const q = +c.querySelector("span").innerText;
-    if(q>0){
-      msg += `• ${c.querySelector("h3").innerText} x${q}\n`;
-    }
+    const q = c.querySelector("span").innerText;
+    if(q>0) msg += `• ${c.querySelector("h3").innerText} x${q}\n`;
   });
   msg += `\n💰 Total: $${total}`;
   window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
