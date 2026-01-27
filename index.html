@@ -262,6 +262,21 @@ function calcTotal(){
       }
     });
   }
+
+<script>
+function actualizarEstadoBotones(total) {
+  const botones = document.querySelectorAll('.actions button, .actions a');
+
+  botones.forEach(btn => {
+    if (total > 0) {
+      btn.disabled = false;
+      btn.style.opacity = '1';
+    } else {
+      btn.disabled = true;
+      btn.style.opacity = '0.5';
+    }
+  });
+}
 </script>
 
 </html>
