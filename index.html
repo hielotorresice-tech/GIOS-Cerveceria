@@ -179,16 +179,8 @@ body{
   font-size:14px;
 }
 
-.beer-img{
-  width: 80px;     /* ⬅️ CLAVE */
-  height: auto;
-  margin: 6px auto;
-  object-fit: contain;
-}
-
 /* ➕➖ Cantidad dentro del marco */
 .beer-box .qty{
-  margin-top: 6px;
   display: flex;
   justify-content: center;
   gap: 6px;
@@ -199,12 +191,6 @@ body{
   .products{
     padding-bottom: 40px;
   }
-}
-
-.beer-img{
-  width:90px;
-  height:auto;
-  margin-bottom:8px;
 }
 
 .qty{
@@ -225,13 +211,6 @@ body{
   min-width:20px;
   text-align:center;
   font-weight:bold;
-}
-
-.beer-img{
-  width:110px;
-  height:auto;
-  object-fit:contain;
-  margin-bottom:8px;
 }
 
 /* ========================= */
@@ -278,6 +257,13 @@ body{
   align-items: center;
 
   padding: 6px 4px;
+}
+
+.beer-img{
+  width: 70px;        /* 🔑 evita que ensanche el marco */
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 6px;
 }
 
 </style>
