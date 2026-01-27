@@ -277,6 +277,23 @@ function actualizarEstadoBotones(total) {
     }
   });
 }
+<script>
+function enviarWhatsApp() {
+  if (total <= 0) {
+    alert('Ingresa cantidad antes de continuar');
+    return;
+  }
+
+  const mensaje = encodeURIComponent(
+    `Hola 👋\nPedido desde GIOS\nTotal: $${total}`
+  );
+
+  window.open(
+    `https://wa.me/569XXXXXXXX?text=${mensaje}`,
+    '_blank'
+  );
+}
+</script>
 </script>
 
 </html>
