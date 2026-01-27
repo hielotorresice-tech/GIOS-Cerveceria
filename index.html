@@ -6,112 +6,104 @@
 <title>Venta de Cervezas</title>
 
 <style>
-
-.card img,
-.product img {
-  width: 100%;
-  max-width: 140px;
-  height: auto;
-  display: block;
-  margin: 8px auto 10px;
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f2f2f2;
 }
 
-.header {
-  text-align: center;
-  padding: 16px 10px 10px;
-  background: #f5f5f5; /* mismo tono del fondo app */ 
-  color: #000;
-  border-bottom: 1px solid #ddd;
-}
-
-.logo {
-  width: 130px;      /* tamaño ideal para portada */
-  max-width: 80%;
-  height: auto;
-  display: block;
-  margin: 0 auto 6px;
-}
-
-body{margin:0;font-family:Arial;background:#f2f2f2}
+/* APP */
 .app{
   max-width:420px;
   margin:auto;
   min-height:100vh;
-  background:rgba(255,255,255,0.78);
-  backdrop-filter:blur(4px);
+  background:#ffffffcc;
+  backdrop-filter: blur(4px);
   padding:16px;
-
-  /* 🔴 CLAVE PARA CELULAR */
-  padding-bottom: 260px;
+  padding-bottom:260px; /* espacio footer */
 }
 
-header{
-  background:#111;color:#fff;text-align:center;padding:14px
+/* HEADER */
+.header{
+  text-align:center;
+  padding:16px 10px 10px;
+  background:#f5f5f5;
+  border-bottom:1px solid #ddd;
 }
-header h1{margin:0;font-size:20px}
 
-/* GRID 2 COLUMNAS */
+.logo{
+  width:130px;
+  max-width:80%;
+  display:block;
+  margin:0 auto 6px;
+}
+
+.header h1{
+  margin:0;
+  font-size:20px;
+}
+
+/* GRID PRODUCTOS */
 .products{
-  display: grid;
+  display:grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  padding: 10px;
+  gap:14px;
+  padding:10px;
 }
 
-/* CARD VERTICAL */
+/* CARD PRODUCTO */
 .card{
   background:#fff;
+  border:1px solid #000;
   border-radius:14px;
-  padding:14px 10px;
+  padding:14px 10px 16px;
+
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
-  border:1px solid #ddd;
 }
 
 /* IMAGEN */
-.card img{
-  width:100%;
-  max-width:120px;
+.beer-img{
+  width:90px;
   height:auto;
   object-fit:contain;
-  margin:6px auto 4px;
+  margin:6px 0 10px;
+}
+
+/* INFO */
+.beer-info h3{
+  margin:4px 0 2px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.beer-info small{
   display:block;
-}
-
-/* Contenedor izquierdo (marco de cerveza) */
-
-.card h3{
-  margin:4px 0;
-  font-size:15px;
-}
-
-.card small{
   font-size:13px;
   color:#555;
+  margin-bottom:4px;
 }
 
 .price{
+  font-size:18px;
   font-weight:bold;
-  margin:6px 0;
+  margin-bottom:8px;
 }
 
-.card h3{margin:0;font-size:16px}
-.card small{color:#555}
-.price{font-weight:bold;margin-top:6px}
-
+/* CANTIDAD */
 .qty{
   display:flex;
-  align-items:center;
   justify-content:center;
-  gap:14px;
-  margin-top:4px;
+  align-items:center;
+  gap:10px;
+  margin-top:6px;
 }
 
 .qty button{
-  width:32px;
-  height:32px;
+  width:30px;
+  height:30px;
   font-size:18px;
   font-weight:bold;
   border:1px solid #000;
@@ -124,213 +116,125 @@ header h1{margin:0;font-size:20px}
   text-align:center;
 }
 
-  /* FOOTER */
+/* FOOTER */
 .footer{
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  width: 100%;
-  max-width: 420px;
-
-  background: #fff;
-  padding: 12px;
-  box-shadow: 0 -4px 10px rgba(0,0,0,0.15);
-  z-index: 999;
-}
-
-  /* 👇 lo que estabas buscando */
-  max-width: 420px;
-  margin: auto;
-}
-body{
-  padding-bottom: 240px;
-}
-.total{text-align:center;font-size:18px;font-weight:bold;margin-bottom:6px}
-
-.footer button{
-  width:100%;padding:12px;border:none;border-radius:10px;
-  font-size:16px;margin-top:6px
-}
-.mp{background:#FFD400;font-weight:bold}
-.tr{background:#0072CE;color:#fff}
-.wa{background:#25D366;font-weight:bold}
-.call{background:#0288D1;color:#fff}
-
-/* MODAL */
-.modal{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.6);
-  align-items:center;justify-content:center
-}
-.modal-box{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:420px;
   background:#fff;
-  padding:14px 16px;          /* menos alto */
-  border-radius:14px;
-  width:90%;
-  max-width:340px;            /* más angosto en móvil */
+  padding:12px;
+  box-shadow:0 -4px 10px rgba(0,0,0,.15);
+  z-index:999;
+}
+
+.total{
   text-align:center;
-  border:2px solid #0072CE;   /* borde azul línea media */
-}
-
-.modal-box p{
-  margin:4px 0;               /* menos espacio entre datos */
-  font-size:14px;
-}
-
-/* ➕➖ Cantidad dentro del marco */
-.beer-box .qty{
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-}
-
-/* 🔧 REFUERZO SOLO PARA CELULARES */
-@media (max-width: 480px){
-  .products{
-    padding-bottom: 40px;
-  }
-}
-
-.qty{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-
-.qty button{
-  width:30px;
-  height:30px;
   font-size:18px;
   font-weight:bold;
+  margin-bottom:6px;
 }
 
-.qty span{
-  min-width:20px;
-  text-align:center;
-  font-weight:bold;
-}
-
-/* ========================= */
-/* INFO CERVEZA (NOMBRE / PRECIO) */
-/* ========================= */
-
-.beer-info{
-  text-align:center;
+.footer button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  font-size:16px;
   margin-top:6px;
 }
 
-.beer-info h3{
-  margin:6px 0 2px;
-  font-size:16px;
-  font-weight:bold;
+.mp{background:#FFD400;font-weight:bold;}
+.tr{background:#0072CE;color:#fff;}
+.wa{background:#25D366;font-weight:bold;}
+.call{background:#0288D1;color:#fff;}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  align-items:center;
+  justify-content:center;
 }
 
-.beer-info small{
-  display:block;
-  font-size:13px;
-  color:#444;
-  margin-bottom:4px;
+.modal-box{
+  background:#fff;
+  padding:14px 16px;
+  border-radius:14px;
+  width:90%;
+  max-width:340px;
+  text-align:center;
+  border:2px solid #0072CE;
 }
 
-.beer-info .price{
-  font-size:18px;
-  font-weight:bold;
-  margin-top:4px;
+.modal-box p{
+  margin:4px 0;
+  font-size:14px;
 }
-
-/* ========================= */
-/* MARCO CERVEZA (ANGOSTO)   */
-/* ========================= */
-
-.beer-box{
-  width: 96px;              /* 🔥 aquí se controla el ancho real */
-  min-width: 96px;
-
-  border: 1px solid #000;
-  border-radius: 10px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  padding: 6px 4px;
-}
-
-.beer-img{
-  width: 70px;        /* 🔑 evita que ensanche el marco */
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 6px;
-}
-
 </style>
 </head>
 
 <body>
 
 <div class="app">
-<header class="header">
-  <img src="logogios.png" alt="GIOS Cervecería" class="logo">
-  <h1>🍺Venta de Cervezas🍺</h1>
-</header>
+  <header class="header">
+    <img src="logogios.png" alt="GIOS Cervecería" class="logo">
+    <h1>🍺 Venta de Cervezas</h1>
+  </header>
 
-<div class="products">
+  <div class="products">
 
-<!-- Escudo -->
-<div class="card" data-price="1000">
-  <div class="beer-box">
-    <img src="escudo-silver.png" alt="Escudo Silver" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
+    <!-- Escudo -->
+    <div class="card" data-price="1000">
+      <img src="escudo-silver.png" class="beer-img">
+      <div class="beer-info">
+        <h3>Escudo Silver</h3>
+        <small>Lata 710cc</small>
+        <div class="price">$1.000</div>
+      </div>
+      <div class="qty">
+        <button onclick="add(this,-1)">−</button>
+        <span>0</span>
+        <button onclick="add(this,1)">+</button>
+      </div>
     </div>
-  </div>
-  <div class="beer-info">
-    <h3>Escudo Silver</h3>
-    <small>Lata 710cc</small>
-    <div class="price">$1.000</div>
+
+    <!-- Cristal -->
+    <div class="card" data-price="900">
+      <img src="cristal-473.png" class="beer-img">
+      <div class="beer-info">
+        <h3>Cristal</h3>
+        <small>Lata 473cc</small>
+        <div class="price">$900</div>
+      </div>
+      <div class="qty">
+        <button onclick="add(this,-1)">−</button>
+        <span>0</span>
+        <button onclick="add(this,1)">+</button>
+      </div>
+    </div>
+
+    <!-- Sol -->
+    <div class="card" data-price="1000">
+      <img src="sol-330.png" class="beer-img">
+      <div class="beer-info">
+        <h3>Sol</h3>
+        <small>Botellín 330cc</small>
+        <div class="price">$1.000</div>
+      </div>
+      <div class="qty">
+        <button onclick="add(this,-1)">−</button>
+        <span>0</span>
+        <button onclick="add(this,1)">+</button>
+      </div>
+    </div>
+
   </div>
 </div>
-
-<!-- Cristal -->
-<div class="card" data-price="900">
-  <div class="beer-box">
-    <img src="cristal-473.png" alt="Cristal" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
-    </div>
-  </div>
-  <div class="beer-info">
-    <h3>Cristal</h3>
-    <small>Lata 470cc</small>
-    <div class="price">$900</div>
-  </div>
-</div>
-
-<!-- Sol -->
-<div class="card" data-price="1000">
-  <div class="beer-box">
-    <img src="sol-330.png" alt="Sol" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
-    </div>
-  </div>
-  <div class="beer-info">
-    <h3>Sol</h3>
-    <small>Botellín 330cc</small>
-    <div class="price">$1.000</div>
-  </div>
-</div>
-
-</div> <!-- cierre products -->
 
 <!-- FOOTER -->
 <div class="footer">
