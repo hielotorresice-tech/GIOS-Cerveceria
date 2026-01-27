@@ -285,11 +285,16 @@ body{
 
 <!-- FOOTER -->
 <div class="footer">
-  <div class="total">Total: $<span id="total">0</span></div>
-  <button class="mp" onclick="pagarMP()">💳 Mercado Pago</button>
-  <button class="tr" onclick="openTransfer()">🏦 Transferencia</button>
-  <button class="wa" onclick="sendWA()">📲 WhatsApp</button>
-  <button class="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
+  <div class="footer-total">
+    Total: $<span id="total">0</span>
+  </div>
+
+  <div class="footer-actions">
+    <button class="mp" onclick="pagarMP()">💳 MP</button>
+    <button class="tr" onclick="openTransfer()">🏦 Transf.</button>
+    <button class="wa" onclick="sendWA()">📲 WhatsApp</button>
+    <button class="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
+  </div>
 </div>
 
 <!-- MODAL -->
