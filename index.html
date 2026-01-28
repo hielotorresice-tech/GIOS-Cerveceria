@@ -6,7 +6,6 @@
 <title>Venta de Cervezas - GIOS</title>
 
 <style>
-/* ===== FONDO APP ===== */
 body{
   margin:0;
   font-family:Arial, sans-serif;
@@ -15,115 +14,80 @@ body{
   min-height:100vh;
 }
 
-/* ===== CONTENEDOR APP ===== */
 .app{
   max-width:420px;
   margin:auto;
-  background:rgba(255,255,255,0.85);
+  background:rgba(255,255,255,0.9);
   min-height:100vh;
-  padding-bottom:140px;
+  padding-bottom:150px;
 }
 
-/* ===== HEADER ===== */
 .app-header{
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(6px);
-
-  text-align: center;
-  padding: 10px 8px;
-}
-.logo{
-  max-width:120px;
-}
-.subtitulo{
-  font-size:14px;
-  font-weight:bold;
-}
-.info{
-  font-size:12px;
-  margin-top:4px;
+  position:sticky;
+  top:0;
+  background:#fff;
+  text-align:center;
+  padding:10px;
+  z-index:10;
 }
 
-/* ===== PRODUCTOS ===== */
+.logo{max-width:120px;}
+.subtitulo{font-size:14px;font-weight:bold;}
+.info{font-size:12px;}
+
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:10px;              /* menos espacio entre cards */
-  padding:10px;          /* menos borde */
+  gap:10px;
+  padding:10px;
 }
 
 .card{
   background:#fff;
   border-radius:14px;
-  padding:6px 6px;            /* ⬅ más compacta */
+  padding:6px;
   text-align:center;
-  color:#000;
-
-  /* sombra tipo iOS */
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-
-  /* animación suave */
-  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow:0 6px 16px rgba(0,0,0,.08);
 }
 
-.card:active{
-  transform: scale(0.97);
-  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-}
-
-/* Marco cerveza */
 .beer-box{
-  border:1px solid #A9A9A9;
+  border:1px solid #ccc;
   border-radius:10px;
-  padding:6px 4px;     /* menos alto */
-  margin-bottom:4px;
-  background:#fff;
+  padding:6px;
 }
 
 .beer-img{
   width:68px;
-  height:90px;              /* 🔑 altura fija */
-  object-fit:contain;       /* no se deforma */
-  margin-bottom:4px;
+  height:90px;
+  object-fit:contain;
 }
 
-/* Cantidad */
 .qty{
   display:flex;
   justify-content:center;
   gap:10px;
 }
+
 .qty button{
-  width:22px;
-  height:22px;
-  font-size:15px;
+  width:24px;
+  height:24px;
+  font-size:16px;
   font-weight:bold;
 }
+
 .qty span{
   min-width:20px;
   font-weight:bold;
 }
 
-/* Info */
 .beer-info h3{
-  margin:4px 0 2px;
   font-size:14px;
+  margin:4px 0 2px;
 }
 
-.beer-info small{
-  font-size:11px;
-}
+.beer-info small{font-size:11px;}
+.price{font-weight:bold;}
 
-.price{
-  font-size:15px;
-  font-weight:bold;
-  margin-top:2px;
-}
-
-/* ===== FOOTER ===== */
 .footer{
   position:fixed;
   bottom:0;
@@ -132,140 +96,37 @@ body{
   width:100%;
   max-width:420px;
   background:#fff;
-  box-shadow:0 -4px 10px rgba(0,0,0,.2);
   padding:10px;
-}
-
-.total{
-  text-align:center;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:6px;
-
-  background:#ffffff;
-  padding:8px 10px;
-  border-radius:12px;
-
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.actions{
-  display:flex;
-  gap:6px;
-}
-.actions button{
-  flex:1;
-  padding:6px 4px;
-  font-size:11px;
-  border-radius:6px;
-  border:none;
-  background:#eaeaea;
-}
-
-/* Deshabilitado */
-.actions button:disabled{
-  opacity:.5;
-}
-
-/* ===== MODAL TRANSFERENCIA ===== */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  align-items:center;
-  justify-content:center;
-}
-.modal-box{
-  background:#fff;
-  padding:14px;
-  border-radius:12px;
-  width:90%;
-  max-width:320px;
-  border:2px solid #0072CE;
-}
-.modal-box p{
-  margin:4px 0;
-  font-size:14px;
-}
-
-.actions button{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:2px;
-  padding:8px 4px;
-}
-
-.actions .icon{
-  font-size:18px;
-}
-
-.actions .txt{
-  font-size:11px;
-  font-weight:bold;
-}
-
-.qty {
-  font-size: 16px;
-  font-weight: bold;
-  transition: transform 0.15s ease;
-}
-
-.qty span {
-  font-weight: bold;
-  transition: transform 0.15s ease;
-}
-
-.qty span.bump {
-  transform: scale(1.25);
-}
-
-.qty span.down {
-  transform: scale(0.85);
-}
-
-/* ===== TOTAL ANIMADO ===== */
-.total{
-  text-align:center;
-  font-size:18px;
-  font-weight:bold;
-  margin-bottom:6px;
-
-  background:#ffffff;
-  padding:8px 10px;
-  border-radius:12px;
-
-  box-shadow: 0 4px 14px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.total.bump{
-  transform: scale(1.06);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-}
-
-.delivery-zone{
-  margin-bottom:6px;
-  text-align:center;
+  box-shadow:0 -4px 10px rgba(0,0,0,.2);
 }
 
 .delivery-zone select{
   width:100%;
   padding:6px;
   border-radius:8px;
-  border:1px solid #ccc;
-  font-size:14px;
 }
 
-#zoneInfo{
-  display:block;
-  font-size:12px;
-  margin-top:2px;
-  color:#444;
+.total{
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  margin:6px 0;
 }
+
+.actions{
+  display:flex;
+  gap:6px;
+}
+
+.actions button{
+  flex:1;
+  padding:8px;
+  border:none;
+  border-radius:6px;
+  font-size:11px;
+}
+
+.actions button:disabled{opacity:.5;}
 </style>
 </head>
 
@@ -274,14 +135,13 @@ body{
 <div class="app">
 
 <header class="app-header">
-  <img src="logogios.png" class="logo" alt="GIOS">
-  <div class="subtitulo">🍺Venta de Cervezas - Copiapó🍺</div>
-  <div class="info">⏰ 09:00 - 15:00 / 17:00 - 22:00 🚚 Delivery disponible</div>
+  <img src="logogios.png" class="logo">
+  <div class="subtitulo">🍺 Venta de Cervezas - Copiapó</div>
+  <div class="info">⏰ 09:00–15:00 / 17:00–22:00 🚚</div>
 </header>
 
 <div class="products">
 
-<!-- Escudo -->
 <div class="card" data-price="1000">
   <div class="beer-box">
     <img src="escudo-silver.png" class="beer-img">
@@ -293,12 +153,11 @@ body{
   </div>
   <div class="beer-info">
     <h3>Escudo Silver</h3>
-    <small>Lata 710cc</small>
+    <small>710cc</small>
     <div class="price">$1.000</div>
   </div>
 </div>
 
-<!-- Cristal -->
 <div class="card" data-price="900">
   <div class="beer-box">
     <img src="cristal-473.png" class="beer-img">
@@ -310,12 +169,11 @@ body{
   </div>
   <div class="beer-info">
     <h3>Cristal</h3>
-    <small>Lata 473cc</small>
+    <small>473cc</small>
     <div class="price">$900</div>
   </div>
 </div>
 
-<!-- Sol -->
 <div class="card" data-price="1000">
   <div class="beer-box">
     <img src="sol-330.png" class="beer-img">
@@ -327,12 +185,11 @@ body{
   </div>
   <div class="beer-info">
     <h3>Sol</h3>
-    <small>Botellín 330cc</small>
+    <small>330cc</small>
     <div class="price">$1.000</div>
   </div>
 </div>
 
-<!-- Escudo Roja 470cc -->
 <div class="card" data-price="950">
   <div class="beer-box">
     <img src="escudo-roja470.avif" class="beer-img">
@@ -344,7 +201,7 @@ body{
   </div>
   <div class="beer-info">
     <h3>Escudo Roja</h3>
-    <small>Lata 470cc</small>
+    <small>470cc</small>
     <div class="price">$950</div>
   </div>
 </div>
@@ -352,131 +209,67 @@ body{
 </div>
 </div>
 
-<!-- FOOTER -->
 <div class="footer">
+  <div class="delivery-zone">
+    <select id="zone" onchange="calc()">
+      <option value="">🚚 Selecciona zona</option>
+      <option value="centro">Copiapó Centro</option>
+      <option value="paipote">Paipote</option>
+      <option value="tierra">Tierra Amarilla</option>
+    </select>
+    <small id="zoneInfo"></small>
+  </div>
+
   <div class="total">Total: $<span id="total">0</span></div>
+
   <div class="actions">
-  <button id="mp">
-  <span class="icon">💳</span>
-  <span class="txt">Mercado Pago</span>
-</button>
-
-<button id="tr">
-  <span class="icon">🏦</span>
-  <span class="txt">Transferencia</span>
-</button>
-
-<button id="wa">
-  <span class="icon">📲</span>
-  <span class="txt">WhatsApp</span>
-</button>
-
-<button id="call" onclick="location.href='tel:+56927731874'">
-  <span class="icon">📞</span>
-  <span class="txt">Llamar</span>
-</button>
-
-</div>
-</div>
-
-<!-- MODAL -->
-<div class="modal" id="transfer" onclick="if(event.target.id==='transfer')closeTransfer()">
-  <div class="modal-box">
-    <p><b>Banco  :</b> Coopeuch</p>
-    <p><b>Cuenta :</b> Vista 251105735</p>
-    <p><b>Nombre :</b> Oscar Torres</p>
-    <p><b>Email  :</b> hielo.torres.ice@gmail.com</p>
-    <button onclick="closeTransfer()">Cerrar</button>
+    <button id="mp" onclick="pagarMP()" disabled>💳 MP</button>
+    <button id="tr" onclick="openTransfer()" disabled>🏦 Transf</button>
+    <button id="wa" onclick="sendWA()" disabled>📲 WhatsApp</button>
+    <button onclick="location.href='tel:+56927731874'">📞 Llamar</button>
   </div>
 </div>
 
 <script>
-const zonas = {
-  centro: { costo: 1000, minimo: 5000 },
-  paipote: { costo: 2000, minimo: 8000 },
-  tierra: { costo: 3000, minimo: 10000 }
+const zonas={
+  centro:{costo:1000,minimo:5000},
+  paipote:{costo:2000,minimo:8000},
+  tierra:{costo:3000,minimo:10000}
 };
 
-let total = 0;
+let total=0;
 
 function add(btn,val){
-  const span = btn.parentNode.querySelector("span");
-  let q = Math.max(0, parseInt(span.innerText) + val);
-  span.innerText = q;
+  const span=btn.parentNode.querySelector("span");
+  span.innerText=Math.max(0,parseInt(span.innerText)+val);
   calc();
 }
 
-function animateTotal(){
-  const el = document.querySelector(".total");
-  el.classList.remove("bump");
-  void el.offsetWidth;
-  el.classList.add("bump");
-  setTimeout(()=>el.classList.remove("bump"),180);
-}
-
 function calc(){
-  let subtotal = 0;
-
+  let subtotal=0;
   document.querySelectorAll(".card").forEach(c=>{
-    subtotal += c.dataset.price * c.querySelector("span").innerText;
+    subtotal+=c.dataset.price*parseInt(c.querySelector("span").innerText);
   });
 
-  const zoneSelect = document.getElementById("zone");
-  let delivery = 0;
-  let ok = true;
-
-  if(zoneSelect && zoneSelect.value){
-    const zone = zoneSelect.value;
-    delivery = zonas[zone].costo;
-    const min = zonas[zone].minimo;
-
-    document.getElementById("zoneInfo").innerText =
-      `Delivery $${delivery.toLocaleString()} · Mínimo $${min.toLocaleString()}`;
-
-    if(subtotal < min){
-      ok = false;
-      document.getElementById("zoneInfo").innerText += " ❌";
-    }
-  }else if(zoneSelect){
-    ok = false;
-    document.getElementById("zoneInfo").innerText = "";
-  }
-
-  total = subtotal + (ok ? delivery : 0);
-
-  document.getElementById("total").innerText = total.toLocaleString();
-  animateTotal();
-
-  document.getElementById("mp").disabled = !(total > 0 && ok);
-  document.getElementById("tr").disabled = !(total > 0 && ok);
-  document.getElementById("wa").disabled = !(total > 0 && ok);
-}
-
-  const zone = document.getElementById("zone").value;
-  let delivery = 0;
-  let ok = true;
+  let zone=document.getElementById("zone").value;
+  let delivery=0;
+  let ok=subtotal>0;
 
   if(zone){
-    delivery = zonas[zone].costo;
-    const min = zonas[zone].minimo;
-
-    document.getElementById("zoneInfo").innerText =
-      `Delivery $${delivery.toLocaleString()} · Mínimo $${min.toLocaleString()}`;
-
-    if(subtotal < min){
-      ok = false;
-      document.getElementById("zoneInfo").innerText += " ❌";
-    }
+    delivery=zonas[zone].costo;
+    if(subtotal<zonas[zone].minimo) ok=false;
+    document.getElementById("zoneInfo").innerText=
+      `Delivery $${delivery} | Mín $${zonas[zone].minimo}`;
   }else{
-    ok = false;
-    document.getElementById("zoneInfo").innerText = "";
+    ok=false;
+    document.getElementById("zoneInfo").innerText="";
   }
 
-  total = subtotal + (ok ? delivery : 0);
-  document.getElementById("total").innerText = total;
+  total=subtotal+(ok?delivery:0);
+  document.getElementById("total").innerText=total;
 
-  document.querySelectorAll(".actions button").forEach(b=>{
-    if(b.id!=="call") b.disabled = !(total > 0 && ok);
+  ["mp","tr","wa"].forEach(id=>{
+    document.getElementById(id).disabled=!(total>0 && ok);
   });
 }
 
@@ -485,8 +278,7 @@ function pagarMP(){
 }
 
 function sendWA(){
-  if(total<=0){alert("Agrega productos");return;}
-  let msg="🍺Pedido GIOS🍺\n";
+  let msg="🍺 Pedido GIOS 🍺\n";
   document.querySelectorAll(".card").forEach(c=>{
     let q=c.querySelector("span").innerText;
     if(q>0) msg+=`${c.querySelector("h3").innerText} x${q}\n`;
@@ -495,8 +287,7 @@ function sendWA(){
   window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
 }
 
-function openTransfer(){transfer.style.display="flex";}
-function closeTransfer(){transfer.style.display="none";}
+function openTransfer(){alert("Datos de transferencia");}
 </script>
 
 </body>
