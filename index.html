@@ -392,10 +392,10 @@ body{
 <!-- MODAL -->
 <div class="modal" id="transfer" onclick="if(event.target.id==='transfer')closeTransfer()">
   <div class="modal-box">
-    <p><b>Banco:</b> Coopeuch</p>
-    <p><b>Cuenta:</b> Vista 251105735</p>
-    <p><b>Nombre:</b> Oscar Torres</p>
-    <p><b>Email:</b> hielo.torres.ice@gmail.com</p>
+    <p><b>Banco  :</b> Coopeuch</p>
+    <p><b>Cuenta :</b> Vista 251105735</p>
+    <p><b>Nombre :</b> Oscar Torres</p>
+    <p><b>Email  :</b> hielo.torres.ice@gmail.com</p>
     <button onclick="closeTransfer()">Cerrar</button>
   </div>
 </div>
@@ -432,6 +432,20 @@ function calc(){
     subtotal += c.dataset.price * c.querySelector("span").innerText;
   });
 
+ // actualizar total en pantalla
+  document.querySelector(".total").innerText = "Total: $" + subtotal;
+  animateTotal();
+
+  // ==========================
+  // PASO 2 — activar / bloquear botones de pago
+  // ==========================
+  const ok = subtotal > 0;
+
+  document.getElementById("mp").disabled = !ok;
+  document.getElementById("tr").disabled = !ok;
+  document.getElementById("wa").disabled = !ok;
+}
+
   const zone = document.getElementById("zone").value;
   let delivery = 0;
   let ok = true;
@@ -466,7 +480,7 @@ function pagarMP(){
 
 function sendWA(){
   if(total<=0){alert("Agrega productos");return;}
-  let msg="🍺 Pedido GIOS\n";
+  let msg="🍺Pedido GIOS🍺\n";
   document.querySelectorAll(".card").forEach(c=>{
     let q=c.querySelector("span").innerText;
     if(q>0) msg+=`${c.querySelector("h3").innerText} x${q}\n`;
