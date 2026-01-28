@@ -269,6 +269,7 @@ let total=0;
 function add(btn,val){
   const card = btn.closest(".card");
   const span = btn.parentNode.querySelector("span");
+
   span.innerText = Math.max(0,parseInt(span.innerText)+val);
 
   card.classList.remove("bump");
