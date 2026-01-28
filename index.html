@@ -58,16 +58,19 @@ body{
 .card{
   background:#fff;
   border-radius:14px;
-  padding: 8px 6px;
+  padding:6px 6px;            /* ⬅ más compacta */
   text-align:center;
   color:#000;
 
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  /* sombra tipo iOS */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+
+  /* animación suave */
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
 .card:active{
-  transform: scale(0.98);
+  transform: scale(0.97);
   box-shadow: 0 3px 10px rgba(0,0,0,0.12);
 }
 
