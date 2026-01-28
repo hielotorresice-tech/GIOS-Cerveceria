@@ -353,5 +353,36 @@ function sendWA(){
 function openTransfer(){alert("Datos de transferencia");}
 </script>
 
+<div id="transferBox" style="display:none;position:fixed;inset:0;
+background:rgba(0,0,0,.5);z-index:20;align-items:center;justify-content:center">
+
+  <div style="
+    background:#f0f0f0;
+    border:1px solid #555;
+    border-radius:12px;
+    padding:16px;
+    width:85%;
+    max-width:320px;
+    text-align:center;
+  ">
+    <strong>Datos Transferencia</strong><br><br>
+
+    Banco: BancoEstado<br>
+    Cuenta RUT<br>
+    Nombre: GIOS<br>
+    RUT: 12.345.678-9<br>
+    Email: pagos@gios.cl<br><br>
+
+    <button onclick="closeTransfer()" style="
+      background:#007BFF;
+      color:#fff;
+      font-weight:bold;
+      border:1px solid #000;
+      padding:6px 16px;
+      border-radius:8px;
+    ">Cerrar</button>
+  </div>
+</div>
+
 </body>
 </html>
