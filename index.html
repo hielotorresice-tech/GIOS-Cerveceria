@@ -127,6 +127,33 @@ body{
 }
 
 .actions button:disabled{opacity:.5;}
+
+/* Animaciones suaves tipo iOS */
+.card{
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.card.bump{
+  transform: scale(1.04);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
+}
+
+.qty button{
+  transition: transform .15s ease;
+}
+
+.qty button:active{
+  transform: scale(0.85);
+}
+
+.total{
+  transition: transform .2s ease;
+}
+
+.total.bump{
+  transform: scale(1.15);
+}
+
 </style>
 </head>
 
