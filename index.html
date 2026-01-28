@@ -378,6 +378,14 @@ function add(btn,val){
   calc();
 }
 
+function animateTotal(){
+  const el = document.querySelector(".total");
+  el.classList.remove("bump");
+  void el.offsetWidth;
+  el.classList.add("bump");
+  setTimeout(()=>el.classList.remove("bump"),180);
+}
+
 function calc(){
   let newTotal = 0;
 
