@@ -98,6 +98,21 @@ body{
   font-weight:bold;
 }
 
+function animateQty(el, type) {
+  el.classList.remove("bump", "down");
+  void el.offsetWidth; // reinicia animación
+
+  if (type === "up") {
+    el.classList.add("bump");
+  } else {
+    el.classList.add("down");
+  }
+
+  setTimeout(() => {
+    el.classList.remove("bump", "down");
+  }, 150);
+}
+
 /* Info */
 .beer-info h3{
   margin:6px 0 2px;
