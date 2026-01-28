@@ -427,21 +427,36 @@ function animateTotal(){
 }
 
 function calc(){
-  let newTotal = 0;
-
+  let subtotal = 0;
   document.querySelectorAll(".card").forEach(c=>{
-    newTotal += c.dataset.price * c.querySelector("span").innerText;
+    subtotal += c.dataset.price * c.querySelector("span").innerText;
   });
 
-  if(newTotal !== total){
-    animateTotal();
+  const zone = document.getElementById("zone").value;
+  let delivery = 0;
+  let ok = true;
+
+  if(zone){
+    delivery = zonas[zone].costo;
+    const min = zonas[zone].minimo;
+
+    document.getElementById("zoneInfo").innerText =
+      `Delivery $${delivery.toLocaleString()} · Mínimo $${min.toLocaleString()}`;
+
+    if(subtotal < min){
+      ok = false;
+      document.getElementById("zoneInfo").innerText += " ❌";
+    }
+  }else{
+    ok = false;
+    document.getElementById("zoneInfo").innerText = "";
   }
 
-  total = newTotal;
+  total = subtotal + (ok ? delivery : 0);
   document.getElementById("total").innerText = total;
 
   document.querySelectorAll(".actions button").forEach(b=>{
-    if(b.id!=="call") b.disabled = total<=0;
+    if(b.id!=="call") b.disabled = !(total > 0 && ok);
   });
 }
 
