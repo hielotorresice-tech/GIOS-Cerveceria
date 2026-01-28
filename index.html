@@ -350,7 +350,13 @@ function sendWA(){
   window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
 }
 
-function openTransfer(){alert("Datos de transferencia");}
+function openTransfer(){
+  document.getElementById("transferBox").style.display="flex";
+}
+function closeTransfer(){
+  document.getElementById("transferBox").style.display="none";
+}
+
 </script>
 
 <div id="transferBox" style="display:none;position:fixed;inset:0;
