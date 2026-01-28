@@ -235,11 +235,26 @@ body{
 <div class="footer">
   <div class="total">Total: $<span id="total">0</span></div>
   <div class="actions">
-    <button onclick="pagarMP()" id="mp" disabled>💳 MP</button>
-    <button onclick="openTransfer()" id="tr" disabled>🏦 Transf</button>
-    <button onclick="sendWA()" id="wa" disabled>📲 WA</button>
-    <button onclick="location.href='tel:+56927731874'">📞</button>
-  </div>
+  <button onclick="pagarMP()" id="mp" disabled>
+    <span class="icon">💳</span>
+    <span class="txt">Mercado Pago</span>
+  </button>
+
+  <button onclick="openTransfer()" id="tr" disabled>
+    <span class="icon">🏦</span>
+    <span class="txt">Transferencia</span>
+  </button>
+
+  <button onclick="sendWA()" id="wa" disabled>
+    <span class="icon">📲</span>
+    <span class="txt">WhatsApp</span>
+  </button>
+
+  <button onclick="location.href='tel:+56927731874'">
+    <span class="icon">📞</span>
+    <span class="txt">Llamar</span>
+  </button>
+</div>
 </div>
 
 <!-- MODAL -->
