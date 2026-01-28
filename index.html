@@ -3,144 +3,164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>App Cervezas</title>
+<title>Venta de Cervezas - GIOS</title>
 
 <style>
-*{
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
+/* ===== FONDO APP ===== */
 body{
-  background: url("fondo-app.jpg") no-repeat center top;
-  /background-size: cover;
-  background-position: center center;
-  min-height: 100vh;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:url("fondo-app.jpg") no-repeat center center;
+  background-size:cover;
+  min-height:100vh;
 }
 
-/* CONTENEDOR APP */
+/* ===== CONTENEDOR APP ===== */
 .app{
-  padding: 12px;
-  padding-bottom: 90px;
-  max-width: 480px;   /* ancho tipo app móvil */
-  margin: 0 auto;     /* centra todo */
+  max-width:420px;
+  margin:auto;
+  background:rgba(255,255,255,0.85);
+  min-height:100vh;
+  padding-bottom:140px;
 }
 
-/* GRID PRODUCTOS */
+/* ===== HEADER ===== */
+.app-header{
+  text-align:center;
+  padding:12px 10px;
+}
+.logo{
+  max-width:120px;
+}
+.subtitulo{
+  font-size:14px;
+  font-weight:bold;
+}
+.info{
+  font-size:12px;
+  margin-top:4px;
+}
+
+/* ===== PRODUCTOS ===== */
 .products{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px,1fr));
-  gap: 12px;
-  justify-content: center;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  padding:12px;
 }
 
-/* CARD */
 .card{
-  background: rgba(245,245,245,0.95);
-  border-radius: 10px;
-  padding: 8px;
+  background:#f3f3f3;
+  border-radius:14px;
+  padding:12px 8px;
+  text-align:center;
 }
 
-/* MARCO PRODUCTO */
+/* Marco cerveza */
 .beer-box{
-  border: 1px solid #A9A9A9;
-  border-radius: 8px;
-  padding: 6px;
-  text-align: center;
+  border:1px solid #A9A9A9;
+  border-radius:10px;
+  padding:8px 6px;
+  margin-bottom:6px;
 }
 
-/* IMAGEN */
 .beer-img{
-  max-width: 100%;
-  height: 130px;
-  object-fit: contain;
+  width:90px;
+  height:auto;
+  object-fit:contain;
+  margin-bottom:6px;
 }
 
-/* INFO */
-.beer-info{
-  text-align: center;
-  margin-top: 6px;
-}
-
-.beer-info h3{
-  margin: 4px 0 2px;
-  font-size: 15px;
-}
-
-.beer-info small{
-  font-size: 12px;
-  color:#555;
-}
-
-.price{
-  font-weight: bold;
-  margin-top: 4px;
-}
-
-/* CANTIDAD */
+/* Cantidad */
 .qty{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 6px;
+  display:flex;
+  justify-content:center;
+  gap:10px;
 }
-
 .qty button{
-  width: 28px;
-  height: 28px;
-  border: 1px solid #444;
-  background: #fff;
-  border-radius: 4px;
-  font-size: 16px;
+  width:28px;
+  height:28px;
+  font-size:18px;
+  font-weight:bold;
 }
-
 .qty span{
-  min-width: 20px;
-  text-align: center;
+  min-width:20px;
+  font-weight:bold;
 }
 
-/* FOOTER FIJO */
+/* Info */
+.beer-info h3{
+  margin:6px 0 2px;
+  font-size:15px;
+}
+.beer-info small{
+  font-size:12px;
+  color:#444;
+}
+.price{
+  font-size:16px;
+  font-weight:bold;
+  margin-top:4px;
+}
+
+/* ===== FOOTER ===== */
 .footer{
-  position: fixed;
+  position:fixed;
   bottom:0;
-  left:0;
-  right:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:420px;
   background:#fff;
-  border-top:1px solid #ccc;
-  padding: 8px;
-}
-
-.footer > div{
-  max-width: 480px;
-  margin: 0 auto;
+  box-shadow:0 -4px 10px rgba(0,0,0,.2);
+  padding:10px;
 }
 
 .total{
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  margin-bottom:6px;
 }
 
-/* BOTONES ACCIÓN */
 .actions{
-  display: flex;
-  gap: 6px;
-  margin-top: 6px;
+  display:flex;
+  gap:6px;
 }
-
-.actions a,
 .actions button{
   flex:1;
-  padding: 6px 4px;
-  font-size: 11px;
-  border-radius: 6px;
-  border: none;
+  padding:6px 4px;
+  font-size:11px;
+  border-radius:6px;
+  border:none;
   background:#eaeaea;
-  text-decoration: none;
-  color:#000;
-  text-align:center;
-  <button onclick="enviarWhatsApp()">📲 WhatsApp</button>
+}
+
+/* Deshabilitado */
+.actions button:disabled{
+  opacity:.5;
+}
+
+/* ===== MODAL TRANSFERENCIA ===== */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
+  align-items:center;
+  justify-content:center;
+}
+.modal-box{
+  background:#fff;
+  padding:14px;
+  border-radius:12px;
+  width:90%;
+  max-width:320px;
+  border:2px solid #0072CE;
+}
+.modal-box p{
+  margin:4px 0;
+  font-size:14px;
 }
 </style>
 </head>
@@ -148,6 +168,12 @@ body{
 <body>
 
 <div class="app">
+
+<header class="app-header">
+  <img src="logogios.png" class="logo" alt="GIOS">
+  <div class="subtitulo">Venta de Cervezas - Copiapó</div>
+  <div class="info">⏰ 09:00 - 15:00 / 17:00 - 22:00 🚚 Delivery disponible</div>
+</header>
 
 <div class="products">
 
@@ -180,7 +206,7 @@ body{
   </div>
   <div class="beer-info">
     <h3>Cristal</h3>
-    <small>Lata 470cc</small>
+    <small>Lata 473cc</small>
     <div class="price">$900</div>
   </div>
 </div>
@@ -208,92 +234,64 @@ body{
 <!-- FOOTER -->
 <div class="footer">
   <div class="total">Total: $<span id="total">0</span></div>
-
   <div class="actions">
-    <a class="btn" href="https://link.mercadopago.cl/torresice">
-    💳 Mercado Pago
-</a>
-    <button onclick="alert('Transferencia Bancaria\nBanco: XX\nCuenta: XXXX\nNombre: XXXX')">
-  🏦 Transferencia
-</button>
-    <a class="btn" href="https://wa.me/56927731874" target="_blank">
-  📲 WhatsApp
-</a>
-    <a class="btn" href="tel:+56927731874">
-  📞 Llamar
-</a>
+    <button onclick="pagarMP()" id="mp" disabled>💳 MP</button>
+    <button onclick="openTransfer()" id="tr" disabled>🏦 Transf</button>
+    <button onclick="sendWA()" id="wa" disabled>📲 WA</button>
+    <button onclick="location.href='tel:+56927731874'">📞</button>
+  </div>
+</div>
 
+<!-- MODAL -->
+<div class="modal" id="transfer" onclick="if(event.target.id==='transfer')closeTransfer()">
+  <div class="modal-box">
+    <p><b>Banco:</b> Coopeuch</p>
+    <p><b>Cuenta:</b> Vista 251105735</p>
+    <p><b>Nombre:</b> Oscar Torres</p>
+    <p><b>Email:</b> hielo.torres.ice@gmail.com</p>
+    <button onclick="closeTransfer()">Cerrar</button>
   </div>
 </div>
 
 <script>
+let total = 0;
+
 function add(btn,val){
-  const span = btn.parentElement.querySelector("span");
-  let qty = parseInt(span.textContent);
-  qty = Math.max(0, qty + val);
-  span.textContent = qty;
-  calcTotal();
+  const span = btn.parentNode.querySelector("span");
+  let q = Math.max(0, parseInt(span.innerText) + val);
+  span.innerText = q;
+  calc();
 }
 
-function calcTotal(){
-  let total = 0;
-  document.querySelectorAll(".card").forEach(card=>{
-    const price = parseInt(card.dataset.price);
-    const qty = parseInt(card.querySelector(".qty span").textContent);
-    total += price * qty;
+function calc(){
+  total = 0;
+  document.querySelectorAll(".card").forEach(c=>{
+    total += c.dataset.price * c.querySelector("span").innerText;
   });
-  document.getElementById("total").textContent = total.toLocaleString();
+  document.getElementById("total").innerText = total;
+  document.querySelectorAll(".actions button").forEach(b=>{
+    if(b.id!=="call") b.disabled = total<=0;
+  });
 }
+
+function pagarMP(){
+  window.open("https://link.mercadopago.cl/torresice","_blank");
+}
+
+function sendWA(){
+  if(total<=0){alert("Agrega productos");return;}
+  let msg="🍺 Pedido GIOS\n";
+  document.querySelectorAll(".card").forEach(c=>{
+    let q=c.querySelector("span").innerText;
+    if(q>0) msg+=`${c.querySelector("h3").innerText} x${q}\n`;
+  });
+  msg+=`Total: $${total}`;
+  window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
+}
+
+function openTransfer(){transfer.style.display="flex";}
+function closeTransfer(){transfer.style.display="none";}
 </script>
 
 </body>
-  <script>
-  function actualizarEstadoBotones(total) {
-    const botones = document.querySelectorAll('.actions a, .actions button');
-
-    botones.forEach(btn => {
-      if (total > 0) {
-        btn.classList.remove('disabled');
-        btn.style.pointerEvents = 'auto';
-        btn.style.opacity = '1';
-      } else {
-        btn.classList.add('disabled');
-        btn.style.pointerEvents = 'none';
-        btn.style.opacity = '0.5';
-      }
-    });
-  }
-
-function actualizarEstadoBotones(total) {
-  const botones = document.querySelectorAll('.actions button, .actions a');
-
-  botones.forEach(btn => {
-    if (total > 0) {
-      btn.disabled = false;
-      btn.style.opacity = '1';
-    } else {
-      btn.disabled = true;
-      btn.style.opacity = '0.5';
-    }
-  });
-}
-<script>
-function enviarWhatsApp() {
-  if (total <= 0) {
-    alert('Ingresa cantidad antes de continuar');
-    return;
-  }
-
-  const mensaje = encodeURIComponent(
-    `Hola 👋\nPedido desde GIOS\nTotal: $${total}`
-  );
-
-  window.open(
-    `https://wa.me/569XXXXXXXX?text=${mensaje}`,
-    '_blank'
-  );
-}
-</script>
-</script>
-
 </html>
