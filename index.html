@@ -106,21 +106,6 @@ body{
   font-weight:bold;
 }
 
-function animateQty(el, type) {
-  el.classList.remove("bump", "down");
-  void el.offsetWidth; // reinicia animación
-
-  if (type === "up") {
-    el.classList.add("bump");
-  } else {
-    el.classList.add("down");
-  }
-
-  setTimeout(() => {
-    el.classList.remove("bump", "down");
-  }, 150);
-}
-
 /* Info */
 .beer-info h3{
   margin:6px 0 2px;
@@ -291,6 +276,23 @@ function animateQty(el, type) {
     <h3>Sol</h3>
     <small>Botellín 330cc</small>
     <div class="price">$1.000</div>
+  </div>
+</div>
+
+<!-- Escudo Roja 470cc -->
+<div class="card" data-price="950">
+  <div class="beer-box">
+    <img src="escudo-roja470.avif" class="beer-img">
+    <div class="qty">
+      <button onclick="add(this,-1)">−</button>
+      <span>0</span>
+      <button onclick="add(this,1)">+</button>
+    </div>
+  </div>
+  <div class="beer-info">
+    <h3>Escudo Roja</h3>
+    <small>Lata 470cc</small>
+    <div class="price">$950</div>
   </div>
 </div>
 
