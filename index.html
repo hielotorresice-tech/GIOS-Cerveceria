@@ -22,6 +22,7 @@ body{
   padding-bottom:150px;
 }
 
+/* HEADER */
 .app-header{
   position:sticky;
   top:0;
@@ -35,6 +36,7 @@ body{
 .subtitulo{font-size:14px;font-weight:bold;}
 .info{font-size:12px;}
 
+/* PRODUCTS */
 .products{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -48,6 +50,12 @@ body{
   padding:6px;
   text-align:center;
   box-shadow:0 6px 16px rgba(0,0,0,.08);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+.card.bump{
+  transform:scale(1.04);
+  box-shadow:0 10px 24px rgba(0,0,0,.18);
 }
 
 .beer-box{
@@ -75,19 +83,14 @@ body{
   font-weight:bold;
 }
 
-.qty span{
-  min-width:20px;
-  font-weight:bold;
-}
-
 .beer-info h3{
   font-size:14px;
   margin:4px 0 2px;
 }
 
-.beer-info small{font-size:11px;}
 .price{font-weight:bold;}
 
+/* FOOTER */
 .footer{
   position:fixed;
   bottom:0;
@@ -100,19 +103,37 @@ body{
   box-shadow:0 -4px 10px rgba(0,0,0,.2);
 }
 
+/* DELIVERY */
+.delivery-title{
+  background:#007BFF;
+  color:#fff;
+  font-weight:bold;
+  text-align:center;
+  padding:8px;
+  border-radius:8px;
+  margin-bottom:6px;
+}
+
 .delivery-zone select{
   width:100%;
   padding:6px;
   border-radius:8px;
 }
 
+/* TOTAL */
 .total{
   text-align:center;
   font-size:18px;
   font-weight:bold;
   margin:6px 0;
+  transition:transform .2s ease;
 }
 
+.total.bump{
+  transform:scale(1.15);
+}
+
+/* ACTIONS */
 .actions{
   display:flex;
   gap:6px;
@@ -126,44 +147,7 @@ body{
   font-size:11px;
 }
 
-.actions button:disabled{opacity:.5;}
-
-/* Animaciones suaves tipo iOS */
-.card{
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.card.bump{
-  transform: scale(1.04);
-  box-shadow:0 10px 24px rgba(0,0,0,.18);
-}
-
-.qty button{
-  transition: transform .15s ease;
-}
-
-.qty button:active{
-  transform: scale(0.85);
-}
-
-.total{
-  transition: transform .2s ease;
-}
-
-.total.bump{
-  transform: scale(1.15);
-}
-
-.delivery-title{
-  background:#007BFF; /* azul eléctrico */
-  color:#fff;
-  font-weight:bold;
-  text-align:center;
-  padding:8px;
-  border-radius:8px;
-  margin-bottom:6px;
-}
-
+.actions button:disabled{opacity:.5}
 </style>
 </head>
 
@@ -174,7 +158,7 @@ body{
 <header class="app-header">
   <img src="logogios.png" class="logo">
   <div class="subtitulo">🍺 Venta de Cervezas - Copiapó 🍺</div>
-  <div class="info">⏰ 09:00–15:00 / 17:00–22:00 🚚</div>
+  <div class="info">⏰ 09:00–15:00 / 17:00–22:00 🚚 Delivery</div>
 </header>
 
 <div class="products">
@@ -190,39 +174,6 @@ body{
   </div>
   <div class="beer-info">
     <h3>Escudo Silver</h3>
-    <small>710cc</small>
-    <div class="price">$1.000</div>
-  </div>
-</div>
-
-<div class="card" data-price="900">
-  <div class="beer-box">
-    <img src="cristal-473.png" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
-    </div>
-  </div>
-  <div class="beer-info">
-    <h3>Cristal</h3>
-    <small>473cc</small>
-    <div class="price">$900</div>
-  </div>
-</div>
-
-<div class="card" data-price="1000">
-  <div class="beer-box">
-    <img src="sol-330.png" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
-    </div>
-  </div>
-  <div class="beer-info">
-    <h3>Sol</h3>
-    <small>330cc</small>
     <div class="price">$1.000</div>
   </div>
 </div>
@@ -238,7 +189,6 @@ body{
   </div>
   <div class="beer-info">
     <h3>Escudo Roja</h3>
-    <small>470cc</small>
     <div class="price">$950</div>
   </div>
 </div>
@@ -247,24 +197,28 @@ body{
 </div>
 
 <div class="footer">
-  <div class="delivery-zone">
-    <select id="zone" onchange="calc()">
-      <div class="delivery-title">🚚 Selecciona Zona para Delivery 🚚</div>
-      <option value="centro">Copiapó Centro</option>
-      <option value="paipote">Paipote</option>
-      <option value="tierra">Tierra Amarilla</option>
-    </select>
-    <small id="zoneInfo"></small>
-  </div>
 
-  <div class="total">Total: $<span id="total">0</span></div>
+<div class="delivery-title">🚚 Selecciona Zona para Delivery 🚚</div>
 
-  <div class="actions">
-    <button id="mp" onclick="pagarMP()" disabled>💳 MP</button>
-    <button id="tr" onclick="openTransfer()" disabled>🏦 Transf</button>
-    <button id="wa" onclick="sendWA()" disabled>📲 WhatsApp</button>
-    <button onclick="location.href='tel:+56927731874'">📞 Llamar</button>
-  </div>
+<div class="delivery-zone">
+  <select id="zone" onchange="calc()">
+    <option value="">Seleccionar zona</option>
+    <option value="centro">Copiapó Centro</option>
+    <option value="paipote">Paipote</option>
+    <option value="tierra">Tierra Amarilla</option>
+  </select>
+  <div id="zoneInfo" style="text-align:center;font-weight:bold;"></div>
+</div>
+
+<div class="total">Total: $<span id="total">0</span></div>
+
+<div class="actions">
+  <button id="mp" onclick="pagarMP()" disabled>💳 MP</button>
+  <button id="tr" onclick="openTransfer()" disabled>🏦 Transf</button>
+  <button id="wa" onclick="sendWA()" disabled>📲 WhatsApp</button>
+  <button id="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
+</div>
+
 </div>
 
 <script>
@@ -277,10 +231,9 @@ const zonas={
 let total=0;
 
 function add(btn,val){
-  const card = btn.closest(".card");
-  const span = btn.parentNode.querySelector("span");
-
-  span.innerText = Math.max(0,parseInt(span.innerText)+val);
+  const card=btn.closest(".card");
+  const span=btn.parentNode.querySelector("span");
+  span.innerText=Math.max(0,parseInt(span.innerText)+val);
 
   card.classList.remove("bump");
   void card.offsetWidth;
@@ -290,29 +243,11 @@ function add(btn,val){
 }
 
 function calc(){
-  let subtotal = 0;
+  let subtotal=0;
 
   document.querySelectorAll(".card").forEach(c=>{
-    const precio = parseInt(c.dataset.price);
-    const cantidad = parseInt(c.querySelector("span").innerText);
-    subtotal += precio * cantidad;
+    subtotal+=c.dataset.price*parseInt(c.querySelector("span").innerText);
   });
-
-  // actualizar total
-  document.getElementById("total").innerText = subtotal.toLocaleString();
-
-  // animar total
-  const t = document.querySelector(".total");
-  t.classList.remove("bump");
-  void t.offsetWidth;
-  t.classList.add("bump");
-
-  // activar / desactivar botones
-  const ok = subtotal > 0;
-  document.querySelectorAll(".actions button").forEach(b=>{
-    if(b.id !== "call") b.disabled = !ok;
-  });
-}
 
   let zone=document.getElementById("zone").value;
   let delivery=0;
@@ -320,9 +255,9 @@ function calc(){
 
   if(zone){
     delivery=zonas[zone].costo;
-    if(subtotal<zonas[zone].minimo) ok=false;
     document.getElementById("zoneInfo").innerText=
       `Delivery $${delivery} | Mín $${zonas[zone].minimo}`;
+    if(subtotal<zonas[zone].minimo) ok=false;
   }else{
     ok=false;
     document.getElementById("zoneInfo").innerText="";
@@ -330,6 +265,11 @@ function calc(){
 
   total=subtotal+(ok?delivery:0);
   document.getElementById("total").innerText=total;
+
+  const t=document.querySelector(".total");
+  t.classList.remove("bump");
+  void t.offsetWidth;
+  t.classList.add("bump");
 
   ["mp","tr","wa"].forEach(id=>{
     document.getElementById(id).disabled=!(total>0 && ok);
@@ -350,45 +290,8 @@ function sendWA(){
   window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
 }
 
-function openTransfer(){
-  document.getElementById("transferBox").style.display="flex";
-}
-function closeTransfer(){
-  document.getElementById("transferBox").style.display="none";
-}
-
+function openTransfer(){alert("Transferencia lista");}
 </script>
-
-<div id="transferBox" style="display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.5);z-index:20;align-items:center;justify-content:center">
-
-  <div style="
-    background:#f0f0f0;
-    border:1px solid #555;
-    border-radius:12px;
-    padding:16px;
-    width:85%;
-    max-width:320px;
-    text-align:center;
-  ">
-    <strong>Datos Transferencia</strong><br><br>
-
-    Banco: BancoEstado<br>
-    Cuenta RUT<br>
-    Nombre: GIOS<br>
-    RUT: 12.345.678-9<br>
-    Email: pagos@gios.cl<br><br>
-
-    <button onclick="closeTransfer()" style="
-      background:#007BFF;
-      color:#fff;
-      font-weight:bold;
-      border:1px solid #000;
-      padding:6px 16px;
-      border-radius:8px;
-    ">Cerrar</button>
-  </div>
-</div>
 
 </body>
 </html>
