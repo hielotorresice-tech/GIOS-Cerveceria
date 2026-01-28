@@ -267,8 +267,14 @@ const zonas={
 let total=0;
 
 function add(btn,val){
-  const span=btn.parentNode.querySelector("span");
-  span.innerText=Math.max(0,parseInt(span.innerText)+val);
+  const card = btn.closest(".card");
+  const span = btn.parentNode.querySelector("span");
+  span.innerText = Math.max(0,parseInt(span.innerText)+val);
+
+  card.classList.remove("bump");
+  void card.offsetWidth;
+  card.classList.add("bump");
+
   calc();
 }
 
