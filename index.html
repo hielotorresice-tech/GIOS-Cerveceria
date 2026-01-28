@@ -279,10 +279,29 @@ function add(btn,val){
 }
 
 function calc(){
-  let subtotal=0;
+  let subtotal = 0;
+
   document.querySelectorAll(".card").forEach(c=>{
-    subtotal+=c.dataset.price*parseInt(c.querySelector("span").innerText);
+    const precio = parseInt(c.dataset.price);
+    const cantidad = parseInt(c.querySelector("span").innerText);
+    subtotal += precio * cantidad;
   });
+
+  // actualizar total
+  document.getElementById("total").innerText = subtotal.toLocaleString();
+
+  // animar total
+  const t = document.querySelector(".total");
+  t.classList.remove("bump");
+  void t.offsetWidth;
+  t.classList.add("bump");
+
+  // activar / desactivar botones
+  const ok = subtotal > 0;
+  document.querySelectorAll(".actions button").forEach(b=>{
+    if(b.id !== "call") b.disabled = !ok;
+  });
+}
 
   let zone=document.getElementById("zone").value;
   let delivery=0;
