@@ -305,7 +305,12 @@ function calc(){
   }
 
   total=subtotal+(ok?delivery:0);
-  document.getElementById("total").innerText=total;
+  const totalSpan = document.getElementById("total");
+totalSpan.innerText = total;
+
+totalSpan.classList.remove("bump");
+void totalSpan.offsetWidth;
+totalSpan.classList.add("bump");
 
   const t=document.querySelector(".total");
   t.classList.remove("bump");
