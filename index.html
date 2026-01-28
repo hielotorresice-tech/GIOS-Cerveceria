@@ -360,11 +360,19 @@ function add(btn,val){
 }
 
 function calc(){
-  total = 0;
+  let newTotal = 0;
+
   document.querySelectorAll(".card").forEach(c=>{
-    total += c.dataset.price * c.querySelector("span").innerText;
+    newTotal += c.dataset.price * c.querySelector("span").innerText;
   });
+
+  if(newTotal !== total){
+    animateTotal();
+  }
+
+  total = newTotal;
   document.getElementById("total").innerText = total;
+
   document.querySelectorAll(".actions button").forEach(b=>{
     if(b.id!=="call") b.disabled = total<=0;
   });
