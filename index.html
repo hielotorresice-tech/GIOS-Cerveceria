@@ -416,22 +416,40 @@ function animateTotal(){
 
 function calc(){
   let subtotal = 0;
+
   document.querySelectorAll(".card").forEach(c=>{
     subtotal += c.dataset.price * c.querySelector("span").innerText;
   });
 
- // actualizar total en pantalla
-  document.querySelector(".total").innerText = "Total: $" + subtotal;
+  const zoneSelect = document.getElementById("zone");
+  let delivery = 0;
+  let ok = true;
+
+  if(zoneSelect && zoneSelect.value){
+    const zone = zoneSelect.value;
+    delivery = zonas[zone].costo;
+    const min = zonas[zone].minimo;
+
+    document.getElementById("zoneInfo").innerText =
+      `Delivery $${delivery.toLocaleString()} · Mínimo $${min.toLocaleString()}`;
+
+    if(subtotal < min){
+      ok = false;
+      document.getElementById("zoneInfo").innerText += " ❌";
+    }
+  }else if(zoneSelect){
+    ok = false;
+    document.getElementById("zoneInfo").innerText = "";
+  }
+
+  total = subtotal + (ok ? delivery : 0);
+
+  document.getElementById("total").innerText = total.toLocaleString();
   animateTotal();
 
-  // ==========================
-  // PASO 2 — activar / bloquear botones de pago
-  // ==========================
-  const ok = subtotal > 0;
-
-  document.getElementById("mp").disabled = !ok;
-  document.getElementById("tr").disabled = !ok;
-  document.getElementById("wa").disabled = !ok;
+  document.getElementById("mp").disabled = !(total > 0 && ok);
+  document.getElementById("tr").disabled = !(total > 0 && ok);
+  document.getElementById("wa").disabled = !(total > 0 && ok);
 }
 
   const zone = document.getElementById("zone").value;
