@@ -53,11 +53,6 @@ body{
   transition:transform .18s ease, box-shadow .18s ease;
 }
 
-.card.bump{
-  transform:scale(1.07);
-  box-shadow:0 14px 30px rgba(0,0,0,.28);
-}
-
 .beer-box{
   border:1px solid #ccc;
   border-radius:10px;
@@ -155,6 +150,15 @@ body{
 
 .qty button:active{
   transform: scale(0.75);
+}
+
+.card{
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.card:active{
+  transform: translateY(4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,.18);
 }
 
 </style>
