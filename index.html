@@ -486,6 +486,15 @@ totalSpan.classList.add("bump");
 }
 
 function pagarMP(){
+  document.getElementById("mpAlert").style.display="flex";
+}
+
+function closeMP(){
+  document.getElementById("mpAlert").style.display="none";
+}
+
+function goMP(){
+  document.getElementById("mpAlert").style.display="none";
   window.open("https://link.mercadopago.cl/torresice","_blank");
 }
 
