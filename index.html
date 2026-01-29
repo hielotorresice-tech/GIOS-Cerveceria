@@ -210,15 +210,10 @@ body{
 </style>
 </head>
 
-<div id="transferModal" style="
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:50;
-  align-items:center;
-  justify-content:center;
-">
+<!-- MODAL TRANSFERENCIA -->
+<div id="transferModal" style="display:none; position:fixed; inset:0;
+background:rgba(0,0,0,.55); z-index:50;
+align-items:center; justify-content:center">
 
   <div style="
     background:#f2f2f2;
@@ -231,19 +226,19 @@ body{
   ">
 
     <div style="font-weight:bold;color:#000;margin-bottom:10px;">
-              🏦 Datos para Transferencia 🏦
+      🏦 Datos para Transferencia 🏦
     </div>
 
     <div style="color:#000;font-weight:bold;line-height:1.6;">
-  Banco    : Coopeuch<br>
-  Cuenta   : Vista<br>
-  Nº Cuenta: 251105735<br>
-  Nombre   : Oscar Torres
-</div>
+      Banco : Coopeuch<br>
+      Cuenta : Vista<br>
+      Nº Cuenta: 251105735<br>
+      Nombre : Oscar Torres
+    </div>
 
-<div class="transfer-highlight">
-  *** Envía Comprobante Vía WhatsApp ***
-</div>
+    <div class="transfer-highlight">
+      *** Envía Comprobante Vía WhatsApp ***
+    </div>
 
     <div style="text-align:center;margin-top:14px;">
       <button onclick="closeTransfer()" style="
@@ -253,20 +248,16 @@ body{
         border:1px solid #000;
         padding:8px 22px;
         border-radius:8px;
-      ">
-        Cerrar
-      </button>
+      ">Cerrar</button>
     </div>
 
-<div id="mpAlert" style="
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.55);
-  z-index:60;
-  align-items:center;
-  justify-content:center;
-">
+  </div>
+</div>
+
+<!-- ALERTA MERCADO PAGO -->
+<div id="mpAlert" style="display:none; position:fixed; inset:0;
+background:rgba(0,0,0,.55); z-index:60;
+align-items:center; justify-content:center">
 
   <div style="
     background:#f2f2f2;
@@ -294,9 +285,7 @@ body{
         border:none;
         padding:8px 14px;
         border-radius:8px;
-      ">
-        Continuar
-      </button>
+      ">Continuar</button>
 
       <button onclick="closeMP()" style="
         background:#fff;
@@ -305,13 +294,8 @@ body{
         border:1px solid #000;
         padding:8px 14px;
         border-radius:8px;
-      ">
-        Cancelar
-      </button>
+      ">Cancelar</button>
     </div>
-
-  </div>
-</div>
 
   </div>
 </div>
