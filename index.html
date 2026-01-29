@@ -384,7 +384,9 @@ function sendWA(){
   window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
 }
 
-function openTransfer(){alert("Transferencia lista");}
+function openTransfer(){
+  document.getElementById("transferModal").style.display="flex";
+}
 </script>
 
 </body>
