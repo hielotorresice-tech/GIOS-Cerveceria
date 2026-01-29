@@ -258,6 +258,61 @@ body{
       </button>
     </div>
 
+<div id="mpAlert" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  z-index:60;
+  align-items:center;
+  justify-content:center;
+">
+
+  <div style="
+    background:#f2f2f2;
+    border:2px solid #007BFF;
+    border-radius:14px;
+    padding:18px;
+    width:90%;
+    max-width:320px;
+    text-align:center;
+  ">
+
+    <div style="font-weight:bold;color:#000;margin-bottom:10px;">
+      💳 Mercado Pago
+    </div>
+
+    <div class="transfer-highlight">
+      *** Envía Comprobante Vía WhatsApp ***
+    </div>
+
+    <div style="display:flex; gap:10px; margin-top:16px; justify-content:center;">
+      <button onclick="goMP()" style="
+        background:#007BFF;
+        color:#fff;
+        font-weight:bold;
+        border:none;
+        padding:8px 14px;
+        border-radius:8px;
+      ">
+        Continuar
+      </button>
+
+      <button onclick="closeMP()" style="
+        background:#fff;
+        color:#000;
+        font-weight:bold;
+        border:1px solid #000;
+        padding:8px 14px;
+        border-radius:8px;
+      ">
+        Cancelar
+      </button>
+    </div>
+
+  </div>
+</div>
+
   </div>
 </div>
 
