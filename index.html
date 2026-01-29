@@ -318,31 +318,35 @@ body{
 </div>
 </div>
 
-<div class="delivery-zone">
+<div class="footer">
 
-  <div class="delivery-title">
-    🚚 Selecciona Zona para Delivery 🚚
+  <div class="delivery-zone">
+
+    <div class="delivery-title">
+      🚚 Selecciona Zona para Delivery 🚚
+    </div>
+
+    <select id="zone" onchange="calc()">
+      <option value="">Selecciona zona</option>
+      <option value="centro">Copiapó Centro</option>
+      <option value="paipote">Paipote</option>
+      <option value="tierra">Tierra Amarilla</option>
+    </select>
+
+    <small id="zoneInfo"></small>
+
   </div>
 
-  <select id="zone" onchange="calc()">
-    <option value="">Selecciona zona</option>
-    <option value="centro">Copiapó Centro</option>
-    <option value="paipote">Paipote</option>
-    <option value="tierra">Tierra Amarilla</option>
-  </select>
+  <div class="total">
+    Total: $<span id="total">0</span>
+  </div>
 
-  <small id="zoneInfo"></small>
-
-</div>
-
-<div class="total">Total: $<span id="total">0</span></div>
-
-<div class="actions">
-  <button id="mp" onclick="pagarMP()" disabled>💳 Mercado Pago</button>
-  <button id="tr" onclick="openTransfer()" disabled>🏦 Transferir</button>
-  <button id="wa" onclick="sendWA()" disabled>📲 WhatsApp</button>
-  <button id="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
-</div>
+  <div class="actions">
+    <button id="mp" onclick="pagarMP()" disabled>💳 Mercado Pago</button>
+    <button id="tr" onclick="openTransfer()" disabled>🏦 Transferir</button>
+    <button id="wa" onclick="sendWA()" disabled>📲 WhatsApp</button>
+    <button id="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
+  </div>
 
 </div>
 
