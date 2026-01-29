@@ -399,7 +399,7 @@ function calc(){
 
   total=subtotal+(ok?delivery:0);
   const totalSpan = document.getElementById("total");
-totalSpan.innerText = total;
+totalSpan.innerText = total.toLocaleString("es-CL");
 
 totalSpan.classList.remove("bump");
 void totalSpan.offsetWidth;
