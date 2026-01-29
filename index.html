@@ -389,8 +389,8 @@ function calc(){
 
   if(zone){
     delivery=zonas[zone].costo;
-    document.getElementById("zoneInfo").innerText=
-      `Delivery $${delivery} | Mín $${zonas[zone].minimo}`;
+    document.getElementById("zoneInfo").innerText =
+  `Delivery $${delivery.toLocaleString("es-CL")} | Mín $${zonas[zone].minimo.toLocaleString("es-CL")}`;
     if(subtotal<zonas[zone].minimo) ok=false;
   }else{
     ok=false;
