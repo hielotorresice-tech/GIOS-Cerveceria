@@ -404,10 +404,36 @@ align-items:center; justify-content:center">
 
 <body>
 
-<!-- SPLASH / FLASH -->
+<!-- SPLASH -->
 <div id="splash">
   <img src="logogios.png" alt="GIOS">
 </div>
+
+<!-- MODAL TRANSFERENCIA -->
+<div id="transferModal" style="display:none; ...">
+  ...
+</div>
+
+<!-- ALERTA MERCADO PAGO -->
+<div id="mpAlert" style="display:none; ...">
+  ...
+</div>
+
+<div class="app">
+  ...
+</div>
+
+<script>
+  window.addEventListener("load",()=>{
+    setTimeout(()=>{
+      document.getElementById("splash")?.classList.add("fade-out");
+    },1200);
+
+    setTimeout(()=>{
+      document.getElementById("splash")?.remove();
+    },1800);
+  });
+</script>
 
 <div class="app">
 
