@@ -625,6 +625,27 @@ window.addEventListener("load",()=>{
   },2000);
 });
 
+let cliente={};
+
+function continueWelcome(){
+  const nombre=document.getElementById("clienteNombre").value.trim();
+  const direccion=document.getElementById("clienteDireccion").value.trim();
+
+  if(!nombre || !direccion){
+    alert("Por favor completa tus datos");
+    return;
+  }
+
+  cliente.nombre=nombre;
+  cliente.direccion=direccion;
+
+  document.getElementById("welcome").style.display="none";
+}
+
+function cancelWelcome(){
+  location.reload();
+}
+
 </script>
 
 </body>
