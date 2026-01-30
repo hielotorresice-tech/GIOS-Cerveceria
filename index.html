@@ -222,6 +222,24 @@ body{
   appearance:none;
 }
 
+<!-- BIENVENIDA -->
+<div id="welcome">
+
+  <div class="welcome-box">
+    <h2>🍺 Bienvenido a Cervecería GIOS</h2>
+    <p>Ingresa tus datos para realizar tu compra</p>
+
+    <input id="clienteNombre" placeholder="Nombre del Cliente">
+    <input id="clienteDireccion" placeholder="Dirección (Calle + Nº)">
+
+    <div class="welcome-actions">
+      <button onclick="cancelWelcome()">Cancelar</button>
+      <button onclick="continueWelcome()">Continuar</button>
+    </div>
+  </div>
+
+</div>
+
 /* ===== SPLASH ===== */
 #splash{
   position:fixed;
