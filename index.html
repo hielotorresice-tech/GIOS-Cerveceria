@@ -616,15 +616,24 @@ function goMP(){
 }
 
 function sendWA(){
-  let msg="🍺 Pedido GIOS 🍺\n";
+  let msg = "🍺 Pedido GIOS 🍺\n\n";
+
+  msg += `👤 Cliente: ${cliente.nombre}\n`;
+  msg += `📍 Dirección: ${cliente.direccion}\n\n`;
+
   document.querySelectorAll(".card").forEach(c=>{
-    let q=c.querySelector("span").innerText;
-    if(q>0) msg+=`${c.querySelector("h3").innerText} x${q}\n`;
+    let q = parseInt(c.querySelector("span").innerText);
+    if(q > 0){
+      msg += `${c.querySelector("h3").innerText} x${q}\n`;
+    }
   });
-  msg+=`Total: $${total}`;
-  window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
-  msg+=`Cliente: ${cliente.nombre}\n`;
-msg+=`Dirección: ${cliente.direccion}\n\n`;
+
+  msg += `\n💰 Total: $${total.toLocaleString("es-CL")}`;
+
+  window.open(
+    "https://wa.me/56927731874?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
 }
 
 function openTransfer(){
