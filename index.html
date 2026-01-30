@@ -600,6 +600,9 @@ function goMP(){
   window.open("https://link.mercadopago.cl/torresice","_blank");
 }
 
+msg+=`Cliente: ${cliente.nombre}\n`;
+msg+=`Dirección: ${cliente.direccion}\n\n`;
+
 function sendWA(){
   let msg="🍺 Pedido GIOS 🍺\n";
   document.querySelectorAll(".card").forEach(c=>{
