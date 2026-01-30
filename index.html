@@ -75,11 +75,6 @@ body{
 .subtitulo{font-size:14px;font-weight:bold;}
 .info{font-size:12px;}
 
-<!-- SPLASH / FLASH -->
-<div id="splash">
-  <img src="logogios.png" alt="GIOS">
-</div>
-
 /* PRODUCTS */
 .products{
   display:grid;
@@ -612,15 +607,17 @@ function closeTransfer(){
   document.getElementById("transferModal").style.display="none";
 }
 
-  window.addEventListener("load",()=>{
-  setTimeout(()=>{
-    document.getElementById("splash").classList.add("fade-out");
-  },1200); // dura menos tiempo
-});
+  window.addEventListener("load", () => {
+  const splash = document.getElementById("splash");
 
-setTimeout(()=>{
-  document.getElementById("splash")?.remove();
-},1800);
+  setTimeout(() => {
+    splash.classList.add("fade-out");
+  }, 1000);
+
+  setTimeout(() => {
+    splash.remove();
+  }, 1600);
+});
 
 let cliente={};
 
