@@ -426,14 +426,16 @@ align-items:center; justify-content:center">
 
 <script>
   window.addEventListener("load",()=>{
-    setTimeout(()=>{
-      document.getElementById("splash")?.classList.add("fade-out");
-    },1200);
+  setTimeout(()=>{
+    const splash = document.getElementById("splash");
+    splash.classList.add("fade-out");
 
     setTimeout(()=>{
-      document.getElementById("splash")?.remove();
-    },1800);
-  });
+      splash.remove();
+      window.scrollTo(0,0); // 👈 CLAVE
+    },600);
+  },900);
+});
 </script>
 
 <div class="app">
