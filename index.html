@@ -623,6 +623,8 @@ function sendWA(){
   });
   msg+=`Total: $${total}`;
   window.open("https://wa.me/56927731874?text="+encodeURIComponent(msg));
+  msg+=`Cliente: ${cliente.nombre}\n`;
+msg+=`Dirección: ${cliente.direccion}\n\n`;
 }
 
 function openTransfer(){
