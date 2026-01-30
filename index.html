@@ -642,6 +642,8 @@ function sendWA(){
 }
 
 function openTransfer(){
+  document.getElementById("trNombre").innerText = cliente.nombre;
+  document.getElementById("trDireccion").innerText = cliente.direccion;
   document.getElementById("transferModal").style.display="flex";
 }
 
