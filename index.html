@@ -545,6 +545,13 @@ function closeTransfer(){
   document.getElementById("transferModal").style.display="none";
 }
 
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("splash").remove();
+    document.getElementById("welcome").style.display="flex";
+  },2000);
+});
+
 </script>
 
 </body>
