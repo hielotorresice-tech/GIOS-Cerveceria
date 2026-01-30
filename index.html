@@ -641,18 +641,21 @@ let cliente = {
 };
 
 function continueWelcome(){
-  const nombre=document.getElementById("clienteNombre").value.trim();
-  const direccion=document.getElementById("clienteDireccion").value.trim();
+  const nombre = document.getElementById("clienteNombre").value.trim();
+  const direccion = document.getElementById("clienteDireccion").value.trim();
 
   if(!nombre || !direccion){
-    alert("Por favor completa tus datos");
+    alert("Por favor ingresa nombre y dirección");
     return;
   }
 
-  cliente.nombre=nombre;
-  cliente.direccion=direccion;
+  cliente.nombre = nombre;
+  cliente.direccion = direccion;
 
-  document.getElementById("welcome").style.display="none";
+  // Guardar para próximas veces
+  localStorage.setItem("clienteGIOS", JSON.stringify(cliente));
+
+  document.getElementById("welcome").style.display = "none";
 }
 
 function cancelWelcome(){
