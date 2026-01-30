@@ -427,9 +427,11 @@ align-items:center; justify-content:center">
 </div>
 
 <script>
-  window.addEventListener("load",()=>{
+window.addEventListener("load",()=>{
   setTimeout(()=>{
     const splash = document.getElementById("splash");
+    if(!splash) return;
+
     splash.classList.add("fade-out");
 
     setTimeout(()=>{
