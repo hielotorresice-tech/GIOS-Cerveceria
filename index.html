@@ -619,12 +619,18 @@ function closeTransfer(){
   document.getElementById("transferModal").style.display="none";
 }
 
-window.addEventListener("load",()=>{
-  setTimeout(()=>{
-    document.getElementById("splash").remove();
-    document.getElementById("welcome").style.display="flex";
-  },2000);
-});
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      const splash = document.getElementById("splash");
+      splash.classList.add("fade-out");
+
+      setTimeout(() => {
+        splash.style.display = "none";
+      }, 600); // coincide con el fade
+    }, 1200); // duración visible del logo
+  });
+</script>
 
 let cliente={};
 
