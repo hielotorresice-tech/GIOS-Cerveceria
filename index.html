@@ -635,7 +635,10 @@ function closeTransfer(){
   document.getElementById("transferModal").style.display="none";
 }
   
-let cliente={};
+let cliente = {
+  nombre: "",
+  direccion: ""
+};
 
 function continueWelcome(){
   const nombre=document.getElementById("clienteNombre").value.trim();
