@@ -613,6 +613,8 @@ totalSpan.classList.add("bump");
 }
 
 function pagarMP(){
+  document.getElementById("mpNombre").innerText = cliente.nombre;
+  document.getElementById("mpDireccion").innerText = cliente.direccion;
   document.getElementById("mpAlert").style.display="flex";
 }
 
