@@ -631,9 +631,6 @@ function goMP(){
 function sendWA(){
   let msg = "🍺 Pedido GIOS 🍺\n\n";
 
-  msg += `👤 Cliente: ${cliente.nombre}\n`;
-  msg += `📍 Dirección: ${cliente.direccion}\n\n`;
-
   document.querySelectorAll(".card").forEach(c=>{
     let q = parseInt(c.querySelector("span").innerText);
     if(q > 0){
