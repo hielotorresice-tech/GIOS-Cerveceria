@@ -607,16 +607,14 @@ function closeTransfer(){
   document.getElementById("transferModal").style.display="none";
 }
 
-  window.addEventListener("load", () => {
-  const splash = document.getElementById("splash");
+  window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("splash")?.classList.add("fade-out");
+  },1200);
 
-  setTimeout(() => {
-    splash.classList.add("fade-out");
-  }, 1000);
-
-  setTimeout(() => {
-    splash.remove();
-  }, 1600);
+  setTimeout(()=>{
+    document.getElementById("splash")?.remove();
+  },1800);
 });
 
 let cliente={};
