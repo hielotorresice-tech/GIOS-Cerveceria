@@ -662,6 +662,18 @@ function cancelWelcome(){
   location.reload();
 }
 
+window.addEventListener("load", () => {
+  const data = localStorage.getItem("clienteGIOS");
+
+  if(data){
+    cliente = JSON.parse(data);
+    // No muestra bienvenida
+  } else {
+    // Primera vez → pide datos
+    document.getElementById("welcome").style.display = "flex";
+  }
+});
+
 </script>
 
 </body>
