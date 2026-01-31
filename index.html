@@ -241,9 +241,10 @@ body{
   appearance:none;
 }
 
-# img{
-  width:90%;
-  max-width:360px;
+#splash img{
+  width:70vw;
+  max-width:260px;
+  height:auto;
   opacity:0;
   animation:logoIn 0.8s ease forwards;
 }
@@ -418,18 +419,19 @@ align-items:center; justify-content:center">
 
 <script>
 window.addEventListener("load", () => {
-  const tm = document.getElementById("transferModal");
-  const mp = document.getElementById("mpAlert");
+  const splash = document.getElementById("splash");
+  if(!splash) return;
 
-  if(tm){
-    tm.style.display = "none";
-    tm.style.pointerEvents = "none";
-  }
+  setTimeout(() => {
+    splash.style.opacity = "0";
+    splash.style.pointerEvents = "none";
 
-  if(mp){
-    mp.style.display = "none";
-    mp.style.pointerEvents = "none";
-  }
+    setTimeout(() => {
+      splash.remove();
+      document.body.style.overflow = "auto";
+    }, 400);
+
+  }, 600);
 });
 </script>
 
@@ -691,6 +693,23 @@ window.addEventListener("load", () => {
 <div id="transferModal">...</div>
 <div id="mpAlert">...</div>
 <div id="welcome">...</div>
+
+<script>
+window.addEventListener("load", () => {
+  const tm = document.getElementById("transferModal");
+  const mp = document.getElementById("mpAlert");
+
+  if(tm){
+    tm.style.display = "none";
+    tm.style.pointerEvents = "none";
+  }
+
+  if(mp){
+    mp.style.display = "none";
+    mp.style.pointerEvents = "none";
+  }
+});
+</script>
 
 </body>
 
