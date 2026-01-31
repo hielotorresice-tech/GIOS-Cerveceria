@@ -10,17 +10,17 @@
 #splash {
   position: fixed;
   inset: 0;
-  background: #f2f2f2;
+  background: #000; /* o el color que uses */
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 9999;
-  transition: opacity 0.6s ease;
+  transition: opacity .6s ease;
 }
 
 #splash.fade-out {
   opacity: 0;
-  pointer-events: none;
+  pointer-events: none; /* 👈 CLAVE TOTAL */
 }
 
 .currency{
