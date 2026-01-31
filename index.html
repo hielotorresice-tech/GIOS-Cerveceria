@@ -418,18 +418,18 @@ align-items:center; justify-content:center">
 
 <script>
 window.addEventListener("load", () => {
-  const splash = document.getElementById("splash");
-  if (!splash) return;
+  const tm = document.getElementById("transferModal");
+  const mp = document.getElementById("mpAlert");
 
-  setTimeout(() => {
-    splash.classList.add("fade-out");
+  if(tm){
+    tm.style.display = "none";
+    tm.style.pointerEvents = "none";
+  }
 
-    setTimeout(() => {
-      splash.remove();
-      window.scrollTo(0,0);
-    }, 600);
-
-  }, 700);
+  if(mp){
+    mp.style.display = "none";
+    mp.style.pointerEvents = "none";
+  }
 });
 </script>
 
