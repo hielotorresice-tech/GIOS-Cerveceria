@@ -417,18 +417,15 @@ align-items:center; justify-content:center">
 </div>
 
 <script>
-window.addEventListener("load",()=>{
-  setTimeout(()=>{
-    const splash = document.getElementById("splash");
-    if(!splash) return;
+window.addEventListener("load", () => {
+  const data = localStorage.getItem("clienteGIOS");
 
-    splash.classList.add("fade-out");
-
-    setTimeout(()=>{
-  splash.remove();
-  window.scrollTo(0,0);
-},600);
-},900);
+  if(data){
+    cliente = JSON.parse(data);
+    document.getElementById("welcome").style.display = "none"; // 👈 CLAVE
+  } else {
+    document.getElementById("welcome").style.display = "flex";
+  }
 });
 
 </script>
