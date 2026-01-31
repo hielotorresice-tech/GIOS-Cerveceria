@@ -418,16 +418,19 @@ align-items:center; justify-content:center">
 
 <script>
 window.addEventListener("load", () => {
-  const data = localStorage.getItem("clienteGIOS");
+  const splash = document.getElementById("splash");
+  if (!splash) return;
 
-  if(data){
-    cliente = JSON.parse(data);
-    document.getElementById("welcome").style.display = "none"; // 👈 CLAVE
-  } else {
-    document.getElementById("welcome").style.display = "flex";
-  }
+  setTimeout(() => {
+    splash.classList.add("fade-out");
+
+    setTimeout(() => {
+      splash.remove();
+      window.scrollTo(0,0);
+    }, 600);
+
+  }, 700);
 });
-
 </script>
 
 <div class="app">
