@@ -6,709 +6,217 @@
 <title>Venta de Cervezas - GIOS</title>
 
 <style>
-
-#splash {
-  position: fixed;
-  inset: 0;
-  background: #000; /* o el color que uses */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity .6s ease;
-}
-
-#splash.fade-out {
-  opacity: 0;
-  pointer-events: none; /* 👈 CLAVE TOTAL */
-}
-
-.currency{
-  margin-right:4px;
-  font-weight:bold;
-}
-
-#total{
-  display:inline-block;
-  transition: transform .2s ease;
-    }
-    #total.bump{
-      transform: scale(1.25);
-    }
-
-#zoneInfo{
-  display:block;
-  margin-top:6px;
-  font-size:13px;
-  font-weight:600;   /* más suave que bold */
-  color:#333;
-  text-align:center;
-}
-
-body{
+/* ================= RESET ================= */
+*{
+  box-sizing:border-box;
   margin:0;
-  font-family:Arial, sans-serif;
-  background:url("fondo-app.jpg") no-repeat center center;
-  background-size:cover;
-  min-height:100vh;
+  padding:0;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ================= BODY ================= */
+body{
+  background:#eaeaea;
   overflow-x:hidden;
 }
 
-.app{
-  max-width:420px;
-  margin:0 auto;          /* 👈 sin margen vertical */
-  background:rgba(255,255,255,0.95);
-  min-height:100vh;
-  padding-bottom:260px;   /* 👈 espacio real para el footer */
-  box-sizing:border-box;
-}
-
-/* HEADER */
-.app-header{
-  position:sticky;
-  top:0;
-  background:#EDEAE8;
-  text-align:center;
-  padding:10px 10px 8px;
-  z-index:15;
-}
-
-.logo{max-width:80px;}
-.subtitulo{font-size:14px;font-weight:bold;}
-.info{font-size:12px;}
-
-/* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
-  padding:10px;
-}
-
-.card{
-  background:#EDEFF0;
-  border-radius:14px;
-  padding:6px;
-  text-align:center;
-  box-shadow:0 6px 16px rgba(0,0,0,.08);
-  transition:transform .18s ease, box-shadow .18s ease;
-}
-
-.beer-box{
-  border:1px solid #ccc;
-  border-radius:10px;
-  padding:6px;
-}
-
-.beer-img{
-  width:68px;
-  height:90px;
-  object-fit:contain;
-}
-
-.qty{
+/* ================= SPLASH ================= */
+#splash{
+  position:fixed;
+  inset:0;
+  background:#000;
   display:flex;
+  align-items:center;
   justify-content:center;
-  gap:10px;
-}
-
-.qty button{
-  width:24px;
-  height:24px;
-  font-size:16px;
-  font-weight:bold;
-}
-
-.beer-info h3{
-  font-size:14px;
-  margin:4px 0 2px;
-}
-
-.price{font-weight:bold;}
-
-/* FOOTER */
-.footer{
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  max-width: 420px;
-  background: #fff;
-  padding: 10px 10px 14px;
-  box-shadow: 0 -4px 10px rgba(0,0,0,.2);
-  z-index: 30; /* 👈 más alto que todo */
-}
-
-/* DELIVERY */
-.delivery-title{
-  background:#007BFF;
-  color:#fff;
-  font-weight:bold;
-  text-align:center;   /* 👈 ESTO centra el texto */
-  padding:8px;
-  border-radius:8px;
-  margin-bottom:6px;
-}
-
-.delivery-zone select{
-  width:100%;
-  padding:6px;
-  border-radius:8px;
-  margin-bottom:6px;
-}
-
-/* TOTAL */
-.total{
-  text-align:center;
-  font-size:18px;
-  font-weight:bold;
-  margin:6px 0;
-  transition:transform .2s ease;
-}
-
-.total.bump{
-  transform:scale(1.15);
-}
-
-/* ACTIONS */
-.actions{
-  display:flex;
-  gap:6px;
-}
-
-.actions button{
-  flex:1;
-  padding:8px;
-  border:none;
-  border-radius:6px;
-  font-size:11px;
-}
-
-.actions button:disabled{opacity:.5}
-
-.qty button{
-  transition: transform .1s ease;
-}
-
-.qty button:active{
-  transform: translateY(2px);
-}
-
-.card{
-  transition: transform .12s ease, box-shadow .12s ease;
-}
-
-.card:active{
-  transform: translateY(4px);
-  box-shadow: 0 4px 8px rgba(0,0,0,.18);
-}
-
-/* ===== INFO DELIVERY ===== */
-#zoneInfo{
-  display:block;
-  font-size:13px;
-  margin-top:6px;          /* más aire */
-  font-weight:600;         /* semi-bold */
-  color:#333;
-  text-align:center;
-}
-
-.transfer-highlight{
-  margin-top:14px;
-  padding:10px;
-  border:1.5px solid #007BFF;     /* azul eléctrico */
-  border-radius:8px;
-  background:#fff;
-  color:#c70000;                  /* rojo */
-  font-weight:bold;
-  text-align:center;
-  font-size:13px;
-}
-
-#zone{
-  width:100%;
-  padding:8px;
-  border-radius:8px;
-  text-align:center;
-  text-align-last:center;
-
-  background:#007BFF;      /* azul eléctrico */
-  color:#fff;              /* texto blanco */
-  font-weight:bold;
-
-  border:none;
-  appearance:none;
+  z-index:100;
 }
 
 #splash img{
-  width:70vw;
-  max-width:260px;
-  height:auto;
-  opacity:0;
+  width:80%;
+  max-width:280px;
   animation:logoIn 0.8s ease forwards;
 }
 
-/* Animaciones */
 @keyframes logoIn{
-  to{opacity:1; transform:scale(1);}
+  from{opacity:0; transform:scale(0.8)}
+  to{opacity:1; transform:scale(1)}
 }
 
-@keyframes fadeOut{
-  to{opacity:0; visibility:hidden;}
-}
-
-/* ===== WELCOME ===== */
-#welcome{
+/* ================= APP ================= */
+#app{
   display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  z-index:90;
-  align-items:center;
-  justify-content:center;
-}
-
-.welcome-box{
+  max-width:420px;
+  margin:auto;
   background:#fff;
-  border-radius:16px;
-  padding:20px;
-  width:90%;
-  max-width:340px;
+  min-height:100vh;
+}
+
+/* ================= HEADER ================= */
+header{
+  padding:14px;
+  background:#111;
+  color:#fff;
   text-align:center;
-}
-
-.welcome-box h2{
-  margin:0 0 8px;
-}
-
-.welcome-box p{
-  font-size:14px;
-  margin-bottom:12px;
-}
-
-.welcome-box input{
-  width:100%;
-  padding:8px;
-  margin-bottom:10px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-.welcome-actions{
-  display:flex;
-  gap:10px;
-}
-
-.welcome-actions button{
-  flex:1;
-  padding:8px;
-  border-radius:8px;
   font-weight:bold;
 }
 
-.welcome-actions button:last-child{
-  background:#007BFF;
-  color:#fff;
-  border:none;
+/* ================= MAIN ================= */
+main{
+  padding:16px;
 }
 
+/* ================= BOTONES ================= */
+button{
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.btn{
+  width:100%;
+  margin-top:10px;
+}
+
+.btn-blue{background:#007BFF;color:#fff;}
+.btn-green{background:#28a745;color:#fff;}
+.btn-gray{background:#666;color:#fff;}
+
+/* ================= OVERLAYS ================= */
+.overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.55);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:60;
+}
+
+.modal{
+  background:#fff;
+  border-radius:14px;
+  padding:18px;
+  width:90%;
+  max-width:320px;
+  text-align:center;
+}
+
+.modal h3{
+  margin-bottom:12px;
+}
+
+.modal p{
+  margin:6px 0;
+  font-size:14px;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  padding:12px;
+  border-top:1px solid #ddd;
+}
 </style>
 </head>
 
-  <!-- MODAL TRANSFERENCIA -->
-<div id="transferModal" style="display:none; position:fixed; inset:0;
-background:rgba(0,0,0,.55); z-index:50;
-align-items:center; justify-content:center">
-
-   <div>
-    👤 Cliente: <span id="trNombre"></span><br>
-    📍 Dirección: <span id="trDireccion"></span>
-  </div>
-
-  <div style="
-    background:#f2f2f2;
-    border:2px solid #555;
-    border-radius:14px;
-    padding:18px;
-    width:90%;
-    max-width:320px;
-    text-align:left;
-  ">
-
-    <div style="font-weight:bold;color:#000;margin-bottom:10px;">
-      🏦 Datos para Transferencia 🏦
-    </div>
-
-    <div style="color:#000;font-weight:bold;line-height:1.6;">
-      Banco : Coopeuch<br>
-      Cuenta : Vista<br>
-      Nº Cuenta: 251105735<br>
-      Nombre : Oscar Torres
-    </div>
-
-    <div class="transfer-highlight">
-      *** Envía Comprobante Vía WhatsApp ***
-    </div>
-
-    <div style="text-align:center;margin-top:14px;">
-      <button onclick="closeTransfer()" style="
-        background:#007BFF;
-        color:#fff;
-        font-weight:bold;
-        border:1px solid #000;
-        padding:8px 22px;
-        border-radius:8px;
-      ">Cerrar</button>
-    </div>
-
-  </div>
-</div>
-
-<!-- ALERTA MERCADO PAGO -->
-<div id="mpAlert" style="display:none; position:fixed; inset:0;
-background:rgba(0,0,0,.55); z-index:60;
-align-items:center; justify-content:center">
-
-  <div style="
-    background:#f2f2f2;
-    border:2px solid #007BFF;
-    border-radius:14px;
-    padding:18px;
-    width:90%;
-    max-width:320px;
-    text-align:center;
-  ">
-
-    <div style="font-weight:bold;color:#000;margin-bottom:10px;">
-      💳 Mercado Pago
-    </div>
-
-    <div class="transfer-highlight">
-      *** Envía Comprobante Vía WhatsApp ***
-    </div>
-
-    <div style="display:flex; gap:10px; margin-top:16px; justify-content:center;">
-      <button onclick="goMP()" style="
-        background:#007BFF;
-        color:#fff;
-        font-weight:bold;
-        border:none;
-        padding:8px 14px;
-        border-radius:8px;
-      ">Continuar</button>
-
-      <button onclick="closeMP()" style="
-        background:#fff;
-        color:#000;
-        font-weight:bold;
-        border:1px solid #000;
-        padding:8px 14px;
-        border-radius:8px;
-      ">Cancelar</button>
-    </div>
-
-  </div>
-</div>
-
 <body>
 
-<!-- SPLASH -->
+<!-- ================= SPLASH ================= -->
 <div id="splash">
   <img src="logogios.png" alt="GIOS">
 </div>
 
-<script>
-window.addEventListener("load", () => {
-  const splash = document.getElementById("splash");
-  if(!splash) return;
+<!-- ================= APP ================= -->
+<div id="app">
 
-  setTimeout(() => {
-    splash.style.opacity = "0";
-    splash.style.pointerEvents = "none";
+  <header>
+    🍺 Cervecería GIOS
+  </header>
 
-    setTimeout(() => {
-      splash.remove();
-      document.body.style.overflow = "auto";
-    }, 400);
+  <main>
+    <p><strong>Productos (base)</strong></p>
+    <p>Escudo Silver - $1.000</p>
+    <p>Escudo Roja - $950</p>
 
-  }, 600);
-});
-</script>
+    <button class="btn btn-blue" onclick="abrirMercadoPago()">Mercado Pago</button>
+    <button class="btn btn-green" onclick="abrirTransferencia()">Transferencia</button>
+  </main>
 
-<!-- APP -->
-<div class="app">
+  <footer>
+    <small>Copiapó · Delivery</small>
+  </footer>
 
-<header class="app-header">
-  <img src="logogios.png" class="logo">
-  <div class="subtitulo">🍺 Venta de Cervezas - Copiapó 🍺</div>
-  <div class="info">⏰ 09:00–15:00 / 17:00–22:00 🚚 Delivery</div>
-</header>
+</div>
 
-<div class="products">
-
-<div class="card" data-price="1000">
-  <div class="beer-box">
-    <img src="escudo-silver.png" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
-    </div>
-  </div>
-  <div class="beer-info">
-    <h3>Escudo Silver</h3>
-    <div class="price">$1.000</div>
+<!-- ================= WELCOME ================= -->
+<div id="welcome" class="overlay">
+  <div class="modal">
+    <h3>👤 Bienvenido</h3>
+    <p>Ingresa tus datos</p>
+    <button class="btn btn-blue" onclick="guardarCliente()">Continuar</button>
   </div>
 </div>
 
-<div class="card" data-price="950">
-  <div class="beer-box">
-    <img src="escudo-roja470.avif" class="beer-img">
-    <div class="qty">
-      <button onclick="add(this,-1)">−</button>
-      <span>0</span>
-      <button onclick="add(this,1)">+</button>
-    </div>
-  </div>
-  <div class="beer-info">
-    <h3>Escudo Roja</h3>
-    <div class="price">$950</div>
+<!-- ================= TRANSFERENCIA ================= -->
+<div id="transferModal" class="overlay">
+  <div class="modal">
+    <h3>🏦 Datos Transferencia</h3>
+    <p>Banco: Coopeuch</p>
+    <p>Cuenta: Vista</p>
+    <p>N°: 251105735</p>
+    <p>Nombre: Oscar Torres</p>
+    <button class="btn btn-gray" onclick="cerrarOverlays()">Cerrar</button>
   </div>
 </div>
 
-<div class="card" data-price="900">
- <div class="beer-box">
-  <img src="cristal-473.png" class="beer-img">
-  <div class="qty">
-   <button onclick="add(this,-1)">−</button>
-   <span>0</span>
-   <button onclick="add(this,1)">+</button>
+<!-- ================= MERCADO PAGO ================= -->
+<div id="mpAlert" class="overlay">
+  <div class="modal">
+    <h3>💳 Mercado Pago</h3>
+    <p>Próximamente</p>
+    <button class="btn btn-gray" onclick="cerrarOverlays()">Cerrar</button>
   </div>
-</div>
-<div class="beer-info">
- <h3>Cristal</h3>
- <small>473cc</small>
- <div class="price">$900</div>
- </div>
-</div>
-
-<div class="card" data-price="1000">
- <div class="beer-box">
-  <img src="sol-330.png" class="beer-img">
-  <div class="qty">
-   <button onclick="add(this,-1)">−</button>
-   <span>0</span>
-   <button onclick="add(this,1)">+</button>
- </div>
-</div> 
-<div class="beer-info">
- <h3>Sol</h3>
- <small>330cc</small>
- <div class="price">$1.000</div>
- </div>
-</div>
-
-</div>
-</div>
-
-<div class="footer">
-
-  <div class="delivery-zone">
-
-  <select id="zone" onchange="calc()">
-      <option value="" style="text-align:center;">
-  🚚 Selecciona Zona Delivery 🚚</option>
-      <option value="centro">Copiapó Centro</option>
-      <option value="paipote">Paipote</option>
-      <option value="tierra">Tierra Amarilla</option>
-    </select>
-
-    <small id="zoneInfo"></small>
-
-  </div>
-
-  <div class="total">
-    Total: <span class="currency">$</span><span id="total">0</span>
-  </div>
-
-  <div class="actions">
-  <button id="mp" onclick="pagarMP()" disabled>💳 Mercado Pago</button>
-  <button id="tr" onclick="openTransfer()" disabled>🏦 Transferir</button>
-  <button id="wa" onclick="sendWA()" disabled>📲 WhatsApp</button>
-  <button id="call" onclick="location.href='tel:+56927731874'">📞 Llamar</button>
-</div>
-
 </div>
 
 <script>
-const zonas={
-  centro:{costo:1000,minimo:5000},
-  paipote:{costo:2000,minimo:8000},
-  tierra:{costo:3000,minimo:10000}
-};
-
-let total=0;
-
-function add(btn,val){
-  const card=btn.closest(".card");
-  const span=btn.parentNode.querySelector("span");
-  span.innerText=Math.max(0,parseInt(span.innerText)+val);
-
-  card.classList.remove("bump");
-  void card.offsetWidth;
-  card.classList.add("bump");
-
-  calc();
-}
-
-function calc(){
-  let subtotal=0;
-
-  document.querySelectorAll(".card").forEach(c=>{
-    subtotal+=c.dataset.price*parseInt(c.querySelector("span").innerText);
-  });
-
-  let zone=document.getElementById("zone").value;
-  let delivery=0;
-  let ok=subtotal>0;
-
-  if(zone){
-    delivery=zonas[zone].costo;
-    document.getElementById("zoneInfo").innerText =
-  `Delivery $${delivery.toLocaleString("es-CL")} | Mín $${zonas[zone].minimo.toLocaleString("es-CL")}`;
-    if(subtotal<zonas[zone].minimo) ok=false;
-  }else{
-    ok=false;
-    document.getElementById("zoneInfo").innerText="";
-  }
-
-  total=subtotal+(ok?delivery:0);
-  const totalSpan = document.getElementById("total");
-totalSpan.innerText = total.toLocaleString("es-CL");
-
-totalSpan.classList.remove("bump");
-void totalSpan.offsetWidth;
-totalSpan.classList.add("bump");
-
-  const t=document.querySelector(".total");
-  t.classList.remove("bump");
-  void t.offsetWidth;
-  t.classList.add("bump");
-
-  ["mp","tr","wa"].forEach(id=>{
-    document.getElementById(id).disabled=!(total>0 && ok);
+/* ================= UTILIDAD CENTRAL ================= */
+function cerrarOverlays(){
+  ["welcome","transferModal","mpAlert"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el) el.style.display="none";
   });
 }
 
-function pagarMP(){
-  document.getElementById("mpNombre").innerText = cliente.nombre;
-  document.getElementById("mpDireccion").innerText = cliente.direccion;
-  document.getElementById("mpAlert").style.display="flex";
-}
-
-function closeMP(){
-  document.getElementById("mpAlert").style.display="none";
-}
-
-function goMP(){
-  closeMP();
-  window.open("https://link.mercadopago.cl/torresice","_blank");
-}
-
-function sendWA(){
-  let msg = "🍺 Pedido GIOS 🍺\n";
-
-  if(cliente.nombre){
-    msg += `👤 Cliente: ${cliente.nombre}\n`;
-  }
-  if(cliente.direccion){
-    msg += `📍 Dirección: ${cliente.direccion}\n\n`;
-  }
-
-  document.querySelectorAll(".card").forEach(c=>{
-    let q = c.querySelector("span").innerText;
-    if(q > 0){
-      msg += `${c.querySelector("h3").innerText} x${q}\n`;
-    }
-  });
-
-  msg += `\nTotal: $${total.toLocaleString("es-CL")}`;
-
-  window.open(
-    "https://wa.me/56927731874?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
-}
-
-function openTransfer(){
-  document.getElementById("trNombre").innerText = cliente.nombre;
-  document.getElementById("trDireccion").innerText = cliente.direccion;
+/* ================= MODALES ================= */
+function abrirTransferencia(){
+  cerrarOverlays();
   document.getElementById("transferModal").style.display="flex";
 }
 
-function closeTransfer(){
-  document.getElementById("transferModal").style.display="none";
-}
-  
-let cliente = {
-  nombre: "",
-  direccion: ""
-};
-
-function continueWelcome(){
-  const nombre = document.getElementById("clienteNombre").value.trim();
-  const direccion = document.getElementById("clienteDireccion").value.trim();
-
-  if(!nombre || !direccion){
-    alert("Por favor ingresa nombre y dirección");
-    return;
-  }
-
-  cliente.nombre = nombre;
-  cliente.direccion = direccion;
-
-  // Guardar para próximas veces
-  localStorage.setItem("clienteGIOS", JSON.stringify(cliente));
-
-  document.getElementById("welcome").style.display = "none";
+function abrirMercadoPago(){
+  cerrarOverlays();
+  document.getElementById("mpAlert").style.display="flex";
 }
 
-function cancelWelcome(){
-  location.reload();
+/* ================= CLIENTE ================= */
+function guardarCliente(){
+  localStorage.setItem("clienteGIOS","ok");
+  cerrarOverlays();
 }
 
-window.addEventListener("load", () => {
-  const data = localStorage.getItem("clienteGIOS");
-  const welcome = document.getElementById("welcome");
+/* ================= INIT ================= */
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("splash").style.display="none";
+    document.getElementById("app").style.display="block";
 
-  if(!welcome) return;
-
-  if(data){
-    cliente = JSON.parse(data);
-    welcome.style.display = "none";
-  } else {
-    welcome.style.display = "flex";
-  }
+    if(!localStorage.getItem("clienteGIOS")){
+      document.getElementById("welcome").style.display="flex";
+    }
+  },1200);
 });
-
-window.addEventListener("load", () => {
-  const tm = document.getElementById("transferModal");
-  const mp = document.getElementById("mpAlert");
-
-  if(tm){
-    tm.style.display = "none";
-    tm.style.pointerEvents = "none";
-  }
-
-  if(mp){
-    mp.style.display = "none";
-    mp.style.pointerEvents = "none";
-  }
-});
-
 </script>
 
 </body>
-
 </html>
