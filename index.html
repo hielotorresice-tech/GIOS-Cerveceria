@@ -680,13 +680,15 @@ function cancelWelcome(){
 
 window.addEventListener("load", () => {
   const data = localStorage.getItem("clienteGIOS");
+  const welcome = document.getElementById("welcome");
+
+  if(!welcome) return;
 
   if(data){
     cliente = JSON.parse(data);
-    // No muestra bienvenida
+    welcome.style.display = "none";
   } else {
-    // Primera vez → pide datos
-    document.getElementById("welcome").style.display = "flex";
+    welcome.style.display = "flex";
   }
 });
 
