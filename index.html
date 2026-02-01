@@ -214,18 +214,20 @@ header{
 
   <div class="products">
 
-    <div class="card" data-price="1000">
-      <div class="card-img">
-        <img src="escudo-silver.png">
-      </div>
-      <div class="card-name">Escudo Silver</div>
-      <div class="card-price">$1.000</div>
-      <div class="card-qty">
-        <button class="minus">-</button>
-        <span class="qty">0</span>
-        <button class="plus">+</button>
-      </div>
+    <div class="card">
+  <img src="escudo-silver.png" alt="Escudo Silver">
+
+  <div class="info">
+    <h4>Escudo Silver</h4>
+    <div class="precio">$1.000</div>
+
+    <div class="cantidad">
+      <button onclick="menos(this)">−</button>
+      <span>0</span>
+      <button onclick="mas(this,1000)">+</button>
     </div>
+  </div>
+</div>
 
     <div class="card" data-price="950">
       <div class="card-img">
