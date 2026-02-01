@@ -67,11 +67,13 @@ body{
   height:110px;
 }
 
-.card-img{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:110px;
+.card img{
+  width:100%;
+  max-width:140px;     /* 🔑 límite real */
+  height:auto;
+  display:block;
+  margin:0 auto 10px;
+  object-fit:contain;
 }
 
 /* info */
