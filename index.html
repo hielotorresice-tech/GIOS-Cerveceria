@@ -69,10 +69,11 @@ body{
   height:110px;
 }
 
-.card-img img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
+.card-img{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:110px;
 }
 
 /* info */
@@ -81,17 +82,17 @@ body{
 }
 
 .card-name{
-  font-family:Arial, sans-serif;
+  text-align:center;
   font-weight:bold;
   font-size:16px;
-  margin-bottom:4px;
+  margin-top:6px;
 }
 
 .card-price{
-  font-family:Arial, sans-serif;
+  text-align:center;
   font-weight:bold;
   font-size:18px;
-  color:#000;
+  margin-top:2px;
 }
 
 /* cantidad */
@@ -100,14 +101,14 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  gap:10px;
+  gap:12px;
 }
 
 .card-qty button{
   width:28px;
   height:28px;
-  border:1px solid #aaa;
-  background:#eee;
+  border:none;
+  background:#e0e0e0;
   color:#000;
   font-size:18px;
   font-weight:bold;
@@ -117,8 +118,7 @@ body{
 .card-qty span{
   font-size:16px;
   font-weight:bold;
-  color:#000;
-  min-width:20px;
+  min-width:18px;
   text-align:center;
 }
 
