@@ -44,10 +44,81 @@ body{
 }
 
 .card{
-  background:#f2f2f2;
-  padding:20px;
-  border-radius:12px;
-  margin-bottom:12px;
+  background:#fff;
+  border:1px solid #dcdcdc;          /* línea gris suave */
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:14px;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+
+/* animación SOLO al tocar */
+.card:active{
+  transform:translateY(-4px);
+  box-shadow:0 12px 22px rgba(0,0,0,.16);
+}
+
+/* imagen */
+.card-img{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:120px;
+  margin-bottom:8px;
+}
+
+.card-img img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+
+/* info */
+.card-info{
+  text-align:center;
+}
+
+.card-name{
+  font-family:Arial, sans-serif;
+  font-weight:bold;
+  font-size:16px;
+  margin-bottom:4px;
+}
+
+.card-price{
+  font-family:Arial, sans-serif;
+  font-weight:bold;
+  font-size:18px;
+  color:#000;
+}
+
+/* cantidad */
+.card-qty{
+  margin-top:10px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.card-qty button{
+  width:28px;
+  height:28px;
+  border:1px solid #aaa;
+  background:#eee;
+  color:#000;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:6px;
+}
+
+.card-qty span{
+  font-size:16px;
+  font-weight:bold;
+  color:#000;
+  min-width:20px;
+  text-align:center;
 }
 
 /* ========== OVERLAY ========== */
