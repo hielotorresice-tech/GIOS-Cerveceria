@@ -103,21 +103,23 @@ header{
   box-shadow:0 14px 26px rgba(0,0,0,.18);
 }
 
-/* imagen */
+/* contenedor imagen */
 .card-img{
   display:flex;
   align-items:center;
   justify-content:center;
   height:110px;
+  margin-bottom:8px;
 }
 
-.card img{
-  width:100%;
-  max-width:140px;     /* 🔑 límite real */
+/* imagen */
+.card-img img{
+  max-width:140px;
+  max-height:100%;
+  width:auto;
   height:auto;
-  display:block;
-  margin:0 auto 10px;
   object-fit:contain;
+  display:block;
 }
 
 /* info */
