@@ -312,6 +312,22 @@ min-height:220px;                 /* Antes 260px muy Alta */
   transform:scale(0.96);
 }
 
+.actions{
+  position:fixed;
+  bottom:60px;                 /* 👈 justo sobre subtotal */
+  left:50%;
+  transform:translateX(-50%);
+  max-width:420px;
+  width:100%;
+
+  display:grid;
+  grid-template-columns:repeat(4, 1fr);
+  gap:8px;
+  padding:8px 10px;
+
+  z-index:20;
+}
+
 </style>
 </head>
 
