@@ -37,8 +37,14 @@ html, body{
 
 @media (max-width:360px){
   .header img{
-    max-width:140px;
-  }
+  width:auto;
+  max-width:110px;   /* 👈 controla tamaño en PC */
+  max-height:70px;   /* 👈 evita crecimiento vertical */
+  height:auto;
+  display:block;
+  margin:0 auto 6px;
+}
+  
   .header .sub{
     font-size:11px;
   }
