@@ -533,6 +533,26 @@ document.querySelectorAll(".card").forEach(card => {
    target="_blank">
   <img src="whatsapp-icon.png" alt=" ">
 </a>
-  
+
+<!-- MODAL RESUMEN PEDIDO -->
+<div id="orderModal" class="overlay">
+  <div class="modal modal-order">
+    <h3>🧾 Resumen de tu pedido</h3>
+
+    <div id="orderList" class="order-list">
+      <!-- productos dinámicos -->
+    </div>
+
+    <div class="order-total">
+      Total: <strong id="orderTotal">$0</strong>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn-outline" onclick="cerrar()">Cancelar</button>
+      <button class="btn-primary" onclick="abrirFormulario()">Continuar</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
