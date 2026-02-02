@@ -354,6 +354,34 @@ min-height:220px;                 /* Antes 260px muy Alta */
   z-index:40;
 }
 
+.ws-float{
+  position:fixed;
+  bottom:150px;          /* 👈 arriba del subtotal */
+  right:16px;
+
+  width:60px;
+  height:60px;
+  border-radius:50%;
+
+  background:#25D366;
+  color:#fff;
+  font-size:30px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+  z-index:40;
+
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.ws-float:active{
+  transform:scale(.92);
+  box-shadow:0 6px 14px rgba(0,0,0,.25);
+}
+
 </style>
 </head>
 
