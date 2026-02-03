@@ -565,56 +565,34 @@ function updateSubtotal(){
 }
 
 document.querySelectorAll(".card").forEach(card => {
+
   const price = parseInt(card.dataset.price);
   const qtyEl = card.querySelector(".qty");
 
   card.querySelector(".plus").addEventListener("click", () => {
+
     let qty = parseInt(qtyEl.innerText);
     qty++;
+
     qtyEl.innerText = qty;
     subtotal += price;
+
     updateSubtotal();
   });
 
   card.querySelector(".minus").addEventListener("click", () => {
+
     let qty = parseInt(qtyEl.innerText);
+
     if(qty > 0){
       qty--;
       qtyEl.innerText = qty;
       subtotal -= price;
+
       updateSubtotal();
     }
   });
-});
-<script>
-let subtotal = 0;
 
-function updateSubtotal(){
-  document.getElementById("subtotalValue").innerText =
-    "$" + subtotal.toLocaleString("es-CL");
-}
-
-document.querySelectorAll(".card").forEach(card => {
-  const price = parseInt(card.dataset.price);
-  const qtyEl = card.querySelector(".qty");
-
-  card.querySelector(".plus").addEventListener("click", () => {
-    let qty = parseInt(qtyEl.innerText);
-    qty++;
-    qtyEl.innerText = qty;
-    subtotal += price;
-    updateSubtotal();
-  });
-
-  card.querySelector(".minus").addEventListener("click", () => {
-    let qty = parseInt(qtyEl.innerText);
-    if(qty > 0){
-      qty--;
-      qtyEl.innerText = qty;
-      subtotal -= price;
-      updateSubtotal();
-    }
-  });
 });
 </script>
 
