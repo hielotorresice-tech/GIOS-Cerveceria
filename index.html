@@ -628,8 +628,9 @@ function cerrarCliente(){
   document.getElementById("modalCliente").style.display="none"; }
 
 function cerrar(){
-  document.querySelectorAll(".overlay")
-    .forEach(o=>o.style.display="none");
+  document
+    .querySelectorAll(".overlay, .modal")
+    .forEach(el => el.style.display="none");
 }
 
 function abrirTransferencia(){
