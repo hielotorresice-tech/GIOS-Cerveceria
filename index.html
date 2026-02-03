@@ -620,6 +620,13 @@ min-height:220px;                 /* Antes 260px muy Alta */
 </div>
 
 <script>
+
+function abrirCliente(){
+  document.getElementById("modalCliente").style.display="flex"; }  
+
+function cerrarCliente(){
+  document.getElementById("modalCliente").style.display="none"; }
+
 function cerrar(){
   document.querySelectorAll(".overlay")
     .forEach(o=>o.style.display="none");
