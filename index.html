@@ -501,7 +501,9 @@ min-height:220px;                 /* Antes 260px muy Alta */
     🏦<span>Transferir</span>
   </button>
 
-  <button onclick="abrirResumenPedido()">🧾 Enviar pedido</button>
+  <button class="btn-action" onclick="abrirResumenPedido()">
+  🧾<span>Enviar pedido</span>
+</button>
 
  <a href="https://wa.me/+56927731874" class="btn-action">
     📱<span>WhatsApp</span>
@@ -582,6 +584,37 @@ document.querySelectorAll(".card").forEach(card => {
     }
   });
 });
+<script>
+let subtotal = 0;
+
+function updateSubtotal(){
+  document.getElementById("subtotalValue").innerText =
+    "$" + subtotal.toLocaleString("es-CL");
+}
+
+document.querySelectorAll(".card").forEach(card => {
+  const price = parseInt(card.dataset.price);
+  const qtyEl = card.querySelector(".qty");
+
+  card.querySelector(".plus").addEventListener("click", () => {
+    let qty = parseInt(qtyEl.innerText);
+    qty++;
+    qtyEl.innerText = qty;
+    subtotal += price;
+    updateSubtotal();
+  });
+
+  card.querySelector(".minus").addEventListener("click", () => {
+    let qty = parseInt(qtyEl.innerText);
+    if(qty > 0){
+      qty--;
+      qtyEl.innerText = qty;
+      subtotal -= price;
+      updateSubtotal();
+    }
+  });
+});
+</script>
 
 <script>
 function abrirResumenPedido(){
