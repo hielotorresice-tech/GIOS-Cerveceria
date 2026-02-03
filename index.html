@@ -674,5 +674,30 @@ function abrirFormulario(){
   </div>
 </div>
 
+<!-- MODAL CLIENTE -->
+<div id="modalCliente" class="modal">
+  <div class="modal-box">
+
+    <h2>Datos de entrega</h2>
+
+    <input id="clienteNombre" placeholder="Nombre" required>
+    <input id="clienteDireccion" placeholder="Dirección" required>
+    <input id="clienteReferencia" placeholder="Referencia (casa azul, portón, etc.)">
+
+    <select id="clientePago">
+      <option value="">Método de pago</option>
+      <option>Transferencia</option>
+      <option>Mercado Pago</option>
+      <option>Efectivo</option>
+    </select>
+
+    <div class="modal-actions">
+      <button onclick="cerrarCliente()">Cancelar</button>
+      <button onclick="enviarPedido()">Enviar pedido</button>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
