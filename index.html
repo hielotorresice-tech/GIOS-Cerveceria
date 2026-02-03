@@ -714,9 +714,10 @@ function abrirResumenPedido(){
 }
 
 function abrirFormulario(){
-  cerrar();
-  alert("Aquí va el formulario cliente (Paso C)");
+  cerrar(); // cierra overlays si hay
+  document.getElementById("modalCliente").style.display="flex";
 }
+
 </script>
 
 <a href="https://wa.me/+56927731874"
