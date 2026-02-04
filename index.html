@@ -379,6 +379,17 @@ min-height:220px;                 /* Antes 260px muy Alta */
   backdrop-filter:blur(6px); /* efecto premium */
 }
 
+.subtotal-bar::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.55);
+}
+
+.subtotal-bar *{
+  position:relative;
+}
+
 .btn-action{
   height:45px;
   width:100%;
