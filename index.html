@@ -650,7 +650,8 @@ min-height:220px;                 /* Antes 260px muy Alta */
 <script>
 
 function abrirCliente(){
-  document.getElementById("modalCliente").style.display="flex"; }  
+  document.getElementById("modalCliente").classList.add("active")
+; }  
 
 function cerrarCliente(){
   document.getElementById("modalCliente").style.display="none"; }
@@ -659,12 +660,14 @@ document.getElementById("orderModal").classList.add("active");
 
 function abrirTransferencia(){
   cerrar();
-  document.getElementById("transferModal").style.display="flex";
+  document.getElementById("transferModal").classList.add("active")
+;
 }
 
 function abrirMP(){
   cerrar();
-  document.getElementById("mpAlert").style.display="flex";
+  document.getElementById("mpAlert").classList.add("active")
+;
 }
 </script>
 
@@ -747,7 +750,7 @@ function abrirResumenPedido(){
 
 function abrirFormulario(){
   cerrar(); // cierra overlays si hay
-  document.getElementById("modalCliente").style.display="flex";
+  document.getElementById("modalCliente").classList.add("active");
 }
 
 </script>
