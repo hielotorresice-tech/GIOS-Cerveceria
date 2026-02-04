@@ -293,7 +293,7 @@ min-height:220px;                 /* Antes 260px muy Alta */
   display:none;
   align-items:center;
   justify-content:center;
-  z-index:9998;
+  z-index:9999;
 }
 
 .modal{
@@ -344,7 +344,7 @@ min-height:220px;                 /* Antes 260px muy Alta */
   padding:10px;
 
   background:#111;
-  z-index:11;
+  z-index:9300;
 }
 
 .action-bar .btn{
@@ -436,8 +436,8 @@ min-height:220px;                 /* Antes 260px muy Alta */
 
 .ws-float{
   position:fixed;
-  bottom:150px;          /* 👈 arriba del subtotal */
-  right:16px;
+  bottom:110px;          /* 👈 arriba del subtotal */
+  right:14px;
 
   width:60px;
   height:60px;
@@ -452,7 +452,7 @@ min-height:220px;                 /* Antes 260px muy Alta */
   justify-content:center;
 
   box-shadow:0 10px 24px rgba(0,0,0,.35);
-  z-index:40;
+  z-index:9400;
 
   transition:transform .2s ease, box-shadow .2s ease;
 }
@@ -612,13 +612,13 @@ min-height:220px;                 /* Antes 260px muy Alta */
 </main>
 
   <div class="action-bar">
-  <button class="btn-action">
-    💳<span>Mercado Pago</span>
-  </button>
+  <button class="btn-action" onclick="abrirMP()">
+💳<span>Mercado Pago</span>
+</button>
 
-  <button class="btn-action">
-    🏦<span>Transferir</span>
-  </button>
+  <button class="btn-action" onclick="abrirTransferencia()">
+🏦<span>Transferir</span>
+</button>
 
 <button class="btn-action" onclick="abrirResumenPedido()">
 🧾<span>Enviar</span>
