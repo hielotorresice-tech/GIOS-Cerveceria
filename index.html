@@ -714,6 +714,42 @@ function abrirResumenPedido(){
   document.getElementById("orderModal").style.display = "flex";
 }
 
+function abrirResumenPedido(){
+
+  if(subtotal === 0){
+    alert("Agrega productos al pedido 🙂");
+    return;
+  }
+
+  const orderList = document.getElementById("orderList");
+  orderList.innerHTML = "";
+
+  let total = 0;
+
+  document.querySelectorAll(".card").forEach(card=>{
+    const qty = parseInt(card.querySelector(".qty").innerText);
+
+    if(qty > 0){
+      const name = card.querySelector(".card-name").innerText;
+      const price = parseInt(card.dataset.price);
+      const lineTotal = qty * price;
+      total += lineTotal;
+
+      orderList.innerHTML += `
+        <div class="order-item">
+          <span>${name} x${qty}</span>
+          <span>$${lineTotal.toLocaleString("es-CL")}</span>
+        </div>
+      `;
+    }
+  });
+
+  document.getElementById("orderTotal").innerText =
+    "$" + total.toLocaleString("es-CL");
+
+  document.getElementById("orderModal").style.display = "flex";
+}
+
 function abrirFormulario(){
   cerrar(); // cierra overlays si hay
   document.getElementById("modalCliente").style.display="flex";
