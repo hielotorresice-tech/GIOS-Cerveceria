@@ -302,11 +302,17 @@ min-height:220px;                 /* Antes 260px muy Alta */
 
 .modal{
   background:#fff;
-  padding:18px;
-  border-radius:14px;
   width:90%;
-  max-width:320px;
-  text-align:center;
+  max-width:420px;
+
+  border-radius:18px;
+  padding:20px;
+
+  /* 🔥 CLAVE */
+  max-height:85vh;
+  overflow-y:auto;
+
+  animation:fadeIn .25s ease;
 }
 
 .subtotal-bar{
