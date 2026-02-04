@@ -360,18 +360,21 @@ min-height:220px;                 /* Antes 260px muy Alta */
 .subtotal-bar{
   position:fixed;
   bottom:0;
-  width:100%;
-  max-width:420px;
   left:50%;
   transform:translateX(-50%);
+
+  width:100%;
+  max-width:420px;
+
+  padding:14px;
 
   background-image:url("FondoHeader-Beers.jpg");
   background-size:cover;
   background-position:center;
 
-  border-top:1px solid rgba(255,255,255,.15);
+  color:#fff;
 
-  backdrop-filter:blur(6px); /* efecto premium */
+  z-index:9200;   /* 🔥 CLAVE */
 }
 
 .subtotal-bar::before{
