@@ -747,8 +747,7 @@ function abrirResumenPedido(){
   document.getElementById("orderTotal").innerText =
     "$" + total.toLocaleString("es-CL");
 
-  document.getElementById("orderModal").style.display = "flex";
-}
+  document.getElementById("orderModal").classList.add("active");
 
 function abrirFormulario(){
   cerrar(); // cierra overlays si hay
