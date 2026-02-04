@@ -655,11 +655,7 @@ function abrirCliente(){
 function cerrarCliente(){
   document.getElementById("modalCliente").style.display="none"; }
 
-function cerrar(){
-  document
-    .querySelectorAll(".overlay")
-    .forEach(el => el.style.display="none");
-}
+document.getElementById("orderModal").classList.add("active");
 
 function abrirTransferencia(){
   cerrar();
