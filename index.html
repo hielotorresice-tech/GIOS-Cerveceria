@@ -660,6 +660,12 @@ function cerrarCliente(){
 
 document.getElementById("orderModal").classList.add("active");
 
+function cerrar(){
+  document
+    .querySelectorAll(".overlay")
+    .forEach(el => el.classList.remove("active"));
+}
+
 function abrirTransferencia(){
   cerrar();
   document.getElementById("transferModal").classList.add("active")
