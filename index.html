@@ -775,14 +775,7 @@ function abrirResumenPedido(){
     }
   });
 
-  document.getElementById("orderTotal").innerText =
-    "$" + total.toLocaleString("es-CL");
-
-  document.getElementById("orderModal").classList.add("active");
-}
-
-
-/* 👇 ESTA FUNCIÓN VA SOLA */
+  /* 👇 ESTA FUNCIÓN VA SOLA */
 function abrirFormulario(){
   cerrar();
   document.getElementById("modalCliente").classList.add("active");
