@@ -687,7 +687,7 @@ function cerrarCliente(){
 function cerrar(){
   document
     .querySelectorAll(".overlay")
-    .forEach(el => el.classList.remove("active"));
+    .forEach(el => el.style.display="none");
 }
 
 function abrirTransferencia(){
