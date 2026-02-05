@@ -361,27 +361,28 @@ min-height:220px;                 /* Antes 260px muy Alta */
 
 .subtotal-bar{
   position:fixed;
-  bottom:0;
+  bottom:10px;
   left:50%;
   transform:translateX(-50%);
 
-  width:100%;
-  max-width:420px;
-
-  height:60px;
+  width:calc(100% - 20px);
+  max-width:400px;
+  height:56px;
 
   display:flex;
   justify-content:center;
   align-items:center;
   gap:8px;
 
-  font-size:18px;
+  font-size:17px;
   font-weight:600;
   color:#fff;
 
-  background-image:url("FondoHeader-Beers.jpg");
-  background-size:cover;
-  background-position:center;
+  background:rgba(20,20,20,.85);
+  backdrop-filter:blur(10px);
+
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
 
   z-index:9900;
 }
