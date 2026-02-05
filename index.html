@@ -333,19 +333,24 @@ min-height:220px;                 /* Antes 260px muy Alta */
 
 .action-bar{
   position:fixed;
-  bottom:70px;          /* arriba del subtotal */
+  bottom:78px;     /* justo sobre subtotal */
   left:50%;
   transform:translateX(-50%);
 
-  width:100%;
-  max-width:420px;
+  width:calc(100% - 20px);
+  max-width:400px;
 
   display:grid;
   grid-template-columns:repeat(5,1fr);
   gap:8px;
-  padding:8px;
+  padding:10px;
 
-  background:transparent;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(12px);
+
+  border-radius:22px;
+  box-shadow:0 10px 26px rgba(0,0,0,.25);
+
   z-index:9800;
 }
 
