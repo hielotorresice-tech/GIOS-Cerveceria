@@ -333,20 +333,20 @@ min-height:220px;                 /* Antes 260px muy Alta */
 
 .action-bar{
   position:fixed;
-  bottom:0;
+  bottom:70px;          /* arriba del subtotal */
   left:50%;
   transform:translateX(-50%);
 
   width:100%;
   max-width:420px;
-  margin:0 auto;
 
-  display:flex;
-  gap:6px;
-  padding:10px;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+  padding:8px;
 
-  background:#111;
-  z-index:8000;
+  background:transparent;
+  z-index:9800;
 }
 
 .action-bar .btn{
