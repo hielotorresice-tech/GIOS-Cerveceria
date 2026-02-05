@@ -90,17 +90,25 @@ body{
 /* ================= CARD ================= */
 .card{
   background:#fff;
-  border:1px solid #ccc;
-  border-radius:16px;
-  padding:8px;
+  border:none;
+
+  border-radius:18px;
+
+  padding:10px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
   text-align:center;
-  min-height:220px;
-  transition:transform .15s ease, box-shadow .15s ease;
+
+  min-height:210px;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  transition:transform .18s ease, box-shadow .18s ease;
 }
 
 .card:active{
-  transform:translateY(-4px);
-  box-shadow:0 14px 26px rgba(0,0,0,.18);
+  transform:scale(.97);
+  box-shadow:0 12px 26px rgba(0,0,0,.18);
 }
 
 .card-img{
