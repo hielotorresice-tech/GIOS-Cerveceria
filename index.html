@@ -465,7 +465,12 @@ function cerrar(){
   document.querySelectorAll('.overlay').forEach(o=>o.classList.remove('active'));
 }
 function abrirMP(){cerrar();document.getElementById('mpAlert').classList.add('active');}
-function abrirTransferencia(){cerrar();document.getElementById('transferModal').classList.add('active');}
+function abrirTransferencia(){
+  cerrar();
+  document.getElementById("transferModal")
+          .classList.add("active");
+}
+  
 function abrirResumenPedido(){
   if(subtotal===0){alert('Agrega productos');}
 }
