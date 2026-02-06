@@ -462,8 +462,49 @@ function abrirTransferencia(){cerrar();document.getElementById('transferModal').
 function abrirResumenPedido(){
   if(subtotal===0){alert('Agrega productos');}
 }
-</script>
 
+function enviarPedido(){
+
+  const nombre = document.getElementById("clienteNombre").value.trim();
+  const direccion = document.getElementById("clienteDireccion").value.trim();
+  const referencia = document.getElementById("clienteReferencia").value.trim();
+  const pago = document.getElementById("clientePago").value;
+  const zona = document.getElementById("clienteZona").value;
+
+  if(!nombre || !direccion || !pago || !zona){
+    alert("Completa los datos para continuar 🙂");
+    return;
+  }
+
+  let mensaje = "🛒 *Pedido GIOS* %0A%0A";
+
+  document.querySelectorAll(".card").forEach(card=>{
+    const qty = parseInt(card.querySelector(".qty").innerText);
+
+    if(qty > 0){
+      const name = card.querySelector(".card-name").innerText;
+      mensaje += `• ${name} x${qty}%0A`;
+    }
+  });
+
+  mensaje += `%0ATotal: *${subtotal.toLocaleString("es-CL")}*%0A%0A`;
+
+  mensaje += `📦 *Datos de entrega*%0A`;
+  mensaje += `👤 ${nombre}%0A`;
+  mensaje += `📍 ${direccion}%0A`;
+  mensaje += `🧭 Zona: ${zona}%0A`;
+
+  if(referencia){
+    mensaje += `🔎 Ref: ${referencia}%0A`;
+  }
+
+  mensaje += `💳 Pago: ${pago}`;
+
+  window.open(`https://wa.me/56927731874?text=${mensaje}`, "_blank");
+}
+
+</script>
+  
 <select id="clienteZona">
   <option value="">Zona de entrega</option>
   <option>Centro</option>
