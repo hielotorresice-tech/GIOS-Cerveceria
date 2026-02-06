@@ -464,7 +464,12 @@ document.querySelectorAll('.card').forEach(card=>{
 function cerrar(){
   document.querySelectorAll('.overlay').forEach(o=>o.classList.remove('active'));
 }
-function abrirMP(){cerrar();document.getElementById('mpAlert').classList.add('active');}
+function abrirMP(){
+  cerrar();
+  document.getElementById("mpModal")
+          .classList.add("active");
+}
+
 function abrirTransferencia(){
   cerrar();
   document.getElementById("transferModal")
