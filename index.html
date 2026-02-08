@@ -384,6 +384,35 @@ function cerrar(){
 document.querySelectorAll(".overlay").forEach(el=>el.classList.remove("active"));
 }
 
+function enviarPedidoWhatsApp(){
+
+ if(total === 0){
+   alert("Tu carrito está vacío");
+   return;
+ }
+
+ let pedido="🧾 *Pedido Cervecería GIOS* %0A%0A";
+
+ productos.forEach(p=>{
+   if(p.qty>0){
+      pedido+=`• ${p.nombre} x${p.qty} = $${p.precio*p.qty}%0A`;
+   }
+ });
+
+ pedido+=`%0ATotal: *$${total}*%0A%0A`;
+
+ let nombre=document.getElementById("nombre").value;
+ let direccion=document.getElementById("direccion").value;
+ let zona=document.getElementById("zona").value;
+
+ pedido+=`🚚 *Datos Cliente*%0A`;
+ pedido+=`Nombre: ${nombre}%0A`;
+ pedido+=`Dirección: ${direccion}%0A`;
+ pedido+=`Zona: ${zona}%0A`;
+
+ window.open(`https://wa.me/56927731874?text=${pedido}`,'_blank');
+}
+
 function enviarWhatsApp(){
 let texto="Pedido:%0A";
 
