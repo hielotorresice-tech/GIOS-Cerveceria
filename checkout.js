@@ -6,3 +6,19 @@ function abrirResumenPedido(){
   }
   document.getElementById("checkout").style.display = "block";
 }
+
+function enviarPedidoWhatsApp(){
+  let mensaje = "🍺 *NUEVO PEDIDO - GIOS*\n\n";
+
+  productos.forEach(p=>{
+    if(p.qty>0){
+      mensaje += `- ${p.nombre} x${p.qty}\n`;
+    }
+  });
+
+  mensaje += `\nTOTAL: $ ${calcularSubtotal().toLocaleString()}`;
+  mensaje += `\n\n⚠️ Enviar comprobante de pago`;
+
+  const url = `https://wa.me/569XXXXXXXX?text=${encodeURIComponent(mensaje)}`;
+  window.open(url,"_blank");
+}
