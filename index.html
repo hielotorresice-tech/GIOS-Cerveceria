@@ -1,484 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Delivery Cervezas Copiapó</title>
 
-<style>
+<title>GIOS Cervecería</title>
 
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
+<link rel="stylesheet" href="styles.css">
 
-body{
-  background:#f4f5f7;
-  padding-top:120px;
-  padding-bottom:170px;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  height:120px;
-  background-image:url("FondoHeader-Beers.jpg");
-  background-size:cover;
-  background-position:center;
-  color:#fff;
-  z-index:7000;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.header::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.6);
-}
-
-.header *{
-  position:relative;
-}
-
-.header img{
-  width:60px;
-  margin-bottom:6px;
-}
-
-.sub{
-  font-size:14px;
-  opacity:.95;
-}
-
-/* ================= CARDS ================= */
-
-.container{
-  max-width:420px;
-  margin:auto;
-  padding:12px;
-
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.card{
-  background:#fff;
-  border-radius:18px;
-  padding:10px;
-  text-align:center;
-  box-shadow:0 8px 20px rgba(0,0,0,.08);
-  transition:.15s;
-}
-
-.card:active{
- transform:scale(.96);
-}
-
-.card:hover{
-  transform:translateY(-4px);
-}
-
-.card img{
-  width:85px;
-  height:120px;
-  object-fit:contain;
-  margin-bottom:6px;
-}
-
-.price{
-  font-weight:700;
-  font-size:18px;
-  margin:4px 0 8px;
-}
-
-.qty{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:10px;
-}
-
-.qty button{
-  width:34px;
-  height:34px;
-  border:none;
-  border-radius:8px;
-  font-size:18px;
-  background:#eee;
-}
-
-.qty span{
-  width:24px;
-  text-align:center;
-  font-weight:600;
-}
-
-/* ================= ACTION BAR ================= */
-
-.action-bar{
-  position:fixed;
-  bottom:70px;
-  left:50%;
-  transform:translateX(-50%);
-
-  width:calc(100% - 24px);
-  max-width:396px;
-
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:6px;
-  padding:8px;
-
-  z-index:9000;
-}
-
-.btn-action{
-  background:#fff;
-  border:none;
-  border-radius:14px;
-  padding:6px 4px;
-  font-size:11px;
-  box-shadow:0 4px 12px rgba(0,0,0,.15);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-}
-
-.btn-action span{
-  margin-top:2px;
-}
-
-/* ================= SUBTOTAL ================= */
-
-.subtotal-bar{
-   position:fixed;
-   bottom:20px;
-   left:50%;
-   transform:translateX(-50%);
-
-
-  width:92%;
-  max-width:420px;
-
-  background:#0b0b0b;
-  color:#fff;
-
-  padding:18px;
-  border-radius:16px;
-
-  text-align:center;
-  font-size:20px;
-  font-weight:700;
-
-  box-shadow:0 10px 30px rgba(0,0,0,.35);
-
-  z-index:9999;
-  cursor:pointer;
-}
-
-/* ================= WHATS FLOAT ================= */
-
-.ws-float{
-  position:fixed;
-  right:18px;
-  bottom:180px;
-  width:30px;
-  height:30px;
-  border-radius:55%;
-  background:rgba(37,211,102,.12);
-  backdrop-filter:blur(6px);
-}
-  
-.ws-float img{
-  width:32px;
-}
-
-/* ================= MODAL ================= */
-
-.overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-
-.overlay.active{
-  display:flex;
-}
-
-.modal{
-  background:#fff;
-  padding:22px;
-  border-radius:18px;
-  width:90%;
-  max-width:380px;
-}
-
-.modal h3{
-  margin-bottom:10px;
-}
-
-.modal button{
-  margin-top:14px;
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:12px;
-  background:#111;
-  color:#fff;
-}
-
-select, input{
-  width:100%;
-  padding:10px;
-  margin-top:6px;
-  border-radius:10px;
-  border:1px solid #ddd;
-}
-
-</style>
 </head>
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <img src="logogios.png">
-  <div class="sub">🍺 Venta de Cervezas · Copiapó<br>⏰ 09:00–15:00 / 17:00–22:00 · 🚚 Delivery</div>
-</div>
+<div class="app">
 
-<!-- PRODUCTS -->
-<div class="container" id="products"></div>
-
-<!-- ACTION BAR -->
-<div class="action-bar">
-
-<button class="btn-action" onclick="abrirMP()">💳<span>Mercado Pago</span></button>
-
-<button class="btn-action" onclick="abrirTransfer()">🏦<span>Transferir</span></button>
-
-<button class="btn-action" onclick="abrirPedido()">🧾<span>Enviar<br>Pedido</span></button>
-
-<a href="https://wa.me/56927731874" class="btn-action">📱<span>WhatsApp</span></a>
-
-<a href="tel:+56927731874" class="btn-action">📞<span>Llamar</span></a>
-
-</div>
-
-<!-- SUBTOTAL -->
-<div class="subtotal-bar">
-Subtotal <span id="Ir a Pagar">$ 0</span>
-</div>
-
-<!-- FLOAT -->
-<a class="ws-float" href="https://wa.me/56927731874">
-<img src="whatsapp-icon.png">
-</a>
- 
-<!-- MODALS -->
-
-<div id="pedidoModal" class="overlay">
-  <div class="modal">
-    <h3>Datos de entrega</h3>
-
-    <input placeholder="Nombre">
-    <input placeholder="Dirección">
-
-    <select>
-      <option>Zona de entrega</option>
-      <option>Centro</option>
-      <option>Paipote</option>
-      <option>Tierra Amarilla</option>
-    </select>
-
-    <button onclick="enviarWhatsApp()">Confirmar Pedido</button>
-    <button onclick="cerrar()">Cerrar</button>
-  </div>
-</div>
-
-<script>
-
-const productos=[
-{name:"Escudo Silver",precio:1000,img:"escudo-silver.png",qty:0},
-{name:"Escudo Roja",precio:950,img:"escudo-roja470.avif",qty:0},
-{name:"Cristal Lata 470cc",precio:900,img:"cristal-473.png",qty:0},
-{name:"Sol Botellín 330cc",precio:1000,img:"sol-330.png",qty:0}
-];
-
-const container=document.getElementById("products");
-
-productos.forEach((p,i)=>{
-container.innerHTML+=`
-<div class="card">
-<img src="${p.img}">
-<div>${p.name}</div>
-<div class="price">$${p.precio.toLocaleString()}</div>
-<div class="qty">
-<button onclick="menos(${i})">-</button>
-<span id="q${i}">0</span>
-<button onclick="mas(${i})">+</button>
-</div>
-</div>`;
-});
-
-function mas(i){
-productos[i].qty++;
-document.getElementById("q"+i).innerText=productos[i].qty;
-calcular();
-}
-
-function menos(i){
-if(productos[i].qty>0){
-productos[i].qty--;
-document.getElementById("q"+i).innerText=productos[i].qty;
-calcular();
-}
-}
-
-function calcular(){
-let total=0;
-productos.forEach(p=> total+=p.qty*p.precio);
-
-document.getElementById("subtotal").innerText="$"+total.toLocaleString();
-}
-
-function abrirPedido(){
-document.getElementById("pedidoModal").classList.add("active");
-}
-
-function abrirTransfer(){
-document.getElementById("transferModal").classList.add("active");
-}
-
-function abrirMP(){
-
- if(total === 0){
-   alert("Agrega productos antes de pagar");
-   return;
- }
-
-function abrirResumenPedido(){
-
- if(total===0){
-   alert("Agrega productos primero");
-   return;
- }
-
- let html="";
-
- productos.forEach(p=>{
-   if(p.qty>0){
-      html+=`
-      ✔ ${p.nombre} x${p.qty}
-      <br>`;
-   }
- });
-
- document.getElementById("resumenPedido").innerHTML=html;
-
- document.getElementById("pedidoModal").style.display="flex";
-}
-
- if(confirm("IMPORTANTE:\nDespués de pagar debes enviar el comprobante por WhatsApp para validar tu pedido.\n\n¿Continuar a Mercado Pago?")){
-    window.open("https://link.mercadopago.cl/torresice","_blank");
- }
-
-}
-
-function cerrar(){
-document.querySelectorAll(".overlay").forEach(el=>el.classList.remove("active"));
-}
-
-function enviarPedidoWhatsApp(){
-
- if(total === 0){
-   alert("Tu carrito está vacío");
-   return;
- }
-
- let pedido="🧾 *Pedido Cervecería GIOS* %0A%0A";
-
- productos.forEach(p=>{
-   if(p.qty>0){
-      pedido+=`• ${p.nombre} x${p.qty} = $${p.precio*p.qty}%0A`;
-   }
- });
-
- pedido+=`%0ATotal: *$${total}*%0A%0A`;
-
- let nombre=document.getElementById("nombre").value;
- let direccion=document.getElementById("direccion").value;
- let zona=document.getElementById("zona").value;
-
- pedido+=`🚚 *Datos Cliente*%0A`;
- pedido+=`Nombre: ${nombre}%0A`;
- pedido+=`Dirección: ${direccion}%0A`;
- pedido+=`Zona: ${zona}%0A`;
-
- window.open(`https://wa.me/56927731874?text=${pedido}`,'_blank');
-}
-
-function enviarWhatsApp(){
-let texto="Pedido:%0A";
-
-productos.forEach(p=>{
-if(p.qty>0){
-texto+=`${p.name} x${p.qty}%0A`;
-}
-});
-
-window.open(`https://wa.me/56927731874?text=${texto}`);
-}
-
-</script>
-
-<div id="pedidoModal" class="overlay">
-  <div class="modal">
-
-    <h3>Confirmar Pedido</h3>
-
-    <div id="resumenPedido"></div>
-
-    <input id="nombre" placeholder="Nombre">
-    <input id="direccion" placeholder="Dirección">
-    
-    <select id="zona">
-      <option>Centro</option>
-      <option>Paipote</option>
-      <option>Tierra Amarilla</option>
-    </select>
-
-    <div class="modal-actions">
-      <button onclick="enviarPedidoWhatsApp()" class="btn-primary">
-        Enviar por WhatsApp
-      </button>
-
-      <button onclick="cerrar()">Cancelar</button>
+<header class="header">
+    <img src="logogios.png" class="logo">
+    <div class="sub">
+        🍺 Cervezas heladas en minutos<br>
+        🚚 Delivery en Copiapó
     </div>
+</header>
 
-  </div>
-</div>
+<main class="container">
+
+<div id="products" class="products"></div>
+
+</main>
+
 
 <!-- BARRA DE PAGO -->
 <div class="subtotal-bar" onclick="abrirResumenPedido()">
-  <strong id="subtotalValue">Ir a pagar $ 0</strong>
+    <strong id="subtotalValue">Ir a pagar $0</strong>
 </div>
+
+
+<!-- BOTONES -->
+<div class="action-bar">
+
+<button onclick="abrirMP()" class="btn-action">
+💳<span>Mercado Pago</span>
+</button>
+
+<button onclick="abrirTransferencia()" class="btn-action">
+🏦<span>Transferir</span>
+</button>
+
+<button onclick="abrirResumenPedido()" class="btn-action">
+🧾<span>Enviar<br>Pedido</span>
+</button>
+
+<a href="https://wa.me/56927731874" class="btn-action">
+📱<span>WhatsApp</span>
+</a>
+
+<a href="tel:+56927731874" class="btn-action">
+📞<span>Llamar</span>
+</a>
+
+</div>
+
+</div>
+
+<script src="app.js"></script>
 
 </body>
 </html>
