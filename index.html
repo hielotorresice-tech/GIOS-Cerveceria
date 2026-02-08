@@ -426,5 +426,33 @@ window.open(`https://wa.me/56927731874?text=${texto}`);
 }
 
 </script>
+
+<div id="pedidoModal" class="overlay">
+  <div class="modal">
+
+    <h3>Confirmar Pedido</h3>
+
+    <div id="resumenPedido"></div>
+
+    <input id="nombre" placeholder="Nombre">
+    <input id="direccion" placeholder="Dirección">
+    
+    <select id="zona">
+      <option>Centro</option>
+      <option>Paipote</option>
+      <option>Tierra Amarilla</option>
+    </select>
+
+    <div class="modal-actions">
+      <button onclick="enviarPedidoWhatsApp()" class="btn-primary">
+        Enviar por WhatsApp
+      </button>
+
+      <button onclick="cerrar()">Cancelar</button>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
