@@ -374,6 +374,28 @@ function abrirMP(){
    return;
  }
 
+function abrirResumenPedido(){
+
+ if(total===0){
+   alert("Agrega productos primero");
+   return;
+ }
+
+ let html="";
+
+ productos.forEach(p=>{
+   if(p.qty>0){
+      html+=`
+      ✔ ${p.nombre} x${p.qty}
+      <br>`;
+   }
+ });
+
+ document.getElementById("resumenPedido").innerHTML=html;
+
+ document.getElementById("pedidoModal").style.display="flex";
+}
+
  if(confirm("IMPORTANTE:\nDespués de pagar debes enviar el comprobante por WhatsApp para validar tu pedido.\n\n¿Continuar a Mercado Pago?")){
     window.open("https://link.mercadopago.cl/torresice","_blank");
  }
