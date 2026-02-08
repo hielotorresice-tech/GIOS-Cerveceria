@@ -286,6 +286,11 @@ Subtotal <span id="Ir a Pagar">$0</span>
 <img src="whatsapp-icon.png">
 </a>
 
+ <!-- BARRA DE PAGO -->
+<div class="subtotal-bar" onclick="abrirResumenPedido()">
+  <strong id="subtotalValue">Ir a pagar $0</strong>
+</div>
+
 <!-- MODALS -->
 
 <div id="pedidoModal" class="overlay">
@@ -303,14 +308,6 @@ Subtotal <span id="Ir a Pagar">$0</span>
     </select>
 
     <button onclick="enviarWhatsApp()">Confirmar Pedido</button>
-    <button onclick="cerrar()">Cerrar</button>
-  </div>
-</div>
-
-<div id="transferModal" class="overlay">
-  <div class="modal">
-    <h3>Elegir banco</h3>
-
     <button onclick="cerrar()">Cerrar</button>
   </div>
 </div>
