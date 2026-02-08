@@ -368,7 +368,16 @@ document.getElementById("transferModal").classList.add("active");
 }
 
 function abrirMP(){
-window.open("https://link.mercadopago.cl/torresice","_blank");
+
+ if(total === 0){
+   alert("Agrega productos antes de pagar");
+   return;
+ }
+
+ if(confirm("IMPORTANTE:\nDespués de pagar debes enviar el comprobante por WhatsApp para validar tu pedido.\n\n¿Continuar a Mercado Pago?")){
+    window.open("https://link.mercadopago.cl/torresice","_blank");
+ }
+
 }
 
 function cerrar(){
