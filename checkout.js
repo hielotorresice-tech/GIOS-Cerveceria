@@ -27,3 +27,18 @@ function abrirCheckout(){
   cerrar();
   document.getElementById("checkoutModal").classList.add("active");
 }
+
+function confirmarCheckout(){
+
+  const nombre = clienteNombre.value.trim();
+  const telefono = clienteTelefono.value.trim();
+  const direccion = clienteDireccion.value.trim();
+  const zona = clienteZona.value;
+
+  if(!nombre || !telefono || !direccion || !zona){
+    alert("Completa todos los datos obligatorios 🙂");
+    return;
+  }
+
+  enviarPedidoWhatsApp(nombre, telefono, direccion, zona);
+}
