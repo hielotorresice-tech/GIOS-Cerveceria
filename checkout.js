@@ -19,6 +19,11 @@ function enviarPedidoWhatsApp(){
   mensaje += `\nTOTAL: $ ${calcularSubtotal().toLocaleString()}`;
   mensaje += `\n\n⚠️ Enviar comprobante de pago`;
 
-  const url = `https://wa.me/569XXXXXXXX?text=${encodeURIComponent(mensaje)}`;
+  const url = `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`;
   window.open(url,"_blank");
+}
+
+function abrirCheckout(){
+  cerrar();
+  document.getElementById("checkoutModal").classList.add("active");
 }
