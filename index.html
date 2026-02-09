@@ -108,5 +108,25 @@ Enviar Pedido
   </div>
 </div>
 
+<!-- MODAL RESUMEN -->
+<div id="orderModal" class="overlay">
+  <div class="modal">
+
+    <h3>🧾 Resumen de tu pedido</h3>
+
+    <div id="orderList"></div>
+
+    <div style="margin-top:14px;font-size:18px;">
+      Total: <strong id="orderTotal">$0</strong>
+    </div>
+
+    <div class="modal-actions">
+      <button onclick="cerrar()">Cancelar</button>
+      <button onclick="abrirCheckout()">Continuar</button>
+    </div>
+
+  </div>
+</div>
+
 </body>
 </html>
