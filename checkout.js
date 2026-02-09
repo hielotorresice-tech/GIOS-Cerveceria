@@ -25,20 +25,29 @@ function enviarPedidoWhatsApp(){
 
 function abrirCheckout(){
   cerrar();
-  document.getElementById("checkoutModal").classList.add("active");
+  document
+    .getElementById("checkoutModal")
+    .classList.add("active");
 }
 
 function confirmarCheckout(){
 
-  const nombre = clienteNombre.value.trim();
-  const telefono = clienteTelefono.value.trim();
-  const direccion = clienteDireccion.value.trim();
-  const zona = clienteZona.value;
+  const nombre = document
+    .getElementById("clienteNombre").value.trim();
+
+  const telefono = document
+    .getElementById("clienteTelefono").value.trim();
+
+  const direccion = document
+    .getElementById("clienteDireccion").value.trim();
+
+  const zona = document
+    .getElementById("clienteZona").value;
 
   if(!nombre || !telefono || !direccion || !zona){
     alert("Completa todos los datos obligatorios 🙂");
     return;
   }
 
-  enviarPedidoWhatsApp(nombre, telefono, direccion, zona);
+  enviarPedidoWhatsApp(nombre,telefono,direccion,zona);
 }
