@@ -17,8 +17,8 @@
 <header class="header">
     <img src="logogios.png" class="logo">
     <div class="sub">
-        🍺 Cervezas heladas en minutos<br>
-        🚚 Delivery en Copiapó
+        🍺 Venta de Cervezas Copiapo 🍺<br>
+        🚚 Delivery Disponible 🚚
     </div>
 </header>
 
@@ -75,6 +75,38 @@ Enviar Pedido
 <script src="js/productos.js"></script>
 <script src="js/carrito.js"></script>
 <script src="js/checkout.js"></script>
+
+<!-- MODAL CHECKOUT -->
+<div id="checkoutModal" class="overlay">
+  <div class="modal modal-box">
+
+    <h2>🚚 Datos de Entrega</h2>
+
+    <input id="clienteNombre" placeholder="Nombre *">
+    <input id="clienteTelefono" placeholder="Teléfono *">
+    <input id="clienteDireccion" placeholder="Dirección *">
+
+    <select id="clienteZona">
+      <option value="">Zona de entrega *</option>
+      <option>Copiapo Centro</option>
+      <option>Copiapo Alrededores</option>
+      <option>Paipote</option>
+      <option>Tierra Amarilla</option>
+    </select>
+
+    <p style="font-size:13px;opacity:.8;margin-top:8px">
+      ⚠️ El pedido se prepara tras enviar comprobante de pago por WhatsApp.
+    </p>
+
+    <div class="modal-actions">
+      <button onclick="cerrar()">Cancelar</button>
+      <button class="btn-primary" onclick="confirmarCheckout()">
+        Enviar Pedido
+      </button>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
