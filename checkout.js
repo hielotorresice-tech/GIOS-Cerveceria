@@ -51,3 +51,4 @@ function confirmarCheckout(){
 
   enviarPedidoWhatsApp(nombre,telefono,direccion,zona);
 }
+
