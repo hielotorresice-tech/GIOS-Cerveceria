@@ -19,3 +19,19 @@ function actualizarSubtotal() {
   document.getElementById("subtotalValue").innerText =
     subtotal > 0 ? `Ir a pagar $ ${subtotal.toLocaleString()}` : "Ir a pagar $ 0";
 }
+
+function confirmarCheckout(){
+
+  const nombre = clienteNombre.value.trim();
+  const telefono = clienteTelefono.value.trim();
+  const direccion = clienteDireccion.value.trim();
+  const zona = clienteZona.value;
+
+  if(!nombre || !telefono || !direccion || !zona){
+    alert("Completa todos los datos obligatorios 🙂");
+    return;
+  }
+
+  enviarPedidoWhatsApp(nombre, telefono, direccion, zona);
+}
+
