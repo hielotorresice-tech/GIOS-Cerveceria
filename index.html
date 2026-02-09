@@ -96,23 +96,26 @@ Enviar Pedido
   </div>
 </div>
 
-<!-- MODAL CHECKOUT -->
+<!-- CHECKOUT / DATOS CLIENTE -->
 <div id="checkoutModal" class="overlay">
-  <div class="modal">
+  <div class="modal modal-box">
 
-    <h3>Datos de entrega</h3>
+    <h2>🚚 Datos de despacho</h2>
 
-    <input id="clienteNombre" placeholder="Nombre *">
-    <input id="clienteTelefono" placeholder="Teléfono *">
+    <input id="clienteNombre" placeholder="Nombre completo *">
+    <input id="clienteTelefono" placeholder="Teléfono WhatsApp *">
     <input id="clienteDireccion" placeholder="Dirección *">
 
     <select id="clienteZona">
-      <option value="">Zona de despacho *</option>
-      <option>Centro</option>
-      <option>Paipote</option>
-      <option>El Palomar</option>
-      <option>Tierra Viva</option>
+      <option value="">Zona de entrega *</option>
+      <option value="Centro">Centro</option>
+      <option value="Norte">Norte</option>
+      <option value="Sur">Sur</option>
     </select>
+
+    <p style="font-size:13px;margin-top:10px;">
+      ⚠️ Antes de pagar, envía el comprobante por WhatsApp.
+    </p>
 
     <div class="modal-actions">
       <button onclick="cerrar()">Cancelar</button>
