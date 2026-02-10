@@ -2,30 +2,33 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function abrirResumenPedido(){
 
-  const resumen = document.getElementById("resumenItems");
-  const totalBox = document.getElementById("totalResumen");
+  const items = productos.filter(p => p.qty > 0);
 
-  resumen.innerHTML = "";
+  if(items.length === 0){
+    alert("Agrega productos antes de continuar");
+    return;
+  }
 
-  let total = 0;
+  const lista = document.getElementById("orderList");
+  const total = document.getElementById("orderTotal");
 
-  productos.forEach(p=>{
-    if(p.qty > 0){
+  lista.innerHTML = "";
 
-      resumen.innerHTML += `
-        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
-          <span>${p.nombre} x${p.qty}</span>
-          <strong>$${(p.precio*p.qty).toLocaleString()}</strong>
-        </div>
-      `;
+  let suma = 0;
 
-      total += p.precio * p.qty;
-    }
+  items.forEach(p=>{
+    lista.innerHTML += `
+      <div style="display:flex;justify-content:space-between;margin:6px 0;">
+        <span>${p.nombre} x${p.qty}</span>
+        <strong>$${(p.precio * p.qty).toLocaleString()}</strong>
+      </div>
+    `;
+    suma += p.precio * p.qty;
   });
 
-  totalBox.innerText = "$" + total.toLocaleString();
+  total.innerText = "$" + suma.toLocaleString();
 
-  document.getElementById("checkoutModal").classList.add("active");
+  document.getElementById("orderModal").classList.add("active");
 }
 
 function abrirCheckout(){
