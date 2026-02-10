@@ -49,3 +49,20 @@ function confirmarCheckout(){
   enviarPedidoWhatsApp(nombre, telefono, direccion, zona);
 }
 
+function abrirResumenPedido(){
+
+  const subtotal = calcularSubtotal();
+  const PEDIDO_MINIMO = 5000;
+
+  if(subtotal === 0){
+    alert("Agrega productos 🙂");
+    return;
+  }
+
+  if(subtotal < PEDIDO_MINIMO){
+    alert("El pedido mínimo es de $" + PEDIDO_MINIMO.toLocaleString());
+    return;
+  }
+
+  document.getElementById("orderModal").classList.add("active");
+}
