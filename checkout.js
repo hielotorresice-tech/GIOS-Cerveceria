@@ -44,15 +44,22 @@ function abrirCheckout(){
 
 function confirmarCheckout(){
 
-  const nombre = document.getElementById("clienteNombre").value.trim();
-  const telefono = document.getElementById("clienteTelefono").value.trim();
-  const direccion = document.getElementById("clienteDireccion").value.trim();
-  const zona = document.getElementById("clienteZona").value;
+  const nombre = clienteNombre.value.trim();
+  const telefono = clienteTelefono.value.trim();
+  const direccion = clienteDireccion.value.trim();
+  const zona = clienteZona.value;
 
   if(!nombre || !telefono || !direccion || !zona){
-    alert("Completa todos los datos 🙂");
+    alert("Completa todos los datos obligatorios 🙂");
     return;
   }
+
+  const despacho = parseInt(zona) || 0;
+  const subtotal = calcularSubtotal();
+  const totalFinal = subtotal + despacho;
+
+  enviarPedidoWhatsApp(nombre, telefono, direccion, zona, despacho, totalFinal);
+}
 
   let mensaje = "🍺 *NUEVO PEDIDO - GIOS*\n\n";
 
