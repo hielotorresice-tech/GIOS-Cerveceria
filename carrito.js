@@ -15,9 +15,23 @@ function calcularSubtotal() {
 }
 
 function actualizarSubtotal() {
+
   const subtotal = calcularSubtotal();
+  const barra = document.querySelector(".subtotal-bar");
+
   document.getElementById("subtotalValue").innerText =
-    subtotal > 0 ? `Ir a pagar $ ${subtotal.toLocaleString()}` : "Ir a pagar $ 0";
+    subtotal > 0 
+      ? `Ir a pagar $ ${subtotal.toLocaleString()}`
+      : "Ir a pagar $ 0";
+
+  // 🔥 botón inteligente
+  if(subtotal === 0){
+    barra.style.opacity = "0.4";
+    barra.style.pointerEvents = "none";
+  }else{
+    barra.style.opacity = "1";
+    barra.style.pointerEvents = "auto";
+  }
 }
 
 function confirmarCheckout(){
