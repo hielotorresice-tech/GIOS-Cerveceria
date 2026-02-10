@@ -74,7 +74,7 @@ function enviarPedidoWhatsApp(){
 
   productos.forEach(p=>{
     if(p.qty>0){
-      mensaje += `- ${p.name} x${p.qty}\n`;
+      mensaje += `- ${p.nombre} x${p.qty}\n`;
     }
   });
 
