@@ -2,16 +2,30 @@ document.addEventListener("DOMContentLoaded", function(){
 
 function abrirResumenPedido(){
 
-  const items = productos.filter(p => p.qty > 0);
+  const resumen = document.getElementById("resumenItems");
+  const totalBox = document.getElementById("totalResumen");
 
-  if(items.length === 0){
-    alert("Agrega productos antes de continuar 🙂");
-    return;
-  }
+  resumen.innerHTML = "";
 
-  document
-    .getElementById("orderModal")
-    .classList.add("active");
+  let total = 0;
+
+  productos.forEach(p=>{
+    if(p.qty > 0){
+
+      resumen.innerHTML += `
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+          <span>${p.nombre} x${p.qty}</span>
+          <strong>$${(p.precio*p.qty).toLocaleString()}</strong>
+        </div>
+      `;
+
+      total += p.precio * p.qty;
+    }
+  });
+
+  totalBox.innerText = "$" + total.toLocaleString();
+
+  document.getElementById("checkoutModal").classList.add("active");
 }
 
 function abrirCheckout(){
@@ -49,8 +63,5 @@ function confirmarCheckout(){
   mensaje += `\n\n⚠️ Enviar comprobante de pago`;
 
   const url = `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`;
-
-  window.open(url,"_blank");
-}
-
+  
 });
