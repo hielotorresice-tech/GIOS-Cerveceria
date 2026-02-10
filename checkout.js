@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
 
+  actualizarSubtotal();
+
+});
+
 function abrirResumenPedido(){
 
   const items = productos.filter(p => p.qty > 0);
