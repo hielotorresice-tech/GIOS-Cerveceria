@@ -14,7 +14,8 @@ function calcularSubtotal() {
   return productos.reduce((sum, p) => sum + p.precio * p.qty, 0);
 }
 
-function actualizarSubtotal() {
+function actualizarSubtotal()
+{
 
   const subtotal = calcularSubtotal();
   const barra = document.querySelector(".subtotal-bar");
@@ -66,3 +67,22 @@ function abrirResumenPedido(){
 
   document.getElementById("orderModal").classList.add("active");
 }
+
+function enviarPedidoWhatsApp(){
+
+  let mensaje = "🍺 *NUEVO PEDIDO - GIOS*\n\n";
+
+  productos.forEach(p=>{
+    if(p.qty>0){
+      mensaje += `- ${p.name} x${p.qty}\n`;
+    }
+  });
+
+  mensaje += `\nTOTAL: $${calcularSubtotal().toLocaleString()}`;
+  mensaje += `\n\n⚠️ Enviar comprobante de pago`;
+
+  const url = `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url,"_blank");
+}
+
