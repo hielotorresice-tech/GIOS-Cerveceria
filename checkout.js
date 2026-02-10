@@ -61,17 +61,27 @@ function confirmarCheckout(){
   enviarPedidoWhatsApp(nombre, telefono, direccion, zona, despacho, totalFinal);
 }
 
-  let mensaje = "🍺 *NUEVO PEDIDO - GIOS*\n\n";
+function enviarPedidoWhatsApp(nombre, telefono, direccion, zona, despacho, totalFinal){
+
+  let mensaje = "🍺 *NUEVO PEDIDO - GIOS*\n\n🛒 *DETALLE:*\n";
 
   productos.forEach(p=>{
     if(p.qty>0){
-      mensaje += `- ${p.name} x${p.qty}\n`;
+      mensaje += `• ${p.nombre} x${p.qty}\n`;
     }
   });
 
-  mensaje += `\nTOTAL: $${calcularSubtotal().toLocaleString()}`;
-  mensaje += `\n\n⚠️ Enviar comprobante de pago`;
+  mensaje += `\n💵 Subtotal: $${calcularSubtotal().toLocaleString()}`;
+  mensaje += `\n🚚 Despacho: $${despacho.toLocaleString()}`;
+  mensaje += `\n💰 TOTAL: $${totalFinal.toLocaleString()}`;
+
+  mensaje += `\n\n👤 Cliente: ${nombre}`;
+  mensaje += `\n📞 Teléfono: ${telefono}`;
+  mensaje += `\n📍 Dirección: ${direccion}`;
+
+  mensaje += `\n\n⚠️ Enviar comprobante de pago.`;
 
   const url = `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`;
-  
-});
+
+  window.open(url, "_blank");
+}
