@@ -43,13 +43,13 @@ display:block;
 /* PRODUCTS */
 
 .container{
-padding:12px;
+padding:10px;
 }
 
 .products{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px;
+  gap:10px;
 }
 
 .card{
