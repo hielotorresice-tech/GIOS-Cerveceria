@@ -144,8 +144,3 @@ font-size:11px;
 
   z-index:9999;
 }
-
-.overlay.active{
-  display:flex;
-}
-
