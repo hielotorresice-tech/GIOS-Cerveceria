@@ -67,9 +67,9 @@ transform:scale(.96);
 }
 
 .card img{
-width:100%;
+width:10%;
 max-width:100%;
-height:80px;
+height:10px;
 object-fit:contain;
 display:block;
 }
