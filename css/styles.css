@@ -68,7 +68,7 @@ transform:scale(.96);
 
 .card img{
 width:10%;
-max-width:100%;
+max-width:10%;
 height:10px;
 object-fit:contain;
 display:block;
