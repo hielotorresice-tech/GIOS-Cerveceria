@@ -50,3 +50,7 @@ document.querySelectorAll(".overlay")
 }
 
 };
+
+function cerrar(){
+  UI.close();
+}
