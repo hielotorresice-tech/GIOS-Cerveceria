@@ -69,7 +69,7 @@ transform:scale(.96);
 .card img{
 width:100%;
 max-width:100%;
-height:120px;
+height:80px;
 object-fit:contain;
 display:block;
 }
