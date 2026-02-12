@@ -31,8 +31,8 @@ gap:12px;
 padding:12px;
 }
 
-#productos{
-  padding-bottom:80px; /* espacio para la barra negra */
+.productos{
+    padding-bottom:80px;
 }
 
 .card{
