@@ -125,6 +125,12 @@ function irAPagar(){
     window.location.href = "resumen.html";
 }
 
+if(totalItems > 0){
+    btnPagar.classList.add("activo");
+}else{
+    btnPagar.classList.remove("activo");
+}
+
 function enviarPedido(){
 
 const nombre=document.getElementById("nombre").value;
