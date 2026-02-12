@@ -109,12 +109,6 @@ document.getElementById("modal")
 .classList.remove("active");
 }
 
-if(totalItems > 0){
-    btnPagar.classList.add("activo");
-}else{
-    btnPagar.classList.remove("activo");
-}
-
 function enviarPedido(){
 
 const nombre=document.getElementById("nombre").value;
