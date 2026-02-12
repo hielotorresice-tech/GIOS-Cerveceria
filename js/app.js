@@ -76,6 +76,7 @@ function actualizarTotal(){
     btnPagar.innerText = totalItems > 0 
         ? `Ir a pagar (${totalItems})`
         : "Agrega productos";
+    }
 
 function quitar(id){
 const p = productos.find(x=>x.id===id);
