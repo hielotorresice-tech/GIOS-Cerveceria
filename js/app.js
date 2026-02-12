@@ -77,14 +77,6 @@ function actualizarTotal(){
         ? `Ir a pagar (${totalItems})`
         : "Agrega productos";
 
-    // Activa / desactiva color
-    if(totalItems > 0){
-        btnPagar.classList.add("activo");
-    }else{
-        btnPagar.classList.remove("activo");
-    }
-}
-
 function quitar(id){
 const p = productos.find(x=>x.id===id);
 if(p.qty>0) p.qty--;
