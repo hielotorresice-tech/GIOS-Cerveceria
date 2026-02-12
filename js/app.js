@@ -3,7 +3,7 @@ const productos = [
 id:1,
 nombre:"Escudo Silver 710cc",
 precio:1000,
-img:"img/escudo.png",
+img:"img/escudo-silver.png",
 qty:0
 },
 {
