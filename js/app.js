@@ -113,6 +113,18 @@ document.getElementById("modal")
 .classList.remove("active");
 }
 
+function irAPagar(){
+
+    let totalItems = Object.values(carrito).reduce((a,b)=>a+b,0);
+
+    if(totalItems === 0){
+        alert("Debes agregar productos primero");
+        return;
+    }
+
+    window.location.href = "resumen.html";
+}
+
 function enviarPedido(){
 
 const nombre=document.getElementById("nombre").value;
