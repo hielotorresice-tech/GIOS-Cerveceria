@@ -59,7 +59,7 @@ return productos.reduce((s,p)=> s + p.precio*p.qty,0);
 function agregar(id){
 const p = productos.find(x=>x.id===id);
 p.qty++;
-actualizar();
+actualizarTotal();
 }
 
 function actualizarTotal(){
