@@ -8,6 +8,8 @@ body{
 font-family:system-ui;
 background:#f4f4f4;
 padding-bottom:90px;
+margin:0;
+padding:0;
 }
 
 /* HEADER */
@@ -27,6 +29,10 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:12px;
 padding:12px;
+}
+
+#productos{
+  padding-bottom:80px; /* espacio para la barra negra */
 }
 
 .card{
