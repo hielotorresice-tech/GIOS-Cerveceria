@@ -33,6 +33,8 @@ catalogo.innerHTML += `
 
 });
 
+alert("JS funcionando");
+
 let carrito = {};
 
 function cambiarCantidad(producto, cambio){
