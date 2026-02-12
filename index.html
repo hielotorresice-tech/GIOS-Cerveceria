@@ -1,85 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>GIOS Cervecería</title>
 
-<link rel="stylesheet" href="styles.css">
-
+<link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
-<div class="app">
-
-<header class="header">
-    <img src="img/logogios.png" class="logo">
-    <div class="sub">
-        🍺 Venta de Cervezas Copiapó<br>
-        🚚 Delivery Disponible
-    </div>
+<header>
+🍺 GIOS Cervecería  
+<span>Delivery disponible</span>
 </header>
 
-<main class="container">
-    <div id="products" class="products"></div>
-</main>
 
-<!-- BARRA TOTAL -->
-<div class="subtotal-bar" onclick="UI.openOrderModal()">
-    <strong id="subtotalValue">Ir a pagar $0</strong>
+<main id="catalogo"></main>
+
+
+<!-- BOTON FIJO -->
+<div class="checkout-bar" onclick="abrirCheckout()">
+🛒 <span id="subtotal">Ir a pagar $0</span>
 </div>
 
+
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+
+<div class="modal-content">
+
+<h2>Resumen del pedido</h2>
+
+<div id="items"></div>
+
+<h3 id="total">Total: $0</h3>
+
+<input id="nombre" placeholder="Nombre">
+<input id="telefono" placeholder="WhatsApp">
+<input id="direccion" placeholder="Dirección">
+
+<button onclick="enviarPedido()">Enviar pedido</button>
+<button onclick="cerrarModal()">Cancelar</button>
+
+</div>
 </div>
 
-<!-- MODAL RESUMEN -->
-<div id="orderModal" class="overlay">
-  <div class="modal">
 
-    <h3>🧾 Resumen del pedido</h3>
-
-    <div id="orderList"></div>
-
-    <h2>Total: <span id="orderTotal">$0</span></h2>
-
-    <div class="modal-actions">
-      <button onclick="UI.close()">Cancelar</button>
-      <button onclick="UI.openCheckout()">Continuar</button>
-    </div>
-
-  </div>
-</div>
-
-<!-- CHECKOUT -->
-<div id="checkoutModal" class="overlay">
-  <div class="modal">
-
-    <h2>🚚 Datos de despacho</h2>
-
-    <input id="clienteNombre" placeholder="Nombre completo *">
-    <input id="clienteTelefono" placeholder="WhatsApp *">
-    <input id="clienteDireccion" placeholder="Dirección *">
-
-    <select id="clienteZona">
-      <option value="">Zona de entrega *</option>
-      <option value="0">Centro (Gratis)</option>
-      <option value="1500">Norte ($1.500)</option>
-      <option value="1500">Sur ($1.500)</option>
-    </select>
-
-    <div class="modal-actions">
-      <button onclick="UI.close()">Cancelar</button>
-      <button onclick="Checkout.sendOrder()">Enviar pedido</button>
-    </div>
-
-  </div>
-</div>
-
-<script src="js/data.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/checkout.js"></script>
 <script src="js/app.js"></script>
 
 </body>
