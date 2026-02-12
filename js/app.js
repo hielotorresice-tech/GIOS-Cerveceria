@@ -70,11 +70,19 @@ function actualizarTotal(){
         totalItems += carrito[item];
     }
 
-    document.getElementById("btnPagar").innerText = 
-        totalItems > 0 
-        ? "Ir a pagar (" + totalItems + ")" 
+    let btnPagar = document.getElementById("btnPagar");
+    if(!btnPagar) return;
+
+    btnPagar.innerText = totalItems > 0 
+        ? `Ir a pagar (${totalItems})`
         : "Agrega productos";
 
+    // Activa / desactiva color
+    if(totalItems > 0){
+        btnPagar.classList.add("activo");
+    }else{
+        btnPagar.classList.remove("activo");
+    }
 }
 
 function quitar(id){
