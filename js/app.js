@@ -33,6 +33,25 @@ catalogo.innerHTML += `
 
 });
 
+let carrito = {};
+
+function cambiarCantidad(producto, cambio){
+
+    if(!carrito[producto]){
+        carrito[producto] = 0;
+    }
+
+    carrito[producto] += cambio;
+
+    if(carrito[producto] < 0){
+        carrito[producto] = 0;
+    }
+
+    document.getElementById("cant-" + producto).innerText = carrito[producto];
+
+    actualizarTotal();
+}
+
 function subtotal(){
 return productos.reduce((s,p)=> s + p.precio*p.qty,0);
 }
