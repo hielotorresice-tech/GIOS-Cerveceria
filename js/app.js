@@ -1,7 +1,7 @@
 const productos = [
 {
 id:1,
-nombre:"Escudo Silver 710cc",
+nombre:"Escudo Silver Lata 710cc",
 precio:1000,
 img:"img/escudo-silver.png",
 qty:0
@@ -9,7 +9,7 @@ qty:0
 {
 id:2,
 nombre:"Sol Botellín 330cc",
-precio:800,
+precio:1000,
 img:"img/sol-330.png",
 qty:0
 }
