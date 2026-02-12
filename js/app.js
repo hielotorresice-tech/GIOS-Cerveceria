@@ -57,8 +57,13 @@ return productos.reduce((s,p)=> s + p.precio*p.qty,0);
 }
 
 function actualizar(){
-document.getElementById("subtotal")
-.innerText = `Ir a pagar $${subtotal().toLocaleString()}`;
+
+    let totalItems = 0;
+
+    for(let item in carrito){
+        totalItems += carrito[item];
+    }
+
 }
 
 function agregar(id){
