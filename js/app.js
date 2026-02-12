@@ -56,16 +56,6 @@ function subtotal(){
 return productos.reduce((s,p)=> s + p.precio*p.qty,0);
 }
 
-function actualizar(){
-
-    let totalItems = 0;
-
-    for(let item in carrito){
-        totalItems += carrito[item];
-    }
-
-}
-
 function agregar(id){
 const p = productos.find(x=>x.id===id);
 p.qty++;
