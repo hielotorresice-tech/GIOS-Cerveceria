@@ -121,38 +121,28 @@ function irAPagar(){
     abrirCheckout(); // 👈 ahora NO va a WhatsApp
 }
 
-function enviarPedido(){
+function enviarPedido() {
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const direccion = document.getElementById("direccion").value.trim();
+  const pago = document.getElementById("pago").value;
 
-const nombre = document.getElementById("nombre").value.trim();
-const telefono = document.getElementById("telefono").value.trim();
-const direccion = document.getElementById("direccion").value.trim();
-
-mensaje+=`💳 Pago: ${pago}`;
-
-const pago = document.getElementById("pago").value;
-
-if(!nombre || !telefono || !direccion || !pago){
+  if(!nombre || !telefono || !direccion || !pago){
     alert("Por favor completa todos los datos");
-    return;
-}
+    return; // Aquí se bloquea hasta que complete
+  }
 
-let mensaje="🛒 Pedido GIOS %0A%0A";
+  // Armamos el mensaje
+  let mensaje = `🛒 *Pedido GIOS*\n\n`;
+  productos.forEach(p => {
+    if(p.qty > 0){
+      mensaje += `${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString()}\n`;
+    }
+  });
 
-productos.forEach(p=>{
-if(p.qty>0){
-mensaje+=`${p.nombre} x${p.qty}\n`;
-}
-});
+  mensaje += `\n💰 Total: $${subtotal().toLocaleString()}\n`;
+  mensaje += `👤 Cliente: ${nombre}\n📞 WhatsApp: ${telefono}\n📍 Dirección: ${direccion}\n💳 Pago: ${pago}`;
 
-mensaje+=`\nTotal: $${subtotal().toLocaleString()}\n\n`;
-
-mensaje+=`👤 Cliente: ${nombre}\n`;
-mensaje+=`📞 WhatsApp: ${telefono}\n`;
-mensaje+=`📍 Dirección: ${direccion}`;
-
-window.open(
-`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`,
-"_blank"
-);
-
+  // Abrimos WhatsApp
+  window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 }
