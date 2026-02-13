@@ -64,14 +64,20 @@ actualizarTotal();
 
 function actualizarTotal(){
 
-    let totalItems = productos.reduce((acc,p)=>acc+p.qty,0);
+    function actualizarTotal(){
 
-    let btnPagar = document.getElementById("btnPagar");
+    let total = subtotal(); // 👈 usamos dinero
+
+    const btnPagar = document.getElementById("btnPagar");
     if(!btnPagar) return;
 
-    btnPagar.innerText = totalItems > 0 
-        ? `Ir a pagar (${totalItems})`
-        : "Agrega productos";
+    if(total > 0){
+        btnPagar.innerText = `Ir a pagar — $${total.toLocaleString()}`;
+        btnPagar.classList.add("activo");
+    }else{
+        btnPagar.innerText = "Agrega productos";
+        btnPagar.classList.remove("activo");
+    }
 }
 
 let carrito = {}; // ← debe ir antes de cambiarCantidad
