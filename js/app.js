@@ -111,6 +111,16 @@ document.getElementById("modal")
 
 function irAPagar(){
 
+    let totalItems = productos.reduce((acc,p)=>acc+p.qty,0);
+
+    if(totalItems === 0){
+        alert("Debes agregar productos primero");
+        return;
+    }
+
+    abrirCheckout(); // 👈 ahora NO va a WhatsApp
+}
+
 const nombre=document.getElementById("nombre").value;
 const telefono=document.getElementById("telefono").value;
 const direccion=document.getElementById("direccion").value;
