@@ -119,9 +119,14 @@ function irAPagar(){
 
 function enviarPedido(){
 
-const nombre=document.getElementById("nombre").value;
-const telefono=document.getElementById("telefono").value;
-const direccion=document.getElementById("direccion").value;
+const nombre = document.getElementById("nombre").value.trim();
+const telefono = document.getElementById("telefono").value.trim();
+const direccion = document.getElementById("direccion").value.trim();
+
+if(!nombre || !telefono || !direccion){
+    alert("Por favor completa tus datos");
+    return;
+}
 
 let mensaje="🛒 Pedido GIOS\n\n";
 
@@ -131,7 +136,11 @@ mensaje+=`${p.nombre} x${p.qty}\n`;
 }
 });
 
-mensaje+=`\nTotal: $${subtotal().toLocaleString()}`;
+mensaje+=`\nTotal: $${subtotal().toLocaleString()}\n\n`;
+
+mensaje+=`👤 Cliente: ${nombre}\n`;
+mensaje+=`📞 WhatsApp: ${telefono}\n`;
+mensaje+=`📍 Dirección: ${direccion}`;
 
 window.open(
 `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`,
