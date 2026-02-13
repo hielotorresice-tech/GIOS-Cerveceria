@@ -109,7 +109,7 @@ document.getElementById("modal")
 .classList.remove("active");
 }
 
-function enviarPedido(){
+function irAPagar(){
 
 const nombre=document.getElementById("nombre").value;
 const telefono=document.getElementById("telefono").value;
