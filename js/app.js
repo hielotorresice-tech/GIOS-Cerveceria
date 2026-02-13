@@ -89,9 +89,11 @@ productos.forEach(p=>{
 if(p.qty>0){
 items.innerHTML += `
 <div class="item-resumen">
-${p.nombre} x${p.qty}
+${p.nombre}  
+x${p.qty}  —  $${(p.precio*p.qty).toLocaleString()}
 </div>
 `;
+
 }
 });
 
