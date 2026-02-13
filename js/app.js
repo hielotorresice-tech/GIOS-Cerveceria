@@ -74,6 +74,8 @@ function actualizarTotal(){
         : "Agrega productos";
 }
 
+let carrito = {}; // ← debe ir antes de cambiarCantidad
+
 function quitar(id){
 const p = productos.find(x=>x.id===id);
 if(p.qty>0) p.qty--;
