@@ -15,6 +15,8 @@ qty:0
 }
 ];
 
+let carrito = {}; // ← debe ir antes de cambiarCantidad
+
 const catalogo = document.getElementById("catalogo");
 
 productos.forEach(p=>{
@@ -77,8 +79,6 @@ function actualizarTotal(){
         btnPagar.classList.remove("activo");
     }
 }
-
-let carrito = {}; // ← debe ir antes de cambiarCantidad
 
 function quitar(id){
 const p = productos.find(x=>x.id===id);
