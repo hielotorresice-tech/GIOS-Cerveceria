@@ -58,12 +58,6 @@ function subtotal(){
 return productos.reduce((s,p)=> s + p.precio*p.qty,0);
 }
 
-function agregar(id){
-const p = productos.find(x=>x.id===id);
-p.qty++;
-actualizarTotal();
-}
-
 function actualizarTotal(){
 
     let total = subtotal();
@@ -78,12 +72,6 @@ function actualizarTotal(){
         btnPagar.innerText = "Agrega productos";
         btnPagar.classList.remove("activo");
     }
-}
-
-function quitar(id){
-const p = productos.find(x=>x.id===id);
-if(p.qty>0) p.qty--;
-actualizarTotal();
 }
 
 function abrirCheckout(){
