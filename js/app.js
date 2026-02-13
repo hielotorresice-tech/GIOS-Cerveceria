@@ -141,7 +141,7 @@ if(!nombre || !telefono || !direccion || !pago){
     return;
 }
 
-let mensaje="🛒 Pedido GIOS\n\n";
+let mensaje="🛒 Pedido GIOS %0A%0A";
 
 productos.forEach(p=>{
 if(p.qty>0){
