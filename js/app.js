@@ -139,4 +139,3 @@ window.open(
 `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`,
 "_blank"
 );
-}
