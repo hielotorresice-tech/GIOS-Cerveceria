@@ -43,7 +43,7 @@ function cambiarCantidad(producto, cambio){
     if(carrito[producto] < 0) carrito[producto] = 0;
 
     // Actualizar la card
-    const span = document.getElementById("cant-" + producto);
+    const span = document.getElementById("qty-" + producto);
     if(span) span.innerText = carrito[producto];
 
     // Actualizar qty en productos para subtotal
