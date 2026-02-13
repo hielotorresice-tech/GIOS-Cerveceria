@@ -64,11 +64,7 @@ actualizarTotal();
 
 function actualizarTotal(){
 
-    let totalItems = 0;
-
-    for(let item in carrito){
-        totalItems += carrito[item];
-    }
+    let totalItems = productos.reduce((acc,p)=>acc+p.qty,0);
 
     let btnPagar = document.getElementById("btnPagar");
     if(!btnPagar) return;
@@ -76,7 +72,7 @@ function actualizarTotal(){
     btnPagar.innerText = totalItems > 0 
         ? `Ir a pagar (${totalItems})`
         : "Agrega productos";
-    }
+}
 
 function quitar(id){
 const p = productos.find(x=>x.id===id);
