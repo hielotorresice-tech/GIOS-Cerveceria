@@ -34,8 +34,6 @@ catalogo.innerHTML += `
 `;
 });
 
-(<meta charset="UTF-8">)
-
 function cambiarCantidad(producto, cambio){
     if(!carrito[producto]) carrito[producto] = 0;
 
