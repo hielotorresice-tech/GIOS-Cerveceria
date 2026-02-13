@@ -129,13 +129,6 @@ const direccion = document.getElementById("direccion").value.trim();
 
 mensaje+=`💳 Pago: ${pago}`;
 
-<select id="pago">
-<option value="">Seleccionar</option>
-<option value="Efectivo">Efectivo</option>
-<option value="Transferencia">Transferencia</option>
-<option value="Débito / Crédito">Débito / Crédito</option>
-</select>
-
 const pago = document.getElementById("pago").value;
 
 if(!nombre || !telefono || !direccion || !pago){
