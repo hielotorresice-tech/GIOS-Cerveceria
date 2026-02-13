@@ -121,6 +121,8 @@ function irAPagar(){
     abrirCheckout(); // 👈 ahora NO va a WhatsApp
 }
 
+function enviarPedido(){
+
 const nombre=document.getElementById("nombre").value;
 const telefono=document.getElementById("telefono").value;
 const direccion=document.getElementById("direccion").value;
@@ -139,3 +141,5 @@ window.open(
 `https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`,
 "_blank"
 );
+
+}
