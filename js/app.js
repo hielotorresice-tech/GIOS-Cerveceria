@@ -127,8 +127,17 @@ const nombre = document.getElementById("nombre").value.trim();
 const telefono = document.getElementById("telefono").value.trim();
 const direccion = document.getElementById("direccion").value.trim();
 
-if(!nombre || !telefono || !direccion){
-    alert("Por favor completa tus datos");
+<label>Forma de pago</label>
+
+<select id="pago">
+<option value="">Seleccionar</option>
+<option value="Efectivo">Efectivo</option>
+<option value="Transferencia">Transferencia</option>
+<option value="Débito / Crédito">Débito / Crédito</option>
+</select>
+
+if(!nombre || !telefono || !direccion || !pago){
+    alert("Por favor completa todos los datos");
     return;
 }
 
