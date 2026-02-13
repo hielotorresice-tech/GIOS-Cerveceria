@@ -1,4 +1,3 @@
-(<meta charset="UTF-8">)
 const productos = [
 {
 id:1,
@@ -34,6 +33,8 @@ catalogo.innerHTML += `
 </div>
 `;
 });
+
+(<meta charset="UTF-8">)
 
 function cambiarCantidad(producto, cambio){
     if(!carrito[producto]) carrito[producto] = 0;
