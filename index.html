@@ -25,39 +25,28 @@ Agrega productos
 
 <!-- MODAL -->
 <div class="modal" id="modal">
+  <div class="modal-content">
+    <h2>Resumen del pedido</h2>
 
-<div class="modal-content">
+    <div id="items"></div>
 
-<h2>Resumen del pedido</h2>
+    <h3 id="total">Total: $0</h3>
 
-<div id="items"></div>
+    <input id="nombre" placeholder="Nombre">
+    <input id="telefono" placeholder="WhatsApp">
+    <input id="direccion" placeholder="Dirección">
 
-<h3 id="total">Total: $0</h3>
+    <label>Forma de pago</label>
+    <select id="pago">
+      <option value="">Seleccionar</option>
+      <option value="Efectivo">Efectivo</option>
+      <option value="Transferencia">Transferencia</option>
+      <option value="Débito / Crédito">Débito / Crédito</option>
+    </select>
 
-<input id="nombre" placeholder="Nombre">
-<input id="telefono" placeholder="WhatsApp">
-<input id="direccion" placeholder="Dirección">
-<label>Forma de pago</label>
-
-<label>Forma de pago</label>
-<select id="pago">
-<option value="">Seleccionar</option>
-<option value="Efectivo">Efectivo</option>
-<option value="Transferencia">Transferencia</option>
-<option value="Débito / Crédito">Débito / Crédito</option>
-</select>
-
-<button onclick="enviarPedido()">Enviar pedido</button>
-<button onclick="cerrarModal()">Cancelar</button>
-
-<div class="control-cantidad">
-    <button onclick="cambiarCantidad('escudo', -1)">-</button>
-
-    <span class="numero" id="cant-escudo">0</span>
-
-    <button onclick="cambiarCantidad('escudo', 1)">+</button>
-</div>
-
+    <button onclick="enviarPedido()">Enviar pedido</button>
+    <button onclick="cerrarModal()">Cancelar</button>
+  </div>
 </div>
 </div>
 
