@@ -64,9 +64,7 @@ actualizarTotal();
 
 function actualizarTotal(){
 
-    function actualizarTotal(){
-
-    let total = subtotal(); // 👈 usamos dinero
+    let total = subtotal();
 
     const btnPagar = document.getElementById("btnPagar");
     if(!btnPagar) return;
