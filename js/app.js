@@ -127,7 +127,7 @@ const nombre = document.getElementById("nombre").value.trim();
 const telefono = document.getElementById("telefono").value.trim();
 const direccion = document.getElementById("direccion").value.trim();
 
-<label>Forma de pago</label>
+mensaje+=`💳 Pago: ${pago}`;
 
 <select id="pago">
 <option value="">Seleccionar</option>
