@@ -81,7 +81,7 @@ function actualizarTotal(){
 function quitar(id){
 const p = productos.find(x=>x.id===id);
 if(p.qty>0) p.qty--;
-actualizar();
+actualizarTotal();
 }
 
 function abrirCheckout(){
