@@ -136,6 +136,8 @@ mensaje+=`💳 Pago: ${pago}`;
 <option value="Débito / Crédito">Débito / Crédito</option>
 </select>
 
+const pago = document.getElementById("pago").value;
+
 if(!nombre || !telefono || !direccion || !pago){
     alert("Por favor completa todos los datos");
     return;
