@@ -88,7 +88,6 @@ items.innerHTML="";
 productos.forEach(p=>{
 if(p.qty>0){
 items.innerHTML += `
-items.innerHTML += `
 <div class="item-resumen">
 ${p.nombre} x${p.qty}
 </div>
