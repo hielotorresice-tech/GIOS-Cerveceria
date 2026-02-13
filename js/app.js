@@ -25,30 +25,30 @@ catalogo.innerHTML += `
 <h4>${p.nombre}</h4>
 <p>$${p.precio.toLocaleString()}</p>
 
-<button onclick="agregar(${p.id})">+</button>
-<button onclick="quitar(${p.id})">-</button>
-
+<div class="control-cantidad">
+  <button onclick="cambiarCantidad(${p.id}, -1)">-</button>
+  <span id="qty-${p.id}">0</span>
+  <button onclick="cambiarCantidad(${p.id}, 1)">+</button>
+</div>
 </div>
 `;
-
 });
 
-let carrito = {};
-
 function cambiarCantidad(producto, cambio){
-
-    if(!carrito[producto]){
-        carrito[producto] = 0;
-    }
+    if(!carrito[producto]) carrito[producto] = 0;
 
     carrito[producto] += cambio;
+    if(carrito[producto] < 0) carrito[producto] = 0;
 
-    if(carrito[producto] < 0){
-        carrito[producto] = 0;
-    }
+    // Actualizar la card
+    const span = document.getElementById("cant-" + producto);
+    if(span) span.innerText = carrito[producto];
 
-    document.getElementById("cant-" + producto).innerText = carrito[producto];
+    // Actualizar qty en productos para subtotal
+    const p = productos.find(x => x.id === producto);
+    if(p) p.qty = carrito[producto];
 
+    // Actualizar barra inferior
     actualizarTotal();
 }
 
