@@ -15,10 +15,25 @@ qty:0
 }
 ];
 
-let carrito = {}; // ← debe ir antes de cambiarCantidad
+let carrito = {}; // 1️⃣ primero declaras carrito
 
+// 2️⃣ DESPUÉS recuperas lo guardado
+const guardado = localStorage.getItem("carrito");
+
+if(guardado){
+    carrito = JSON.parse(guardado);
+
+    productos.forEach(p=>{
+        if(carrito[p.id]){
+            p.qty = carrito[p.id];
+        }
+    });
+}
+
+// 3️⃣ Ahora recién obtienes el contenedor
 const catalogo = document.getElementById("catalogo");
 
+// 4️⃣ Y recién aquí renderizas
 productos.forEach(p=>{
 
 catalogo.innerHTML += `
