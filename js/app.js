@@ -143,6 +143,10 @@ function mostrarMensaje(texto, tipo="info"){
     }, 2500);
 }
 
+const btn = event.target;
+btn.disabled = true;
+btn.innerText = "Enviando...";
+
   // Armamos el mensaje
   let mensaje = `🛒 *Pedido GIOS*\n\n`;
   productos.forEach(p => {
