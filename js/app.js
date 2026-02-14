@@ -125,6 +125,18 @@ function enviarPedido() {
     return; // Aquí se bloquea hasta que complete
   }
 
+function mostrarMensaje(texto){
+
+  const toast = document.getElementById("toast");
+  toast.innerText = texto;
+
+  toast.classList.add("show");
+
+  setTimeout(()=>{
+    toast.classList.remove("show");
+  }, 2500);
+}
+
   // Armamos el mensaje
   let mensaje = `🛒 *Pedido GIOS*\n\n`;
   productos.forEach(p => {
