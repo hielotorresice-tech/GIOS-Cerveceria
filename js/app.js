@@ -75,7 +75,7 @@ function actualizarTotal(){
     }
 
     // 👇 NUEVO
-    localStorage.setItem("carrito", JSON.stringify(productos));
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function abrirCheckout(){
