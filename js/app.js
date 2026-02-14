@@ -134,48 +134,35 @@ function irAPagar(){
 }
 
 function enviarPedido() {
-  const nombre = document.getElementById("nombre").value.trim();
-  const telefono = document.getElementById("telefono").value.trim();
-  const direccion = document.getElementById("direccion").value.trim();
-  const pago = document.getElementById("pago").value;
+  // Número de pedido simple basado en timestamp
+const numeroPedido = Date.now().toString().slice(-6);
 
-  if(!nombre || !telefono || !direccion || !pago){
-    mostrarMensaje("Por favor ingreasa los datos");
-    return; // Aquí se bloquea hasta que complete
+// Fecha y hora actual
+const ahora = new Date();
+const fecha = ahora.toLocaleDateString("es-CL");
+const hora = ahora.toLocaleTimeString("es-CL", { hour: "2-digit", minute: "2-digit" });
+
+// Armamos el mensaje
+let mensaje = `🛒 *NUEVO PEDIDO — GIOS*\n\n`;
+mensaje += `🧾 Pedido N° ${numeroPedido}\n`;
+mensaje += `📅 ${fecha} — ${hora}\n\n`;
+
+mensaje += `📦 *Productos:*\n`;
+
+productos.forEach(p => {
+  if(p.qty > 0){
+    mensaje += `• ${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString("es-CL")}\n`;
   }
+});
 
-function mostrarMensaje(texto, tipo="info"){
+mensaje += `\n────────────────\n`;
+mensaje += `💰 *TOTAL: $${subtotal().toLocaleString("es-CL")}*\n`;
+mensaje += `────────────────\n\n`;
 
-    const toast = document.getElementById("toast");
-    if(!toast) return;
-
-    toast.className = "toast"; // reset
-
-    if(tipo === "error") toast.classList.add("error");
-    if(tipo === "ok") toast.classList.add("ok");
-
-    toast.innerText = texto;
-    toast.classList.add("show");
-
-    setTimeout(()=>{
-        toast.classList.remove("show");
-    }, 2500);
-}
-
-const btn = event.target;
-btn.disabled = true;
-btn.innerText = "Enviando...";
-
-  // Armamos el mensaje
-  let mensaje = `🛒 *Pedido GIOS*\n\n`;
-  productos.forEach(p => {
-    if(p.qty > 0){
-      mensaje += `${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString()}\n`;
-    }
-  });
-
-  mensaje += `\n💰 Total: $${subtotal().toLocaleString()}\n`;
-  mensaje += `👤 Cliente: ${nombre}\n📞 WhatsApp: ${telefono}\n📍 Dirección: ${direccion}\n💳 Pago: ${pago}`;
+mensaje += `👤 Cliente: ${nombre}\n`;
+mensaje += `📞 Teléfono: ${telefono}\n`;
+mensaje += `📍 Dirección: ${direccion}\n`;
+mensaje += `💳 Pago: ${pago}`;
 
   // Abrimos WhatsApp
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
