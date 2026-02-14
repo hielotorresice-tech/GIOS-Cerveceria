@@ -125,16 +125,22 @@ function enviarPedido() {
     return; // Aquí se bloquea hasta que complete
   }
 
-function mostrarMensaje(texto){
+function mostrarMensaje(texto, tipo="info"){
 
-  const toast = document.getElementById("toast");
-  toast.innerText = texto;
+    const toast = document.getElementById("toast");
+    if(!toast) return;
 
-  toast.classList.add("show");
+    toast.className = "toast"; // reset
 
-  setTimeout(()=>{
-    toast.classList.remove("show");
-  }, 2500);
+    if(tipo === "error") toast.classList.add("error");
+    if(tipo === "ok") toast.classList.add("ok");
+
+    toast.innerText = texto;
+    toast.classList.add("show");
+
+    setTimeout(()=>{
+        toast.classList.remove("show");
+    }, 2500);
 }
 
   // Armamos el mensaje
