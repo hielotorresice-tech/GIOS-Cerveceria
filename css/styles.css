@@ -140,3 +140,24 @@ font-weight: bold;
     width:20px;
     text-align:center;
 }
+
+.toast{
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111;
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+  z-index: 999;
+}
+
+.toast.show{
+  opacity: 1;
+  bottom: 100px;
+}
