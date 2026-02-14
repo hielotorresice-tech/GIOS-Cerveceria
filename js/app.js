@@ -133,38 +133,46 @@ function irAPagar(){
     abrirCheckout(); // 👈 ahora NO va a WhatsApp
 }
 
+// 👇 ESTO debe ir al INICIO de la función
 function enviarPedido() {
-  // Número de pedido simple basado en timestamp
-const numeroPedido = Date.now().toString().slice(-6);
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const direccion = document.getElementById("direccion").value.trim();
+  const pago = document.getElementById("pago").value;
 
-// Fecha y hora actual
-const ahora = new Date();
-const fecha = ahora.toLocaleDateString("es-CL");
-const hora = ahora.toLocaleTimeString("es-CL", { hour: "2-digit", minute: "2-digit" });
-
-// Armamos el mensaje
-let mensaje = `🛒 *NUEVO PEDIDO — GIOS*\n\n`;
-mensaje += `🧾 Pedido N° ${numeroPedido}\n`;
-mensaje += `📅 ${fecha} — ${hora}\n\n`;
-
-mensaje += `📦 *Productos:*\n`;
-
-productos.forEach(p => {
-  if(p.qty > 0){
-    mensaje += `• ${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString("es-CL")}\n`;
+  if(!nombre || !telefono || !direccion || !pago){
+      mostrarMensaje("Por favor completa todos los datos");
+      return;
   }
-});
 
-mensaje += `\n────────────────\n`;
-mensaje += `💰 *TOTAL: $${subtotal().toLocaleString("es-CL")}*\n`;
-mensaje += `────────────────\n\n`;
+  // Número de pedido
+  const numeroPedido = Date.now().toString().slice(-6);
 
-mensaje += `👤 Cliente: ${nombre}\n`;
-mensaje += `📞 Teléfono: ${telefono}\n`;
-mensaje += `📍 Dirección: ${direccion}\n`;
-mensaje += `💳 Pago: ${pago}`;
+  const ahora = new Date();
+  const fecha = ahora.toLocaleDateString("es-CL");
+  const hora = ahora.toLocaleTimeString("es-CL", { hour: "2-digit", minute: "2-digit" });
 
-  // Abrimos WhatsApp
+  let mensaje = `🛒 *NUEVO PEDIDO — GIOS*\n\n`;
+  mensaje += `🧾 Pedido N° ${numeroPedido}\n`;
+  mensaje += `📅 ${fecha} — ${hora}\n\n`;
+
+  mensaje += `📦 *Productos:*\n`;
+
+  productos.forEach(p => {
+    if(p.qty > 0){
+      mensaje += `• ${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString("es-CL")}\n`;
+    }
+  });
+
+  mensaje += `\n────────────────\n`;
+  mensaje += `💰 *TOTAL: $${subtotal().toLocaleString("es-CL")}*\n`;
+  mensaje += `────────────────\n\n`;
+
+  mensaje += `👤 Cliente: ${nombre}\n`;
+  mensaje += `📞 Teléfono: ${telefono}\n`;
+  mensaje += `📍 Dirección: ${direccion}\n`;
+  mensaje += `💳 Pago: ${pago}`;
+
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 }
 
