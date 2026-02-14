@@ -162,5 +162,15 @@ font-weight: bold;
   bottom: 100px;
 }
 
+button{
+  cursor:pointer;
+  transition: all .2s ease;
+}
+
+button:active{
+  transform: scale(.95);
+}
+
+
 .toast.error { background:#c0392b; }
 .toast.ok { background:#27ae60; }
