@@ -181,3 +181,4 @@ function mostrarMensaje(texto){
         toast.classList.remove("show");
     }, 2500);
 }
+actualizarTotal();
