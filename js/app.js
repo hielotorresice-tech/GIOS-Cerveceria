@@ -29,7 +29,7 @@ catalogo.innerHTML += `
 
 <div class="control-cantidad">
   <button onclick="cambiarCantidad(${p.id}, -1)">-</button>
-  <span id="qty-${p.id}">0</span>
+  <span id="qty-${p.id}">${p.qty}</span>
   <button onclick="cambiarCantidad(${p.id}, 1)">+</button>
 </div>
 </div>
