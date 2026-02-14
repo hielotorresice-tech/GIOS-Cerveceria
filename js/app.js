@@ -121,7 +121,7 @@ function enviarPedido() {
   const pago = document.getElementById("pago").value;
 
   if(!nombre || !telefono || !direccion || !pago){
-    alert("Por favor completa todos los datos");
+    mostrarMensaje("Por favor ingreasa los datos");
     return; // Aquí se bloquea hasta que complete
   }
 
