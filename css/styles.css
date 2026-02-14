@@ -161,3 +161,6 @@ font-weight: bold;
   opacity: 1;
   bottom: 100px;
 }
+
+.toast.error { background:#c0392b; }
+.toast.ok { background:#27ae60; }
