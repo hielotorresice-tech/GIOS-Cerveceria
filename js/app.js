@@ -61,6 +61,7 @@ return productos.reduce((s,p)=> s + p.precio*p.qty,0);
 function actualizarTotal(){
 
     let total = subtotal();
+    let totalItems = productos.reduce((acc,p)=>acc+p.qty,0);
 
     const btnPagar = document.getElementById("btnPagar");
     if(!btnPagar) return;
@@ -72,6 +73,9 @@ function actualizarTotal(){
         btnPagar.innerText = "Agrega productos";
         btnPagar.classList.remove("activo");
     }
+
+    // 👇 NUEVO
+    localStorage.setItem("carrito", JSON.stringify(productos));
 }
 
 function abrirCheckout(){
