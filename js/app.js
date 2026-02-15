@@ -151,7 +151,6 @@ function enviarPedido() {
     return;
   }
 
-  // Número de pedido
   const numeroPedido = Date.now().toString().slice(-6);
 
   const ahora = new Date();
@@ -179,23 +178,17 @@ function enviarPedido() {
   mensaje += `📍 Dirección: ${direccion}\n`;
   mensaje += `💳 Pago: ${pago}`;
 
-  // Abrir WhatsApp
-  localStorage.setItem("pedidoEnviado", "true");
-
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 
-// Pequeño delay para evitar conflicto de foco
-setTimeout(() => {
+  // Cerrar resumen
+  cerrarModal();
 
-  if (typeof cerrarModal === "function") {
-    cerrarModal();
-  }
-
+  // Limpiar carrito
   carrito = {};
   productos.forEach(p => p.qty = 0);
   localStorage.removeItem("carrito");
 
-  // 🔹 VOLVER A RENDERIZAR EL CATÁLOGO COMPLETO
+  // Volver a dibujar catálogo correctamente
   catalogo.innerHTML = "";
 
   productos.forEach(p=>{
@@ -204,7 +197,6 @@ setTimeout(() => {
         <img src="${p.img}">
         <h4>${p.nombre}</h4>
         <p>$${p.precio.toLocaleString()}</p>
-
         <div class="control-cantidad">
           <button onclick="cambiarCantidad(${p.id}, -1)">-</button>
           <span id="qty-${p.id}">0</span>
@@ -215,37 +207,9 @@ setTimeout(() => {
   });
 
   actualizarTotal();
+
   mostrarMensaje("✅ Pedido enviado correctamente");
-
-}, 400);
-
-  // Cerrar resumen (usa tu función real si tiene otro nombre)
-  if (typeof cerrarModal === "function") {
-    cerrarModal();
-  }
-
-  // Limpiar carrito
-  carrito = {};
-  productos.forEach(p => p.qty = 0);
-  localStorage.removeItem("carrito");
-
-  // Reset visual en catálogo
-  productos.forEach(p=>{
-    const span = document.getElementById("qty-" + p.id);
-    if(span) span.innerText = 0;
-  });
-
-  actualizarTotal();
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-}, 5000);
-
-// Volver al catálogo
-mostrarCatalogo();
-
-// Actualizar barra
-actualizarTotal();
+}
 
 // ================================
 // MENSAJES TIPO TOAST
@@ -269,7 +233,7 @@ window.addEventListener("focus", () => {
 
   if(enviado === "true"){
 
-    mostrarMensaje("✅ Pedido enviado correctamente");
+    mostrarMensaje("✅ Pedido enviado correctamente 👍");
     localStorage.removeItem("pedidoEnviado");
 
   }
