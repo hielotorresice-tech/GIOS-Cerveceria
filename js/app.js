@@ -135,14 +135,20 @@ function irAPagar(){
 
 // 👇 ESTO debe ir al INICIO de la función
 function enviarPedido() {
+
   const nombre = document.getElementById("nombre").value.trim();
   const telefono = document.getElementById("telefono").value.trim();
   const direccion = document.getElementById("direccion").value.trim();
   const pago = document.getElementById("pago").value;
 
-  if(!nombre || !telefono || !direccion || !pago){
-      mostrarMensaje("Por favor completa todos los datos");
-      return;
+  if(
+    nombre === "" ||
+    telefono === "" ||
+    direccion === "" ||
+    pago === ""
+  ){
+    mostrarMensaje("Por favor completa todos los datos");
+    return;
   }
 
   // Número de pedido
@@ -173,28 +179,29 @@ function enviarPedido() {
   mensaje += `📍 Dirección: ${direccion}\n`;
   mensaje += `💳 Pago: ${pago}`;
 
+  // Abrir WhatsApp
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
+
+  // Cerrar resumen (usa tu función real si tiene otro nombre)
+  if (typeof cerrarModal === "function") {
+    cerrarModal();
+  }
+
+  // Limpiar carrito
+  carrito = {};
+  productos.forEach(p => p.qty = 0);
+  localStorage.removeItem("carrito");
+
+  // Reset visual en catálogo
+  productos.forEach(p=>{
+    const span = document.getElementById("qty-" + p.id);
+    if(span) span.innerText = 0;
+  });
+
+  actualizarTotal();
+
+  mostrarMensaje("Pedido enviado correctamente");
 }
-
-mostrarMensaje("Pedido enviado correctamente");
-
-// Limpiar carrito
-carrito = {};
-productos.forEach(p => p.qty = 0);
-localStorage.removeItem("carrito");
-
-// Actualizar visualmente cantidades
-productos.forEach(p=>{
-  const span = document.getElementById("qty-" + p.id);
-  if(span) span.innerText = 0;
-});
-
-// Volver al catálogo
-mostrarCatalogo();
-actualizarTotal();
-
-// Mensaje final
-mostrarMensaje("Pedido enviado correctamente");
 
 // Volver al catálogo
 mostrarCatalogo();
