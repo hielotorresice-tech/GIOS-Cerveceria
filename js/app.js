@@ -206,7 +206,7 @@ function enviarPedido() {
 
   actualizarTotal();
 
-  mostrarMensaje("✅ Pedido enviado correctamente", 5000);
+  localStorage.setItem("pedidoEnviado", "true");
 
 } // 🔒 CIERRE CORRECTO
 
