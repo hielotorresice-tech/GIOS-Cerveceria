@@ -180,7 +180,10 @@ function enviarPedido() {
   mensaje += `💳 Pago: ${pago}`;
 
   // Abrir WhatsApp
+  localStorage.setItem("pedidoEnviado", "true");
+
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
+
 
   // Cerrar resumen (usa tu función real si tiene otro nombre)
   if (typeof cerrarModal === "function") {
