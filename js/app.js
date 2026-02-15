@@ -226,7 +226,7 @@ function mostrarMensaje(texto){
 
     toast._timer = setTimeout(() => {
         toast.classList.remove("show");
-    }, 4500); // 👈 ahora 4.5 segundos
+    }, 6000); // 👈 ahora 4.5 segundos
 }
 
 window.addEventListener("focus", () => {
