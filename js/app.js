@@ -222,9 +222,11 @@ function mostrarMensaje(texto){
     toast.innerText = texto;
     toast.classList.add("show");
 
-    setTimeout(() => {
+    clearTimeout(toast._timer);
+
+    toast._timer = setTimeout(() => {
         toast.classList.remove("show");
-    }, 2500);
+    }, 4500); // 👈 ahora 4.5 segundos
 }
 
 window.addEventListener("focus", () => {
