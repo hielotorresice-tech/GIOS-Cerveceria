@@ -84,13 +84,14 @@ function actualizarTotal(){
     if(total > 0){
         btnPagar.innerText = `Ir a pagar — $${total.toLocaleString()}`;
         btnPagar.classList.add("activo");
+        btnPagar.disabled = false; // 👈 HABILITA
     }else{
         btnPagar.innerText = "Agrega productos";
         btnPagar.classList.remove("activo");
+        btnPagar.disabled = true; // 👈 DESHABILITA REALMENTE
     }
 
-    // 👇 NUEVO
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    localStorage.setItem("carrito", JSON.stringify(carito));
 }
 
 function abrirCheckout(){
@@ -126,11 +127,11 @@ function irAPagar(){
     let totalItems = productos.reduce((acc,p)=>acc+p.qty,0);
 
     if(totalItems === 0){
-        mostrarMensaje("⚠️Agregar Productos⚠️", "error");
+        mostrarMensaje("⚠️ Debes agregar productos ⚠️", 4000);
         return;
     }
 
-    abrirCheckout(); // 👈 ahora NO va a WhatsApp
+    abrirCheckout();
 }
 
 // 👇 ESTO debe ir al INICIO de la función
