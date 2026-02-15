@@ -126,7 +126,7 @@ function irAPagar(){
     let totalItems = productos.reduce((acc,p)=>acc+p.qty,0);
 
     if(totalItems === 0){
-        mostrarMensaje("⚠️Primero Agrega Productos⚠️", "error");
+        mostrarMensaje("⚠️Agregar Productos⚠️", "error");
         return;
     }
 
