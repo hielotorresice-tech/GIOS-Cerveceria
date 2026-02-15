@@ -147,7 +147,7 @@ function enviarPedido() {
     direccion === "" ||
     pago === ""
   ){
-    mostrarMensaje("Por favor completa todos los datos");
+    mostrarMensaje("❗Por favor completa todos los datos❗");
     return;
   }
 
@@ -200,7 +200,7 @@ function enviarPedido() {
 
   actualizarTotal();
 
-  mostrarMensaje("Pedido enviado correctamente");
+  mostrarMensaje("👍Pedido enviado correctamente👍");
 }
 
 // Volver al catálogo
