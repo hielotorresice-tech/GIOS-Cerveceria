@@ -200,8 +200,9 @@ function enviarPedido() {
 
   actualizarTotal();
 
-  mostrarMensaje("👍Pedido enviado correctamente👍");
-}
+  setTimeout(() => {
+    toast.classList.remove("show");
+}, 5000);
 
 // Volver al catálogo
 mostrarCatalogo();
