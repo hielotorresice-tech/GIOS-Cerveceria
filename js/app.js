@@ -141,13 +141,13 @@ function enviarPedido() {
   const direccion = document.getElementById("direccion").value.trim();
   const pago = document.getElementById("pago").value;
 
-  if(
+  if (
     nombre === "" ||
     telefono === "" ||
     direccion === "" ||
     pago === ""
   ){
-    mostrarMensaje("❗Debes completar los datos❗");
+    mostrarMensaje("❗Debes completar los datos❗", 4000);
     return;
   }
 
@@ -160,7 +160,6 @@ function enviarPedido() {
   let mensaje = `🛒 *NUEVO PEDIDO — GIOS*\n\n`;
   mensaje += `🧾 Pedido N° ${numeroPedido}\n`;
   mensaje += `📅 ${fecha} — ${hora}\n\n`;
-
   mensaje += `📦 *Productos:*\n`;
 
   productos.forEach(p => {
@@ -172,7 +171,6 @@ function enviarPedido() {
   mensaje += `\n────────────────\n`;
   mensaje += `💰 *TOTAL: $${subtotal().toLocaleString("es-CL")}*\n`;
   mensaje += `────────────────\n\n`;
-
   mensaje += `👤 Cliente: ${nombre}\n`;
   mensaje += `📞 Teléfono: ${telefono}\n`;
   mensaje += `📍 Dirección: ${direccion}\n`;
@@ -180,7 +178,6 @@ function enviarPedido() {
 
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 
-  // Cerrar resumen
   cerrarModal();
 
   // Limpiar carrito
@@ -188,7 +185,7 @@ function enviarPedido() {
   productos.forEach(p => p.qty = 0);
   localStorage.removeItem("carrito");
 
-  // Volver a dibujar catálogo correctamente
+  // Redibujar catálogo
   catalogo.innerHTML = "";
 
   productos.forEach(p=>{
@@ -210,6 +207,9 @@ function enviarPedido() {
 
   mostrarMensaje("✅ Pedido enviado correctamente", 5000);
 
+} // 🔒 CIERRE CORRECTO
+
+
 // ================================
 // MENSAJES TIPO TOAST
 // ================================
@@ -227,5 +227,3 @@ function mostrarMensaje(texto, duracion = 6000){
         toast.classList.remove("show");
     }, duracion);
 }
-
-actualizarTotal();
