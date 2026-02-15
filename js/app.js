@@ -184,6 +184,40 @@ function enviarPedido() {
 
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 
+// Pequeño delay para evitar conflicto de foco
+setTimeout(() => {
+
+  if (typeof cerrarModal === "function") {
+    cerrarModal();
+  }
+
+  carrito = {};
+  productos.forEach(p => p.qty = 0);
+  localStorage.removeItem("carrito");
+
+  // 🔹 VOLVER A RENDERIZAR EL CATÁLOGO COMPLETO
+  catalogo.innerHTML = "";
+
+  productos.forEach(p=>{
+    catalogo.innerHTML += `
+      <div class="card">
+        <img src="${p.img}">
+        <h4>${p.nombre}</h4>
+        <p>$${p.precio.toLocaleString()}</p>
+
+        <div class="control-cantidad">
+          <button onclick="cambiarCantidad(${p.id}, -1)">-</button>
+          <span id="qty-${p.id}">0</span>
+          <button onclick="cambiarCantidad(${p.id}, 1)">+</button>
+        </div>
+      </div>
+    `;
+  });
+
+  actualizarTotal();
+  mostrarMensaje("✅ Pedido enviado correctamente");
+
+}, 400);
 
   // Cerrar resumen (usa tu función real si tiene otro nombre)
   if (typeof cerrarModal === "function") {
