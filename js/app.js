@@ -147,7 +147,7 @@ function enviarPedido() {
     direccion === "" ||
     pago === ""
   ){
-    mostrarMensaje("❗Por favor completa todos los datos❗");
+    mostrarMensaje("❗Debes completar los datos❗");
     return;
   }
 
@@ -208,13 +208,12 @@ function enviarPedido() {
 
   actualizarTotal();
 
-  mostrarMensaje("✅ Pedido enviado correctamente");
-}
+  mostrarMensaje("✅ Pedido enviado correctamente", 5000);
 
 // ================================
 // MENSAJES TIPO TOAST
 // ================================
-function mostrarMensaje(texto, duracion = 2500){
+function mostrarMensaje(texto, duracion = 6000){
 
     const toast = document.getElementById("toast");
     if(!toast) return;
@@ -228,18 +227,5 @@ function mostrarMensaje(texto, duracion = 2500){
         toast.classList.remove("show");
     }, duracion);
 }
-
-window.addEventListener("focus", () => {
-
-  const enviado = localStorage.getItem("pedidoEnviado");
-
-  if(enviado === "true"){
-
-    mostrarMensaje("✅ Pedido enviado correctamente 👍");
-    localStorage.removeItem("pedidoEnviado");
-
-  }
-
-});
 
 actualizarTotal();
