@@ -214,7 +214,7 @@ function enviarPedido() {
 // ================================
 // MENSAJES TIPO TOAST
 // ================================
-function mostrarMensaje(texto){
+function mostrarMensaje(texto, duracion = 2500){
 
     const toast = document.getElementById("toast");
     if(!toast) return;
@@ -226,7 +226,7 @@ function mostrarMensaje(texto){
 
     toast._timer = setTimeout(() => {
         toast.classList.remove("show");
-    }, 6000); // 👈 ahora 4.5 segundos
+    }, duracion);
 }
 
 window.addEventListener("focus", () => {
