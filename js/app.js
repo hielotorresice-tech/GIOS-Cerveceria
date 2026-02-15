@@ -15,6 +15,17 @@ qty:0
 }
 ];
 
+window.addEventListener("focus", () => {
+
+  const enviado = localStorage.getItem("pedidoEnviado");
+
+  if(enviado === "true"){
+    mostrarMensaje("✅ Pedido enviado correctamente", 5000);
+    localStorage.removeItem("pedidoEnviado");
+  }
+
+});
+
 let carrito = {}; // 1️⃣ primero declaras carrito
 
 // 2️⃣ DESPUÉS recuperas lo guardado
