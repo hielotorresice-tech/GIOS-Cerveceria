@@ -176,6 +176,32 @@ function enviarPedido() {
   window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 }
 
+mostrarMensaje("Pedido enviado correctamente");
+
+// Limpiar carrito
+carrito = {};
+productos.forEach(p => p.qty = 0);
+localStorage.removeItem("carrito");
+
+// Actualizar visualmente cantidades
+productos.forEach(p=>{
+  const span = document.getElementById("qty-" + p.id);
+  if(span) span.innerText = 0;
+});
+
+// Volver al catálogo
+mostrarCatalogo();
+actualizarTotal();
+
+// Mensaje final
+mostrarMensaje("Pedido enviado correctamente");
+
+// Volver al catálogo
+mostrarCatalogo();
+
+// Actualizar barra
+actualizarTotal();
+
 // ================================
 // MENSAJES TIPO TOAST
 // ================================
