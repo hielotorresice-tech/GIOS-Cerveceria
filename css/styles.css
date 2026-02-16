@@ -47,6 +47,12 @@ padding:12px;
   justify-content:space-between;
 }
 
+.card.activa{
+  background: #f0fdf4;      /* verde muy suave */
+  border: 2px solid #16a34a;
+  transition: 0.2s ease;
+}
+
 .card img{
 width:100%;
 height:140px;
