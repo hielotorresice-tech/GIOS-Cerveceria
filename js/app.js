@@ -111,7 +111,7 @@ function cerrarModal(){
 
 function irAPagar(){
     if(subtotal() === 0){
-        mostrarMensaje("⚠️ Agrega productos ⚠️", 3000);
+        mostrarMensaje("⚠️Agrega productos⚠️", 4000);
         return;
     }
     abrirCheckout();
@@ -125,7 +125,7 @@ function enviarPedido(){
     const pago = document.getElementById("pago").value;
 
     if(!nombre || !telefono || !direccion || !pago){
-        mostrarMensaje("❗Completa los datos❗", 3000);
+        mostrarMensaje("❗Completar Datos❗", 4000);
         return;
     }
 
@@ -165,14 +165,14 @@ document.addEventListener("visibilitychange", () => {
 
         if (enviado === "true") {
 
-            mostrarMensaje("✅ Pedido enviado correctamente ✅", 3000);
+            mostrarMensaje("✅Pedido enviado correctamente✅", 4000);
             localStorage.removeItem("pedidoEnviado");
 
         }
     }
 });
 
-function mostrarMensaje(texto, duracion=3000){
+function mostrarMensaje(texto, duracion=4000){
     const toast = document.getElementById("toast");
     toast.innerText = texto;
     toast.classList.add("show");
