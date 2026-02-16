@@ -17,8 +17,17 @@
 <main id="catalogo"></main>
 
 <!-- BOTON FIJO -->
-<div id="btnPagar" class="barra-pago" onclick="irAPagar()">
-Agrega productos
+<div class="barra-inferior">
+
+  <div class="total-box">
+    <span class="label-total">TOTAL COMPRA</span>
+    <span class="monto-total" id="totalGeneral">$0</span>
+  </div>
+
+  <button class="btn-pagar" onclick="irAPagar()">
+    Ir a pagar
+  </button>
+
 </div>
 
 <!-- MODAL -->
