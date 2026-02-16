@@ -165,7 +165,7 @@ document.addEventListener("visibilitychange", () => {
 
         if (enviado === "true") {
 
-            mostrarMensaje("✅ Pedido enviado correctamente ✅", 8000);
+            mostrarMensaje("✅ Pedido enviado correctamente ✅", 3000);
             localStorage.removeItem("pedidoEnviado");
 
         }
