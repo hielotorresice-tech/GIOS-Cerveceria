@@ -38,10 +38,13 @@ padding:12px;
 }
 
 .card{
-background:#fff;
-border-radius:12px;
-padding:10px;
-text-align:center;
+  background:#fff;
+  border-radius:12px;
+  padding:14px 10px 18px 10px; /* más espacio arriba, menos abajo */
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
 
 .card img{
