@@ -111,7 +111,7 @@ function cerrarModal(){
 
 function irAPagar(){
     if(subtotal() === 0){
-        mostrarMensaje("⚠️ Agrega productos ⚠️", 4000);
+        mostrarMensaje("⚠️ Agrega productos ⚠️", 3000);
         return;
     }
     abrirCheckout();
@@ -125,7 +125,7 @@ function enviarPedido(){
     const pago = document.getElementById("pago").value;
 
     if(!nombre || !telefono || !direccion || !pago){
-        mostrarMensaje("❗Completa los datos", 4000);
+        mostrarMensaje("❗Completa los datos❗", 3000);
         return;
     }
 
@@ -172,7 +172,7 @@ document.addEventListener("visibilitychange", () => {
     }
 });
 
-function mostrarMensaje(texto, duracion=4000){
+function mostrarMensaje(texto, duracion=3000){
     const toast = document.getElementById("toast");
     toast.innerText = texto;
     toast.classList.add("show");
