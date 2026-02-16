@@ -179,19 +179,19 @@ function enviarPedido(){
         return;
     }
 
-    let mensaje = `🛒 NUEVO PEDIDO\n\n`;
+    let mensaje = `🛒 *NUEVO PEDIDO GIOS* 🛒\n\n`;
 
-    productos.forEach(p=>{
-        if(p.qty > 0){
-            mensaje += `${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString()}\n`;
-        }
-    });
+productos.forEach(p=>{
+    if(p.qty > 0){
+        mensaje += `• ${p.nombre}\n   ${p.qty} x $${p.precio.toLocaleString()} = $${(p.precio*p.qty).toLocaleString()}\n`;
+    }
+});
 
-    mensaje += `\nTOTAL: $${subtotal().toLocaleString()}\n\n`;
-    mensaje += `Cliente: ${nombre}\n`;
-    mensaje += `Tel: ${telefono}\n`;
-    mensaje += `Dir: ${direccion}\n`;
-    mensaje += `Pago: ${pago}`;
+mensaje += `\n*TOTAL:* $${subtotal().toLocaleString()}\n\n`;
+mensaje += `👤 *Cliente:* ${nombre}\n`;
+mensaje += `📞 *Tel:* ${telefono}\n`;
+mensaje += `📍 *Dirección:* ${direccion}\n`;
+mensaje += `💳 *Pago:* ${pago}`;
 
     window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 
