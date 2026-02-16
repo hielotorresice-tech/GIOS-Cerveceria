@@ -17,13 +17,13 @@ qty:0
 
 window.addEventListener("focus", () => {
 
+  cerrarModal(); // 👈 fuerza cierre visual
+
   const enviado = localStorage.getItem("pedidoEnviado");
 
   if(enviado === "true"){
-
     mostrarMensaje("✅ Pedido enviado correctamente");
     localStorage.removeItem("pedidoEnviado");
-
   }
 
 });
