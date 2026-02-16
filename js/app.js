@@ -111,7 +111,7 @@ function cerrarModal(){
 
 function irAPagar(){
     if(subtotal() === 0){
-        mostrarMensaje("⚠️ Debes agregar productos", 4000);
+        mostrarMensaje("⚠️ Agrega productos ⚠️", 4000);
         return;
     }
     abrirCheckout();
