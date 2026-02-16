@@ -34,33 +34,33 @@
 </div>
 
 <!-- MODAL -->
-<div class="modal" id="modal">
-  <div class="modal-content">
+<h3>Resumen del pedido</h3>
+<div id="items"></div>
 
-    <h2>Resumen del pedido</h2>
+<div class="linea-total">
+  <span>Total</span>
+  <strong id="total"></strong>
+</div>
 
-    <div id="items"></div>
+<hr>
 
-    <h3 id="total">Total: $0</h3>
+<h4>Datos del cliente</h4>
 
-    <input id="nombre" placeholder="Nombre">
-    <input id="telefono" placeholder="WhatsApp">
-    <input id="direccion" placeholder="Dirección">
+<input type="text" id="nombre" placeholder="Nombre completo">
+<input type="text" id="telefono" placeholder="WhatsApp">
+<input type="text" id="direccion" placeholder="Dirección">
 
-    <label>Forma de pago</label>
-    <select id="pago">
-      <option value="">Seleccionar</option>
-      <option value="Efectivo">Efectivo</option>
-      <option value="Transferencia">Transferencia</option>
-      <option value="Débito / Crédito">Débito / Crédito</option>
-    </select>
+<h4>Forma de pago</h4>
 
-    <br><br>
+<select id="pago">
+  <option value="">Seleccionar</option>
+  <option value="Transferencia">Transferencia</option>
+  <option value="Mercado Pago">Mercado Pago</option>
+</select>
 
-    <button onclick="enviarPedido()">Enviar pedido</button>
-    <button onclick="cerrarModal()">Cancelar</button>
-
-  </div>
+<div class="acciones-modal">
+  <button class="btn-enviar" onclick="enviarPedido()">Enviar Pedido</button>
+  <button class="btn-cancelar" onclick="cerrarModal()">Cancelar</button>
 </div>
 
 <div id="toast" class="toast"></div>
