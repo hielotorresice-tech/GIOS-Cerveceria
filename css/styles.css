@@ -104,21 +104,43 @@ color:#fff;
 font-weight:600;
 }
 
-.barra-pago{
-position: fixed;
-bottom: 0;
-left: 0;
-width: 100%;
-padding: 15px;
-background: #28a745;
-color: white;
-text-align: center;
-font-weight: bold;
+.barra-inferior{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
+.total-box{
+  display: flex;
+  flex-direction: column;
+}
 
-.barra-pago.activo{
-    background:#000;
+.label-total{
+  font-size: 12px;
+  color: #888;
+}
+
+.monto-total{
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-pagar{
+  background: #16a34a;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
 }
 
 .control-cantidad{
