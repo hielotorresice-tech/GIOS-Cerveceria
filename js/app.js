@@ -157,11 +157,18 @@ function enviarPedido(){
     localStorage.setItem("pedidoEnviado","true");
 }
 
-window.addEventListener("focus", ()=>{
-    const enviado = localStorage.getItem("pedidoEnviado");
-    if(enviado === "true"){
-        mostrarMensaje("✅ Pedido enviado correctamente", 6000);
-        localStorage.removeItem("pedidoEnviado");
+document.addEventListener("visibilitychange", () => {
+
+    if (document.visibilityState === "visible") {
+
+        const enviado = localStorage.getItem("pedidoEnviado");
+
+        if (enviado === "true") {
+
+            mostrarMensaje("✅ Pedido enviado correctamente ✅", 8000);
+            localStorage.removeItem("pedidoEnviado");
+
+        }
     }
 });
 
