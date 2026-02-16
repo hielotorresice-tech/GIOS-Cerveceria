@@ -214,19 +214,40 @@ font-weight:600;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:12px;
-  margin-top:6px;
-  margin-bottom:6px; /* sube visualmente el bloque */
+  background:#e5e7eb;
+  border-radius:12px;
+  padding:6px;
+  gap:8px;
+  width:140px;
+  margin:8px auto 0 auto;
 }
 
-.control-cantidad button{
-    width:38px;
-    height:38px;
-    border-radius:10px;
-    border:none;
-    background:#111;
-    color:white;
-    font-size:20px;
+.btn-cant{
+  background:transparent;
+  border:none;
+  font-size:20px;
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#374151;
+}
+
+.btn-cant:active{
+  transform:scale(0.9);
+}
+
+.qty-box{
+  background:white;
+  min-width:40px;
+  text-align:center;
+  padding:6px 10px;
+  border-radius:8px;
+  font-weight:600;
+  font-size:16px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.1);
 }
 
 .numero{
