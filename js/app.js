@@ -145,6 +145,28 @@ function irAPagar(){
     abrirCheckout();
 }
 
+function abrirCheckout(){
+
+    const items = document.getElementById("items");
+    items.innerHTML = "";
+
+    productos.forEach(p=>{
+        if(p.qty > 0){
+            items.innerHTML += `
+            <div class="item-resumen">
+                <span>${p.nombre} x${p.qty}</span>
+                <strong>$${(p.precio*p.qty).toLocaleString("es-CL")}</strong>
+            </div>
+            `;
+        }
+    });
+
+    document.getElementById("total").innerText =
+        "Total: $" + subtotal().toLocaleString("es-CL");
+
+    document.getElementById("modal").classList.add("active");
+}
+
 function enviarPedido(){
 
     const nombre = document.getElementById("nombre").value.trim();
