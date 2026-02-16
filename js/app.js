@@ -109,16 +109,14 @@ function subtotal(){
 }
 
 function actualizarTotal(){
-    const total = subtotal();
-    const btn = document.getElementById("btnPagar");
+  let total = 0;
 
-    if(total > 0){
-        btn.innerText = `Ir a pagar — $${total.toLocaleString()}`;
-        btn.classList.add("activo");
-    }else{
-        btn.innerText = "Agrega productos";
-        btn.classList.remove("activo");
-    }
+  productos.forEach(p => {
+    total += p.precio * p.qty;
+  });
+
+  document.getElementById("totalGeneral").innerText =
+    "$" + total.toLocaleString("es-CL");
 }
 
 function abrirCheckout(){
