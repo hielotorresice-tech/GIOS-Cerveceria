@@ -1,5 +1,4 @@
 const productos = [
-{
 
 { id:1, nombre:"Báltica Vidrio 1000cc", precio:1000, img:"img/gios.png", qty:0 },
 { id:2, nombre:"Becker Lata 473cc", precio:800, img:"img/gios.png", qty:0 },
