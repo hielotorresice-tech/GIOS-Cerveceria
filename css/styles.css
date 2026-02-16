@@ -53,6 +53,15 @@ height:140px;
 object-fit:contain;
 }
 
+.card h3{
+  margin-top:6px;
+  margin-bottom:4px;
+}
+
+.card p{
+  margin-bottom:6px;
+}
+
 /* BOTON FIJO */
 
 .checkout-bar{
@@ -149,11 +158,12 @@ font-weight:600;
 }
 
 .control-cantidad{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin-top:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  margin-top:6px;
+  margin-bottom:6px; /* sube visualmente el bloque */
 }
 
 .control-cantidad button{
