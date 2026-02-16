@@ -109,34 +109,28 @@ function subtotal(){
 }
 
 function actualizarTotal(){
+
   let total = 0;
 
   productos.forEach(p => {
+
     total += p.precio * p.qty;
+
+    const card = document.getElementById("card-" + p.id);
+
+    if(card){
+      if(p.qty > 0){
+        card.classList.add("activa");
+      }else{
+        card.classList.remove("activa");
+      }
+    }
+
   });
 
   document.getElementById("totalGeneral").innerText =
     "$" + total.toLocaleString("es-CL");
-}
 
-function abrirCheckout(){
-    const items = document.getElementById("items");
-    items.innerHTML = "";
-
-    productos.forEach(p=>{
-        if(p.qty > 0){
-            items.innerHTML += `
-            <div class="item-resumen">
-                ${p.nombre} x${p.qty} — $${(p.precio*p.qty).toLocaleString()}
-            </div>
-            `;
-        }
-    });
-
-    document.getElementById("total")
-    .innerText = "Total: $" + subtotal().toLocaleString();
-
-    document.getElementById("modal").classList.add("active");
 }
 
 function cerrarModal(){
