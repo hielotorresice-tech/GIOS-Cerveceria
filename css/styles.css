@@ -65,6 +65,9 @@ cursor:pointer;
 }
 
 /* MODAL */
+body.modal-open{
+  overflow: hidden;
+}
 
 .modal{
   display:none;
