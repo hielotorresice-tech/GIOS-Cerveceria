@@ -20,8 +20,10 @@ window.addEventListener("focus", () => {
   const enviado = localStorage.getItem("pedidoEnviado");
 
   if(enviado === "true"){
-    mostrarMensaje("✅ Pedido enviado correctamente", 5000);
+
+    mostrarMensaje("✅ Pedido enviado correctamente");
     localStorage.removeItem("pedidoEnviado");
+
   }
 
 });
