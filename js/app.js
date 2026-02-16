@@ -78,7 +78,7 @@ function renderCatalogo(){
             <h4>${p.nombre}</h4>
             <p>$${p.precio.toLocaleString()}</p>
 
-            <div class="control-cantidad">
+<div class="control-cantidad">
     <button class="btn-cant" onclick="cambiarCantidad(${p.id}, -1)">−</button>
     <div class="qty-box" id="qty-${p.id}">${p.qty}</div>
     <button class="btn-cant" onclick="cambiarCantidad(${p.id}, 1)">+</button>
