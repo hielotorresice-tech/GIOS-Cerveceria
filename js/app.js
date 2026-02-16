@@ -102,7 +102,7 @@ function actualizarTotal(){
         btnPagar.disabled = true; // 👈 DESHABILITA REALMENTE
     }
 
-    localStorage.setItem("carrito", JSON.stringify(carito));
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
 function abrirCheckout(){
