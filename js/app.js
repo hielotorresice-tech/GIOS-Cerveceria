@@ -143,7 +143,9 @@ function irAPagar(){
         return;
     }
     abrirCheckout();
+document.body.classList.add("modal-open");
 }
+
 
 function abrirCheckout(){
 
@@ -196,6 +198,7 @@ mensaje += `💳 *Pago:* ${pago}`;
     window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 
     cerrarModal();
+    document.body.classList.remove("modal-open");
 
     carrito = {};
     productos.forEach(p=>p.qty=0);
