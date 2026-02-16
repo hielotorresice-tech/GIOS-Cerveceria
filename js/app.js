@@ -108,9 +108,9 @@ function actualizarTotal(){
 }
 
 function abrirCheckout(){
-
-const items = document.getElementById("items");
-items.innerHTML="";
+  document.getElementById("modal").classList.add("active");
+  document.body.classList.add("modal-open"); // 👈 bloquea scroll
+}
 
 productos.forEach(p=>{
 if(p.qty>0){
@@ -133,6 +133,7 @@ document.getElementById("modal")
 
 function cerrarModal(){
   document.getElementById("modal").classList.remove("active");
+  document.body.classList.remove("modal-open"); // 👈 desbloquea scroll
 }
 
 function irAPagar(){
