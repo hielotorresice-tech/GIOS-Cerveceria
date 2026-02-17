@@ -232,6 +232,8 @@ function mostrarMensaje(texto, duracion=3000){
 
 document.addEventListener("change", function(e){
 
+pagoConfirmado = false;
+
     if(e.target && e.target.id === "pago"){
 
         const contenedor = document.getElementById("pago-info");
