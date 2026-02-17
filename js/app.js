@@ -64,31 +64,33 @@ if(guardado){
     });
 }
 
-const card = document.getElementById("card-" + p.id);
+const catalogo = document.getElementById("catalogo");
 
 renderCatalogo();
 actualizarTotal();
 
 function renderCatalogo(){
     catalogo.innerHTML = "";
+
     productos.forEach(p=>{
         catalogo.innerHTML += `
-        <div class="card">
+        <div class="card" id="card-${p.id}">
             <img src="${p.img}">
             <h4>${p.nombre}</h4>
-            <p>$${p.precio.toLocaleString()}</p>
+            <p>$${p.precio.toLocaleString("es-CL")}</p>
 
-<div class="control-cantidad">
-    <button class="btn-cant" onclick="cambiarCantidad(${p.id}, -1)">−</button>
-    <div class="qty-box" id="qty-${p.id}">${p.qty}</div>
-    <button class="btn-cant" onclick="cambiarCantidad(${p.id}, 1)">+</button>
-</div>
+            <div class="control-cantidad">
+                <button class="btn-cant" onclick="cambiarCantidad(${p.id}, -1)">−</button>
+                <div class="qty-box" id="qty-${p.id}">${p.qty}</div>
+                <button class="btn-cant" onclick="cambiarCantidad(${p.id}, 1)">+</button>
+            </div>
         </div>
         `;
     });
 }
 
 function cambiarCantidad(id, cambio){
+
     if(!carrito[id]) carrito[id] = 0;
 
     carrito[id] += cambio;
@@ -97,7 +99,7 @@ function cambiarCantidad(id, cambio){
     const producto = productos.find(p => p.id === id);
     producto.qty = carrito[id];
 
-    .getElementById("qty-"+id).innerText = carrito[id];
+    document.getElementById("qty-"+id).innerText = carrito[id];
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
@@ -110,61 +112,54 @@ function subtotal(){
 
 function actualizarTotal(){
 
-  let total = 0;
+    let total = 0;
 
-  productos.forEach(p => {
+    productos.forEach(p => {
 
-    total += p.precio * p.qty;
+        total += p.precio * p.qty;
 
-    const card = document.getElementById("card-" + p.id);
+        const card = document.getElementById("card-" + p.id);
 
-    if(card){
-      if(p.qty > 0){
-        card.classList.add("activa");
-      }else{
-        card.classList.remove("activa");
-      }
+        if(card){
+            if(p.qty > 0){
+                card.classList.add("activa");
+            }else{
+                card.classList.remove("activa");
+            }
+        }
+
+    });
+
+    const totalGeneral = document.getElementById("totalGeneral");
+
+    if(totalGeneral){
+        totalGeneral.innerText =
+            "$" + total.toLocaleString("es-CL");
+
+        if(total > 0){
+            totalGeneral.classList.add("total-activo");
+        }else{
+            totalGeneral.classList.remove("total-activo");
+        }
     }
-
-  });
-
-  const totalGeneral = document.getElementById("totalGeneral");
-
-  if(totalGeneral){
-    totalGeneral.innerText =
-      "$" + total.toLocaleString("es-CL");
-
-    if(total > 0){
-      totalGeneral.classList.add("total-activo");
-    }else{
-      totalGeneral.classList.remove("total-activo");
-    }
-  }
-
-}
-
-  .getElementById("totalGeneral").innerText =
-    "$" + total.toLocaleString("es-CL");
-
 }
 
 function cerrarModal(){
-    .getElementById("modal").classList.remove("active");
+    document.getElementById("modal").classList.remove("active");
+    document.body.classList.remove("modal-open");
 }
 
 function irAPagar(){
     if(subtotal() === 0){
-        mostrarMensaje("⚠️Agrega productos⚠️", 4000);
+        mostrarMensaje("⚠️ Agrega productos", 3000);
         return;
     }
     abrirCheckout();
-.body.classList.add("modal-open");
 }
-
 
 function abrirCheckout(){
 
-    const items = .getElementById("items");
+    const items = document.getElementById("items");
     items.innerHTML = "";
 
     productos.forEach(p=>{
@@ -178,10 +173,11 @@ function abrirCheckout(){
         }
     });
 
-   document.getElementById("total").innerText =
-    "$" + subtotal().toLocaleString("es-CL");
+    document.getElementById("total").innerText =
+        "$" + subtotal().toLocaleString("es-CL");
 
     document.getElementById("modal").classList.add("active");
+    document.body.classList.add("modal-open");
 }
 
 function enviarPedido(){
@@ -192,28 +188,27 @@ function enviarPedido(){
     const pago = document.getElementById("pago").value;
 
     if(!nombre || !telefono || !direccion || !pago){
-        mostrarMensaje("❗Completar Datos❗", 4000);
+        mostrarMensaje("❗ Completa los datos", 3000);
         return;
     }
 
-    let mensaje = `🛒 *NUEVO PEDIDO GIOS* 🛒\n\n`;
+    let mensaje = `🛒 *NUEVO PEDIDO GIOS*\n\n`;
 
-productos.forEach(p=>{
-    if(p.qty > 0){
-        mensaje += `• ${p.nombre}\n   ${p.qty} x $${p.precio.toLocaleString()} = $${(p.precio*p.qty).toLocaleString()}\n`;
-    }
-});
+    productos.forEach(p=>{
+        if(p.qty > 0){
+            mensaje += `• ${p.nombre}\n   ${p.qty} x $${p.precio.toLocaleString("es-CL")} = $${(p.precio*p.qty).toLocaleString("es-CL")}\n`;
+        }
+    });
 
-mensaje += `\n*TOTAL:* $${subtotal().toLocaleString()}\n\n`;
-mensaje += `👤 *Cliente:* ${nombre}\n`;
-mensaje += `📞 *Tel:* ${telefono}\n`;
-mensaje += `📍 *Dirección:* ${direccion}\n`;
-mensaje += `💳 *Pago:* ${pago}`;
+    mensaje += `\n💰 *TOTAL:* $${subtotal().toLocaleString("es-CL")}\n\n`;
+    mensaje += `👤 Cliente: ${nombre}\n`;
+    mensaje += `📞 Tel: ${telefono}\n`;
+    mensaje += `📍 Dirección: ${direccion}\n`;
+    mensaje += `💳 Pago: ${pago}`;
 
     window.open(`https://wa.me/56927731874?text=${encodeURIComponent(mensaje)}`, "_blank");
 
     cerrarModal();
-    document.body.classList.remove("modal-open");
 
     carrito = {};
     productos.forEach(p=>p.qty=0);
@@ -225,67 +220,12 @@ mensaje += `💳 *Pago:* ${pago}`;
     localStorage.setItem("pedidoEnviado","true");
 }
 
-document.addEventListener("visibilitychange", () => {
-
-    if (document.visibilityState === "visible") {
-
-        const enviado = localStorage.getItem("pedidoEnviado");
-
-        if (enviado === "true") {
-
-            mostrarMensaje("✅Pedido enviado correctamente✅", 4000);
-            localStorage.removeItem("pedidoEnviado");
-
-        }
-    }
-});
-
-function mostrarMensaje(texto, duracion=4000){
+function mostrarMensaje(texto, duracion=3000){
     const toast = document.getElementById("toast");
     toast.innerText = texto;
     toast.classList.add("show");
 
-    clearTimeout(toast._timer);
-
-    toast._timer = setTimeout(()=>{
+    setTimeout(()=>{
         toast.classList.remove("show");
     }, duracion);
 }
-
-document.getElementById("pago").addEventListener("change", function(){
-
-    const contenedor = document.getElementById("pago-info");
-    const metodo = this.value;
-
-    contenedor.innerHTML = "";
-
-    if(metodo === "Transferencia"){
-
-        contenedor.innerHTML = `
-        <div class="box-pago">
-            <strong>Datos Bancarios</strong><br><br>
-            Oscar Ernesto Torres Lopez<br>
-            RUT: 12.218.473-0<br>
-            Cuenta Corriente<br>
-            000070363356<br>
-            Banco Santander<br>
-            o.oscartorres.72@gmail.com
-        </div>
-        `;
-
-    }
-
-    if(metodo === "Mercado Pago"){
-
-        contenedor.innerHTML = `
-        <div class="box-pago">
-            Ingresa al link y elige cómo pagar:<br><br>
-            <a href="https://link.mercadopago.cl/torresice" target="_blank" class="link-pago">
-            Pagar con Mercado Pago
-            </a>
-        </div>
-        `;
-
-    }
-
-});
