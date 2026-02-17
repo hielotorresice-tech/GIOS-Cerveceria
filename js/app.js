@@ -230,39 +230,43 @@ function mostrarMensaje(texto, duracion=3000){
     }, duracion);
 }
 
-document.getElementById("pago").addEventListener("change", function(){
+document.addEventListener("change", function(e){
 
-    const contenedor = document.getElementById("pago-info");
-    const metodo = this.value;
+    if(e.target && e.target.id === "pago"){
 
-    contenedor.innerHTML = "";
+        const contenedor = document.getElementById("pago-info");
+        const metodo = e.target.value;
 
-    if(metodo === "Transferencia"){
+        if(!contenedor) return;
 
-        contenedor.innerHTML = `
-        <div class="box-pago">
-            <strong>Datos Bancarios</strong><br><br>
-            Oscar Ernesto Torres Lopez<br>
-            RUT: 12.218.473-0<br>
-            Cuenta Corriente<br>
-            000070363356<br>
-            Banco Santander<br>
-            o.oscartorres.72@gmail.com
-        </div>
-        `;
+        contenedor.innerHTML = "";
 
-    }
+        if(metodo === "Transferencia"){
+            contenedor.innerHTML = `
+            <div class="box-pago">
+                <strong>Datos Bancarios</strong><br><br>
+                Oscar Ernesto Torres Lopez<br>
+                RUT: 12.218.473-0<br>
+                Cuenta Corriente<br>
+                000070363356<br>
+                Banco Santander<br>
+                o.oscartorres.72@gmail.com
+            </div>
+            `;
+        }
 
-    if(metodo === "Mercado Pago"){
-
-        contenedor.innerHTML = `
-        <div class="box-pago">
-            Ingresa al link y elige cómo pagar:<br><br>
-            <a href="https://link.mercadopago.cl/torresice" target="_blank" class="link-pago">
-            Pagar con Mercado Pago
-            </a>
-        </div>
-        `;
+        if(metodo === "Mercado Pago"){
+            contenedor.innerHTML = `
+            <div class="box-pago">
+                Ingresa al link y elige cómo pagar:<br><br>
+                <a href="https://link.mercadopago.cl/torresice"
+                   target="_blank"
+                   class="link-pago">
+                   Pagar con Mercado Pago
+                </a>
+            </div>
+            `;
+        }
 
     }
 
