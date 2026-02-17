@@ -64,7 +64,7 @@ if(guardado){
     });
 }
 
-const catalogo = document.getElementById("catalogo");
+const catalogo = .getElementById("catalogo");
 
 renderCatalogo();
 actualizarTotal();
@@ -97,7 +97,7 @@ function cambiarCantidad(id, cambio){
     const producto = productos.find(p => p.id === id);
     producto.qty = carrito[id];
 
-    document.getElementById("qty-"+id).innerText = carrito[id];
+    .getElementById("qty-"+id).innerText = carrito[id];
 
     localStorage.setItem("carrito", JSON.stringify(carrito));
 
@@ -116,7 +116,7 @@ function actualizarTotal(){
 
     total += p.precio * p.qty;
 
-    const card = document.getElementById("card-" + p.id);
+    const card = .getElementById("card-" + p.id);
 
     if(card){
       if(p.qty > 0){
@@ -128,13 +128,13 @@ function actualizarTotal(){
 
   });
 
-  document.getElementById("totalGeneral").innerText =
+  .getElementById("totalGeneral").innerText =
     "$" + total.toLocaleString("es-CL");
 
 }
 
 function cerrarModal(){
-    document.getElementById("modal").classList.remove("active");
+    .getElementById("modal").classList.remove("active");
 }
 
 function irAPagar(){
@@ -143,13 +143,13 @@ function irAPagar(){
         return;
     }
     abrirCheckout();
-document.body.classList.add("modal-open");
+.body.classList.add("modal-open");
 }
 
 
 function abrirCheckout(){
 
-    const items = document.getElementById("items");
+    const items = .getElementById("items");
     items.innerHTML = "";
 
     productos.forEach(p=>{
@@ -163,8 +163,8 @@ function abrirCheckout(){
         }
     });
 
-    document.getElementById("total").innerText =
-        "Total: $" + subtotal().toLocaleString("es-CL");
+   document.getElementById("total").innerText =
+    "$" + subtotal().toLocaleString("es-CL");
 
     document.getElementById("modal").classList.add("active");
 }
