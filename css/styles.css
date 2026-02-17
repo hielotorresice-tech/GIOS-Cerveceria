@@ -353,6 +353,27 @@ button:active{
   transform: scale(.95);
 }
 
-
 .toast.error { background:#c0392b; }
 .toast.ok { background:#27ae60; }
+
+.pago-info{
+  margin-top:10px;
+}
+
+.box-pago{
+  background:#f3f4f6;
+  padding:12px;
+  border-radius:8px;
+  font-size:13px;
+  line-height:1.4;
+}
+
+.link-pago{
+  display:inline-block;
+  background:#16a34a;
+  color:white;
+  padding:8px 12px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
