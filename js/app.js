@@ -116,7 +116,7 @@ function actualizarTotal(){
 
     total += p.precio * p.qty;
 
-    const card = .getElementById("card-" + p.id);
+    const card = document.getElementById("card-" + p.id);
 
     if(card){
       if(p.qty > 0){
@@ -127,6 +127,21 @@ function actualizarTotal(){
     }
 
   });
+
+  const totalGeneral = document.getElementById("totalGeneral");
+
+  if(totalGeneral){
+    totalGeneral.innerText =
+      "$" + total.toLocaleString("es-CL");
+
+    if(total > 0){
+      totalGeneral.classList.add("total-activo");
+    }else{
+      totalGeneral.classList.remove("total-activo");
+    }
+  }
+
+}
 
   .getElementById("totalGeneral").innerText =
     "$" + total.toLocaleString("es-CL");
