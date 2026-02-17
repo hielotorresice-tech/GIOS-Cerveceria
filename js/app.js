@@ -181,6 +181,10 @@ function abrirCheckout(){
 }
 
 function enviarPedido(){
+if(!pagoConfirmado){
+    mostrarMensaje("⚠️ Debes realizar el pago antes de enviar el pedido.", 4000);
+    return;
+}
 
     const nombre = document.getElementById("nombre").value.trim();
     const telefono = document.getElementById("telefono").value.trim();
