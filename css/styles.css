@@ -369,11 +369,18 @@ button:active{
 }
 
 .link-pago{
-  display:inline-block;
-  background:#16a34a;
+  display:block;
+  text-align:center;
+  background:#2d7df6;   /* Azul MP */
   color:white;
-  padding:8px 12px;
-  border-radius:6px;
+  padding:14px;
+  border-radius:10px;
+  font-weight:600;
   text-decoration:none;
-  font-weight:bold;
+  transition:0.2s ease;
+}
+
+.link-pago:hover{
+  background:#1f6de0;
+  transform:translateY(-2px);
 }
