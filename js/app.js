@@ -236,7 +236,7 @@ function mostrarMensaje(texto, duracion=3000){
 
 document.addEventListener("change", function(e){
 
-pagoConfirmado = false;
+    pagoConfirmado = false;
 
     if(e.target && e.target.id === "pago"){
 
@@ -248,37 +248,41 @@ pagoConfirmado = false;
         contenedor.innerHTML = "";
 
         if(metodo === "Transferencia"){
-    contenedor.innerHTML = `
-    <div class="box-pago">
-        <strong>Datos Bancarios</strong><br><br>
-        Oscar Ernesto Torres Lopez<br>
-        RUT: 12.218.473-0<br>
-        Cuenta Corriente<br>
-        000070363356<br>
-        Banco Santander<br>
-        o.oscartorres.72@gmail.com
+            contenedor.innerHTML = `
+            <div class="box-pago">
+                <strong>Datos Bancarios</strong><br><br>
+                Oscar Ernesto Torres Lopez<br>
+                RUT: 12.218.473-0<br>
+                Cuenta Corriente<br>
+                000070363356<br>
+                Banco Santander<br>
+                o.oscartorres.72@gmail.com
 
-        <br><br>
-        <button onclick="confirmarPago()" class="btn-confirmar">
-            Ya realicé la transferencia
-        </button>
-    </div>
-    `;
-}
+                <br><br>
+                <button onclick="confirmarPago()" class="btn-confirmar">
+                    Ya realicé la transferencia
+                </button>
+            </div>
+            `;
+        }
 
         if(metodo === "Mercado Pago"){
-    contenedor.innerHTML = `
-    <div class="box-pago">
-        Ingresa al link y realiza el pago:<br><br>
-        <a href="https://link.mercadopago.cl/torresice"
-           target="_blank"
-           class="link-pago"
-           onclick="confirmarPago()">
-           Pagar con Mercado Pago
-        </a>
-    </div>
-    `;
-}
+            contenedor.innerHTML = `
+            <div class="box-pago">
+                Ingresa al link y realiza el pago:<br><br>
+                <a href="https://link.mercadopago.cl/torresice"
+                   target="_blank"
+                   class="link-pago"
+                   onclick="confirmarPago()">
+                   Pagar con Mercado Pago
+                </a>
+            </div>
+            `;
+        }
+
+    }
+
+});
 
 function confirmarPago(){
     pagoConfirmado = true;
