@@ -280,8 +280,6 @@ pagoConfirmado = false;
     `;
 }
 
-});
-
 function confirmarPago(){
     pagoConfirmado = true;
     mostrarMensaje("✅ Pago confirmado. Ahora puedes enviar el pedido.", 3000);
