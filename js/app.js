@@ -31,7 +31,7 @@ const productos = [
 { id:26, nombre:"Heineken Botellin 330cc", precio:1100, img:"img/gios.png", qty:0 },
 { id:27, nombre:"Heineken Lata 470cc", precio:1000, img:"img/gios.png", qty:0 },
 { id:28, nombre:"Lemon Stone Lata 350cc", precio:1100, img:"img/gios.png", qty:0 },
-{ id:29, nombre:"Manquehito 1.500 ml", precio:3301, img:"img/gios.png", qty:0 },
+{ id:29, nombre:"Manquehito 1.500 ml", precio:4300, img:"img/gios.png", qty:0 },
 { id:30, nombre:"Morenita 1.2", precio:1800, img:"img/gios.png", qty:0 },
 { id:31, nombre:"Morenita Lata 470cc", precio:1100, img:"img/gios.png", qty:0 },
 { id:32, nombre:"Royal 1.0", precio:1700, img:"img/gios.png", qty:0 },
