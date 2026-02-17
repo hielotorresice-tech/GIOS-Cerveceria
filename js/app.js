@@ -64,7 +64,7 @@ if(guardado){
     });
 }
 
-const catalogo = .getElementById("catalogo");
+const card = document.getElementById("card-" + p.id);
 
 renderCatalogo();
 actualizarTotal();
