@@ -1,7 +1,7 @@
 let pagoConfirmado = false;
 const productos = [
 { id:1, nombre:"Báltica Vidrio 1000cc", precio:1000, img:"img/baltica-1lt.png", qty:0 },
-{ id:2, nombre:"Becker Lata 473cc", precio:800, img:"img/becker-773cc.png", qty:0 },
+{ id:2, nombre:"Becker Lata 473cc", precio:800, img:"img/becker-473cc.png", qty:0 },
 { id:3, nombre:"Becker Laton 710cc", precio:1000, img:"img/becker-710cc.png", qty:0 },
 { id:4, nombre:"Budweiser Laton 710cc", precio:1200, img:"img/budweiser-710cc.png", qty:0 },
 { id:5, nombre:"Corona Botellin 330cc", precio:1200, img:"img/corona-330cc.png", qty:0 },
