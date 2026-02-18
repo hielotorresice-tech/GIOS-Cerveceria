@@ -417,6 +417,11 @@ button:active{
     z-index: 0;
 }
 
+.main-header *{
+    position: relative;
+    z-index: 1;
+}
+
 .header-overlay{
     position:relative;
     z-index:2;
