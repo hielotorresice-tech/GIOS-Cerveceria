@@ -426,3 +426,9 @@ button:active{
     font-size:15px;
     opacity:0.95;
 }
+
+.main-header{
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+}
+
