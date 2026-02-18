@@ -422,16 +422,16 @@ button:active{
 }
 
 .logo-header{
-    width: 90px;   /* antes estaba muy grande */
-    margin-bottom: 8px;
+    width: 60px;
+    margin-bottom: 4px;
 }
 
 .header-text h2{
-    font-size: 18px;
-    margin: 5px 0;
+    font-size: 15px;
+    margin: 2px 0;
 }
 
 .header-text p{
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
 }
