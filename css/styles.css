@@ -415,8 +415,8 @@ button:active{
 }
 
 .logo-header{
-    width:140px;   /* ajustable */
-    margin-bottom:15px;
+    width: 90px;   /* antes estaba muy grande */
+    margin-bottom: 8px;
 }
 
 .header-text h2{
