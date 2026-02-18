@@ -396,17 +396,13 @@ button:active{
     background-image: url("../img/Fondo-Beers.jpg");
     background-size: cover;
     background-position: center;
-
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
     z-index: 1000;
-
-    padding: 8px 8px;   /* MUY compacto */
+    padding: 8px;
     text-align: center;
     color: white;
-
     border-bottom-left-radius:18px;
     border-bottom-right-radius:18px;
     overflow: hidden;
