@@ -384,3 +384,45 @@ button:active{
   background:#1f6de0;
   transform:translateY(-2px);
 }
+
+.main-header{
+    background-image: url("Fondo-Beers.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 40px 20px;
+    text-align: center;
+    color: white;
+}
+
+.main-header::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,0.55); /* oscurece fondo */
+}
+
+.header-overlay{
+    position:relative;
+    z-index:2;
+}
+
+.logo-header{
+    width:140px;   /* ajustable */
+    margin-bottom:15px;
+}
+
+.header-text h2{
+    margin:0;
+    font-size:20px;
+    font-weight:600;
+}
+
+.header-text p{
+    margin-top:8px;
+    font-size:15px;
+    opacity:0.95;
+}
