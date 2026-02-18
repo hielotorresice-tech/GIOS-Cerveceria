@@ -432,6 +432,10 @@ button:active{
     margin-bottom: 3px;
 }
 
+.header-text{
+    line-height: 1.2;
+}
+
 .header-text h2{
     font-size: 13px;
     font-weight: 600;
