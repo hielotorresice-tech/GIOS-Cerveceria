@@ -386,7 +386,7 @@ button:active{
 }
 
 .main-header{
-    background-image: url("Fondo-Beers.jpg");
+    background-image: url("../img/Fondo-Beers.jpg");
     background-size: cover;
     background-position: center;
     position: relative;
