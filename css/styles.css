@@ -31,7 +31,7 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:12px;
 padding:12px;
-margin-top: 120px;  /* ajusta si queda muy alto o bajo */
+margin-top: 110px;  /* ajusta si queda muy alto o bajo */
 }
 
 .productos{
@@ -56,8 +56,8 @@ margin-top: 120px;  /* ajusta si queda muy alto o bajo */
 
 .card img{
 width:100%;
-height:140px;
-object-fit:contain;
+max-height: 110px;
+object-fit: contain;
 }
 
 .card h3{
@@ -65,8 +65,14 @@ object-fit:contain;
   margin-bottom:4px;
 }
 
+.card h4{
+    font-size: 15px;
+    margin: 6px 0 2px;
+}
+
 .card p{
-  margin-bottom:6px;
+    font-size: 15px;
+    margin: 0 0 8px;
 }
 
 /* BOTON FIJO */
@@ -397,7 +403,7 @@ button:active{
     width: 100%;
     z-index: 1000;
 
-    padding: 10px 10px;   /* MUY compacto */
+    padding: 8px 8px;   /* MUY compacto */
     text-align: center;
     color: white;
 
@@ -422,16 +428,16 @@ button:active{
 }
 
 .logo-header{
-    width: 60px;
-    margin-bottom: 4px;
+    width: 50px;
+    margin-bottom: 3px;
 }
 
 .header-text h2{
-    font-size: 15px;
+    font-size: 14px;
     margin: 2px 0;
 }
 
 .header-text p{
-    font-size: 12px;
+    font-size: 11px;
     margin: 0;
 }
