@@ -31,6 +31,7 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
 gap:12px;
 padding:12px;
+margin-top: 190px;  /* ajusta si queda muy alto o bajo */
 }
 
 .productos{
