@@ -393,6 +393,10 @@ button:active{
     padding: 40px 20px;
     text-align: center;
     color: white;
+
+    border-bottom-left-radius:25px;
+    border-bottom-right-radius:25px;
+    overflow: hidden;
 }
 
 .main-header::before{
@@ -426,9 +430,3 @@ button:active{
     font-size:15px;
     opacity:0.95;
 }
-
-.main-header{
-    border-bottom-left-radius:25px;
-    border-bottom-right-radius:25px;
-}
-
