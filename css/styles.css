@@ -359,6 +359,11 @@ font-weight:600;
   bottom: 100px;
 }
 
+#totalGeneral{
+    font-weight: 700;
+    font-size: 18px;
+}
+
 button{
   cursor:pointer;
   transition: all .2s ease;
