@@ -259,6 +259,11 @@ font-weight:600;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
 }
 
+.barra-total{
+    background: linear-gradient(90deg, #0f3d2e, #145c43);
+    color: white;
+}
+
 .total-box{
   display: flex;
   flex-direction: column;
