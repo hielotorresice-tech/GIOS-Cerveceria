@@ -21,7 +21,7 @@ const productos = [
 { id:19, nombre:"Cristal Ultra 710cc", precio:1100, img:"img/gios.png", qty:0 },
 { id:20, nombre:"Escudo Ret 1.2Lt.", precio:1600, img:"img/gios.png", qty:0 },
 { id:21, nombre:"Escudo Lata Roja 350cc", precio:850, img:"img/gios.png", qty:0 },
-{ id:22, nombre:"Escudo Lata Roja 470cc", precio:950, img:"img/gios.png", qty:0 },
+{ id:22, nombre:"Escudo Lata Roja 470cc", precio:950, img:"img/escudo-roja470.avif", qty:0 },
 { id:23, nombre:"Escudo Silver Lata 470cc", precio:800, img:"img/escudo-silver470cc.png", qty:0 },
 
 // 🔥 CON IMAGEN REAL
