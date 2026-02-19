@@ -467,7 +467,7 @@ button:active{
 #splash{
     position: fixed;
     inset: 0;
-    background-image: url("img/Fondo-Beers.jpg");
+    background-image: url("../img/Fondo-Beers.jpg");
     background-size: cover;
     background-position: center;
     display: flex;
