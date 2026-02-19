@@ -111,11 +111,13 @@ body.modal-open{
 }
 
 .contenido-modal{
-  background:#f3f4f6;
-  width:100%;
-  max-width:420px;
-  border-radius:16px;
-  padding:20px;
+  background: white;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  padding: 20px;
+  max-height: 85vh;       /* limita altura */
+  overflow-y: auto;       /* permite scroll interno */
 }
 
 .titulo-modal{
