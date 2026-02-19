@@ -97,13 +97,13 @@ body.modal-open{
 }
 
 .modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.4);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  padding:20px;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
 }
 
 .modal.active{
