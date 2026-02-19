@@ -288,17 +288,3 @@ function confirmarPago(){
     pagoConfirmado = true;
     mostrarMensaje("✅ Pago confirmado. Ahora puedes enviar el pedido.", 3000);
 }
-
-function generarPDF() {
-    const element = document.getElementById("resumenPedido");
-
-    const opt = {
-        margin: 5,
-        filename: 'Pedido-GIOS.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(opt).from(element).save();
-}
