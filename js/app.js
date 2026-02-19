@@ -288,3 +288,16 @@ function confirmarPago(){
     pagoConfirmado = true;
     mostrarMensaje("✅ Pago confirmado. Ahora puedes enviar el pedido.", 3000);
 }
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+        const splash = document.getElementById("splash");
+        splash.style.opacity = "0";
+
+        setTimeout(function(){
+            splash.style.display = "none";
+        }, 800);
+
+    }, 2200); // duración visible
+});
