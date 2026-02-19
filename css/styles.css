@@ -400,7 +400,7 @@ button:active{
 }
 
 .main-header{
-    background-image: url("../img/fondo-ladrillo.jpg");
+    background-image: url("../img/fondo-ladrillo-3d.png");
     background-size: cover;
     background-position: center;
     position: fixed;
@@ -467,7 +467,7 @@ button:active{
 #splash{
     position: fixed;
     inset: 0;
-    background-image: url("../img/fondo-ladrillo.jpg");
+    background-image: url("../img/fondo-ladrillo-3d.png");
     background-size: cover;
     background-position: center;
     display: flex;
