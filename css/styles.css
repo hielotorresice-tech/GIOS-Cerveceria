@@ -260,8 +260,9 @@ font-weight:600;
 }
 
 .barra-total{
-    background: linear-gradient(90deg, #0f3d2e, #145c43);
+    background: linear-gradient(90deg, #c65a00, #ff7a00);
     color: white;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.25);
 }
 
 .total-box{
