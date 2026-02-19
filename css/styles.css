@@ -527,7 +527,7 @@ button:active{
 /* BARRA INFERIOR CON FONDO LADRILLO */
 
 .barra-inferior{
-    background-image: url("../img/Fondo-Beers.jpg");
+    background-image: url("../img/fondo-ladrillo-3d.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
